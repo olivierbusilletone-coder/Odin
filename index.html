@@ -119,6 +119,8 @@
       font-weight: bold;
     }
 
+    /* ================= NFT LIST ================= */
+
     .nft-section { margin-top: 30px; }
 
     .nft-list {
@@ -165,6 +167,8 @@
       opacity: 0.6;
     }
 
+    /* ================= MODAL ================= */
+
     .nft-modal {
       position: fixed;
       inset: 0;
@@ -189,6 +193,35 @@
       object-fit: contain;
       border-radius: 12px;
       background: #000;
+      margin-bottom: 12px;
+    }
+
+    /* ===== ATTRIBUTES DROPDOWN ===== */
+
+    .attributes-dropdown summary {
+      cursor: pointer;
+      font-weight: bold;
+      padding: 10px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .attributes-list {
+      max-height: 180px;
+      overflow-y: auto;
+      margin-top: 10px;
+      padding: 10px;
+      background: rgba(0,0,0,0.35);
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .attr {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .close-modal {
@@ -206,7 +239,7 @@
       background: rgba(0,0,0,0.4);
     }
   </style>
-  <script type="module" crossorigin src="./assets/index-CEN5mBd9.js"></script>
+  <script type="module" crossorigin src="./assets/index-tGd8nPbP.js"></script>
 </head>
 
 <body>
@@ -236,12 +269,9 @@
         </button>
       </div>
 
-      <!-- ✅ WALLET CHOICES -->
       <div class="wallet-actions" id="walletChoices" style="display:none;">
         <button id="connectExtension">Extension</button>
         <button id="connectWalletConnect">WalletConnect</button>
-
-        <!-- ✅ BOUTON xPORTAL MANQUANT -->
         <button id="openXportalBtn" class="secondary" style="display:none;">
           Open xPortal
         </button>
@@ -281,11 +311,17 @@
   </div>
 </main>
 
+<!-- ===== MODAL ===== -->
 <div class="nft-modal" id="nftModal">
   <div class="nft-modal-content">
     <h3 id="modalTitle"></h3>
     <img id="modalImage" class="modal-image" />
-    <div class="nft-attributes" id="modalAttributes"></div>
+
+    <details class="attributes-dropdown">
+      <summary>Attributes</summary>
+      <div class="attributes-list" id="modalAttributes"></div>
+    </details>
+
     <button class="close-modal secondary" id="closeModal">Close</button>
   </div>
 </div>
