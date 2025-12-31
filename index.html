@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
+    /* ================= RESET ================= */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -17,6 +22,7 @@
       align-items: center;
     }
 
+    /* ================= HEADER ================= */
     header {
       width: 100%;
       padding: 20px 40px;
@@ -35,6 +41,7 @@
       opacity: 0.7;
     }
 
+    /* ================= MAIN ================= */
     main {
       width: 100%;
       display: flex;
@@ -43,6 +50,7 @@
       flex: 1;
     }
 
+    /* ================= ABOUT ================= */
     .about {
       max-width: 1000px;
       margin-bottom: 30px;
@@ -53,6 +61,7 @@
       font-size: 0.95rem;
     }
 
+    /* ================= WALLET BOX ================= */
     .wallet-box {
       width: 100%;
       max-width: 1000px;
@@ -72,6 +81,7 @@
       opacity: 0.7;
     }
 
+    /* ================= ACTIONS ================= */
     .wallet-actions {
       display: flex;
       gap: 12px;
@@ -95,12 +105,14 @@
       color: #fff;
     }
 
-    .status, .address {
+    .status,
+    .address {
       text-align: center;
       font-size: 0.85rem;
       margin-top: 6px;
     }
 
+    /* ================= QR ================= */
     .qr-wrapper {
       margin-top: 18px;
       display: flex;
@@ -115,6 +127,7 @@
       border-radius: 12px;
     }
 
+    /* ================= BALANCES ================= */
     .wallet-balances {
       display: flex;
       justify-content: center;
@@ -126,26 +139,78 @@
       font-weight: bold;
     }
 
+    /* ================= NFT SECTION ================= */
     .nft-section {
       margin-top: 30px;
     }
 
+    /* ======= NFT LIST (fenêtre plus petite) ======= */
     .nft-list {
+      width: 100%;
+      height: 190px;                /* 🔒 fenêtre contrôlée */
       display: flex;
-      gap: 18px;
+      gap: 12px;
+
       overflow-x: auto;
-      padding-bottom: 12px;
+      overflow-y: hidden;
+
+      padding: 10px;
+      background: rgba(0,0,0,0.25);
+      border-radius: 12px;
     }
 
+    /* ======= NFT CARD (plus petite) ======= */
     .nft-card {
-      min-width: 200px;
+      width: 120px;
+      height: 165px;
+      flex-shrink: 0;
+
       background: #f9f5f0;
       color: #000;
-      border-radius: 16px;
-      padding: 12px;
+      border-radius: 12px;
+      padding: 6px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      overflow: hidden;            /* 🔒 empêche tout débordement */
       text-align: center;
     }
 
+    /* ======= IMAGE WRAPPER ======= */
+    .nft-image {
+      width: 100%;
+      height: 100px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #ddd;
+    }
+
+    .nft-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;           /* 🔥 image coupée proprement */
+      display: block;
+    }
+
+    /* ======= TEXT ======= */
+    .nft-name {
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    .nft-nonce {
+      font-size: 11px;
+      opacity: 0.6;
+    }
+
+    /* ================= FOOTER ================= */
     footer {
       width: 100%;
       text-align: center;
@@ -156,7 +221,7 @@
       background: rgba(0,0,0,0.4);
     }
   </style>
-  <script type="module" crossorigin src="./assets/index-BcN-Pbai.js"></script>
+  <script type="module" crossorigin src="./assets/index-B-fB9iIb.js"></script>
 </head>
 
 <body>
@@ -169,8 +234,7 @@
 <main>
   <div>
 
-    <!-- ABOUT -->
-    <section class="about" id="aboutSection">
+    <section class="about">
       <h2>ABOUT</h2>
       <p>
         Odin'sDeck is a Viking-inspired ecosystem built on MultiversX.
@@ -178,14 +242,12 @@
       </p>
     </section>
 
-    <!-- WALLET -->
     <div class="wallet-box">
 
       <div class="wallet-header">
         <div class="subtitle">Viking Wallet Connect</div>
       </div>
 
-      <!-- STEP 1 -->
       <div class="wallet-actions">
         <button id="connectBtn">Connect Wallet</button>
         <button id="disconnectBtn" class="secondary" style="display:none;">
@@ -193,7 +255,6 @@
         </button>
       </div>
 
-      <!-- STEP 2 : CHOIX WALLET -->
       <div class="wallet-actions" id="walletChoices" style="display:none;">
         <button id="connectExtension">Extension</button>
         <button id="connectWalletConnect">WalletConnect</button>
