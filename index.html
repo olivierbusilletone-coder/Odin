@@ -9,22 +9,27 @@
     /* ================= RESET ================= */
     * { box-sizing: border-box; }
 
+    /* ================= BODY BACKGROUND ================= */
     body {
       margin: 0;
       min-height: 100vh;
       font-family: "Segoe UI", system-ui, sans-serif;
-      background: radial-gradient(circle at top, #1b1b1b, #0a0a0a);
+      background:
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+        url("./assets/body-bg-CytFepag.jpg") center / cover no-repeat fixed;
       color: #f5f5f5;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    /* ================= HEADER ================= */
+    /* ================= HEADER BACKGROUND ================= */
     header {
       width: 100%;
-      padding: 20px 40px;
-      background: rgba(0,0,0,0.5);
+      padding: 40px 40px;
+      background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+        url("./assets/header-bg-0vsxeUBM.jpg") center / cover no-repeat;
       border-bottom: 1px solid rgba(255,255,255,0.08);
       text-align: center;
     }
@@ -36,7 +41,7 @@
 
     header span {
       font-size: 0.85rem;
-      opacity: 0.7;
+      opacity: 0.8;
     }
 
     /* ================= MAIN ================= */
@@ -53,10 +58,11 @@
       max-width: 1000px;
       margin-bottom: 30px;
       padding: 20px 28px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.05);
       border-radius: 16px;
       line-height: 1.6;
       font-size: 0.95rem;
+      backdrop-filter: blur(4px);
     }
 
     /* ================= WALLET BOX ================= */
@@ -67,6 +73,7 @@
       border-radius: 18px;
       padding: 28px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
     }
 
     .wallet-actions {
@@ -74,6 +81,7 @@
       gap: 12px;
       justify-content: center;
       margin: 20px 0;
+      flex-wrap: wrap;
     }
 
     button {
@@ -120,12 +128,12 @@
       gap: 50px;
       margin: 30px 0 15px;
       padding: 16px;
-      background: rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.4);
       border-radius: 14px;
       font-weight: bold;
     }
 
-    /* ================= NFT LIST ================= */
+        /* ================= NFT LIST ================= */
     .nft-section { margin-top: 30px; }
 
     .nft-list {
@@ -228,24 +236,25 @@
 
     /* ================= FOOTER ================= */
     footer {
-	  font-size: 0.9rem;
-	  color: #aaa;
-	  text-align: center;
-	  padding: 16px 0;
-	}
+      font-size: 0.9rem;
+      color: #aaa;
+      text-align: center;
+      padding: 18px 0;
+      background: rgba(0,0,0,0.4);
+      width: 100%;
+    }
 
-	footer a {
-	  color: #fff;
-	  text-decoration: none;
-	  font-weight: 500;
-	}
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-	footer a:hover {
-	  text-decoration: underline;
-	}
-
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
-  <script type="module" crossorigin src="./assets/index-tGd8nPbP.js"></script>
+  <script type="module" crossorigin src="./assets/index-klNDBUn9.js"></script>
 </head>
 
 <body>
