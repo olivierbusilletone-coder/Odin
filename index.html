@@ -2,14 +2,12 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Odinverse Wallet</title>
+  <title>AppOdinverse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     /* ================= RESET ================= */
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -71,17 +69,6 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
     }
 
-    .wallet-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .subtitle {
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-
-    /* ================= ACTIONS ================= */
     .wallet-actions {
       display: flex;
       gap: 12px;
@@ -105,8 +92,7 @@
       color: #fff;
     }
 
-    .status,
-    .address {
+    .status, .address {
       text-align: center;
       font-size: 0.85rem;
       margin-top: 6px;
@@ -139,62 +125,38 @@
       font-weight: bold;
     }
 
-    /* ================= NFT SECTION ================= */
-    .nft-section {
-      margin-top: 30px;
-    }
+    /* ================= NFT LIST ================= */
+    .nft-section { margin-top: 30px; }
 
-    /* ======= NFT LIST (fenêtre plus petite) ======= */
     .nft-list {
-      width: 100%;
-      height: 190px;                /* 🔒 fenêtre contrôlée */
       display: flex;
       gap: 12px;
-
       overflow-x: auto;
-      overflow-y: hidden;
-
       padding: 10px;
       background: rgba(0,0,0,0.25);
       border-radius: 12px;
     }
 
-    /* ======= NFT CARD (plus petite) ======= */
     .nft-card {
       width: 120px;
-      height: 165px;
-      flex-shrink: 0;
-
       background: #f9f5f0;
       color: #000;
       border-radius: 12px;
       padding: 6px;
-
       display: flex;
       flex-direction: column;
       align-items: center;
-
-      overflow: hidden;            /* 🔒 empêche tout débordement */
-      text-align: center;
+      cursor: pointer;
+      flex-shrink: 0;
     }
 
-    /* ======= IMAGE WRAPPER ======= */
-    .nft-image {
+    .nft-card img {
       width: 100%;
       height: 100px;
-      overflow: hidden;
+      object-fit: cover;
       border-radius: 8px;
-      background: #ddd;
     }
 
-    .nft-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;           /* 🔥 image coupée proprement */
-      display: block;
-    }
-
-    /* ======= TEXT ======= */
     .nft-name {
       margin-top: 6px;
       font-size: 13px;
@@ -210,6 +172,60 @@
       opacity: 0.6;
     }
 
+    /* ================= NFT MODAL ================= */
+    .nft-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .nft-modal-content {
+      background: #111;
+      border-radius: 16px;
+      padding: 22px;
+      width: 90%;
+      max-width: 420px;
+    }
+
+    .nft-modal h3 {
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .modal-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #000;
+    }
+
+    .nft-attributes {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-height: 220px;
+      overflow-y: auto;
+    }
+
+    .attr {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 10px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      margin-bottom: 6px;
+    }
+
+    .close-modal {
+      margin-top: 16px;
+      width: 100%;
+    }
+
     /* ================= FOOTER ================= */
     footer {
       width: 100%;
@@ -221,7 +237,7 @@
       background: rgba(0,0,0,0.4);
     }
   </style>
-  <script type="module" crossorigin src="./assets/index-CxD4gRrI.js"></script>
+  <script type="module" crossorigin src="./assets/index-Qg7tY5Yr.js"></script>
 </head>
 
 <body>
@@ -234,7 +250,7 @@
 <main>
   <div>
 
-    <section class="about">
+    <section class="about" id="aboutSection">
       <h2>ABOUT</h2>
       <p>
         Odin'sDeck is a Viking-inspired ecosystem built on MultiversX.
@@ -243,10 +259,6 @@
     </section>
 
     <div class="wallet-box">
-
-      <div class="wallet-header">
-        <div class="subtitle">Viking Wallet Connect</div>
-      </div>
 
       <div class="wallet-actions">
         <button id="connectBtn">Connect Wallet</button>
@@ -282,6 +294,16 @@
     </div>
   </div>
 </main>
+
+<!-- ===== NFT MODAL ===== -->
+<div class="nft-modal" id="nftModal">
+  <div class="nft-modal-content">
+    <h3 id="modalTitle"></h3>
+    <img id="modalImage" class="modal-image" />
+    <div class="nft-attributes" id="modalAttributes"></div>
+    <button class="close-modal secondary" id="closeModal">Close</button>
+  </div>
+</div>
 
 <footer>
   © 2025 Odinverse — Built on MultiversX
