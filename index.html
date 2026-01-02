@@ -149,14 +149,14 @@ button.secondary {
 @media (max-width: 1400px) {
   .nft-list {
     grid-template-columns: repeat(4, 1fr);
-    max-height: calc(3 * 270px);
+    max-height: calc(2 * 270px);
   }
 }
 
 @media (max-width: 900px) {
   .nft-list {
     grid-template-columns: repeat(2, 1fr);
-    max-height: calc(3 * 270px);
+    max-height: calc(2 * 270px);
   }
 }
 
@@ -342,7 +342,7 @@ button.secondary {
 
   padding: 14px 24px;
   border-radius: 10px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
 
   background: #e0b44c;
@@ -364,9 +364,49 @@ button.secondary {
   box-shadow: none;
 }
 
+/* ===== ODINS RECAP ===== */
+.odins-recap {
+  margin-bottom: 16px;
+  padding: 14px;
+  background: #000;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.odins-count {
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.odins-attributes {
+  max-height: 220px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 10px;
+}
+
+/* ligne attribut */
+.attr-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto;
+  gap: 10px;
+  padding: 6px 8px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.attr-row span {
+  opacity: 0.85;
+}
+
+.attr-row strong {
+  font-weight: 600;
+}
+
 
 </style>
-  <script type="module" crossorigin src="./assets/index-jS4fvleI.js"></script>
+  <script type="module" crossorigin src="./assets/index-DZAipVrj.js"></script>
 </head>
 
 <body>
@@ -409,7 +449,7 @@ button.secondary {
   <div class="wallet-balances"></div>
 
 <!-- ACTIONS AFTER CONNECTION -->
-<div class="post-connect-actions">
+<div class="post-connect-actions" >
 
   <a href="https://xoxno.com/collection/ODINSDECK-4e300a/drops"
      target="_blank"
@@ -426,20 +466,33 @@ button.secondary {
   </a>
 
   <a href="./images/odinsdeck-map.jpg"
-	   target="_blank"
-	   rel="noopener noreferrer"
-	   class="action-btn">
-	  Odin'sDeck Map
-	</a>
-
-
+	 target="_blank"
+	 rel="noopener noreferrer"
+	 class="action-btn">
+	 Odin'sDeck Map
+  </a>
+  
 </div>
 
 
   <div class="nft-section" id="nftSectionOdins" style="display:none;">
-    <h2>Odin'Deck</h2>
-    <div class="nft-list" id="odinsList"></div>
+  <h2>Odin'Deck</h2>
+
+  <!-- RECAP -->
+  <div class="odins-recap">
+    <div class="odins-count">
+      Total NFT : <span id="odinsCount">0</span>
+    </div>
+
+    <div class="odins-attributes" id="odinsAttributesTable">
+      <!-- rempli en JS -->
+    </div>
   </div>
+
+  <!-- NFT GRID -->
+  <div class="nft-list" id="odinsList"></div>
+</div>
+
 
   <div class="nft-section" id="nftSectionOthers" style="display:none;">
     <h2>Other NFTs</h2>
