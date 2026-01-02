@@ -15,7 +15,7 @@
       font-family: "Segoe UI", system-ui, sans-serif;
       background:
         linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-        url("./assets/body-bg-CytFepag.jpg") center / cover no-repeat fixed;
+        url("./images/aheader-bg.jpg") center / cover no-repeat fixed;
       color: #f5f5f5;
       display: flex;
       flex-direction: column;
@@ -25,7 +25,7 @@
     /* ================= HEADER BACKGROUND ================= */
     header {
       width: 100%;
-      padding: 40px 40px;
+      padding: 20px 40px;
       background:
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
         url("./assets/header-bg-0vsxeUBM.jpg") center / cover no-repeat;
@@ -33,15 +33,51 @@
       text-align: center;
     }
 
-    header h1 {
-      margin: 0;
-      letter-spacing: 18px;
-    }
+    header h1.header-title {
+	  margin: 0;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  gap: 44px;
+	  letter-spacing: 28px;
+	}
+
+	header h1.header-title span {
+	  display: inline-block;
+	}
+
+	/* Logos */
+	.header-logo {
+	  height: 58px; /* ajuste si besoin */
+	  width: auto;
+	  object-fit: contain;
+	}
 
     header span {
-      font-size: 0.85rem;
+      font-size: 1.85rem;
       opacity: 0.8;
     }
+
+	/* Sous-titre */
+	.header-subtitle {
+	  display: block;
+	  margin-top: 10px;
+	  font-size: 0.85rem;
+	  opacity: 0.8;
+	}
+
+	/* Logo centré sous le texte */
+	.header-bottom-logo {
+	  margin-top: 18px;
+	  display: flex;
+	  justify-content: center;
+	}
+
+	.header-bottom-logo img {
+	  height: 128px; /* ajuste si besoin */
+	  width: auto;
+	  object-fit: contain;
+	}
 
 /* ================= MAIN ================= */
 main {
@@ -118,7 +154,7 @@ button.secondary {
   border-radius: 12px;
 }
 
- /* ================= BALANCES ================= */
+/* ================= BALANCES ================= */
     .wallet-balances {
       display: flex;
       justify-content: center;
@@ -403,17 +439,31 @@ button.secondary {
 .attr-row strong {
   font-weight: 600;
 }
-
+/* ===== ODINS NFT LIST LIMIT ===== */
+.odins-list {
+  max-height: calc(2 * 270px);
+  overflow-y: auto;
+}
 
 </style>
-  <script type="module" crossorigin src="./assets/index-D13BqsR2.js"></script>
+  <script type="module" crossorigin src="./assets/index-CqqpNx0N.js"></script>
 </head>
 
 <body>
 
 <header>
-  <h1>ODINVERSE</h1>
-  <span>MultiversX Viking Ecosystem</span>
+  <h1 class="header-title">
+	  <img src="./assets/multiversx-mvx-DBYva4q6.gif" alt="Logo Left" class="header-logo">
+	  <span>ODINVERSE</span>
+	  <img src="./assets/multiversx-mvx-DBYva4q6.gif" alt="Logo Right" class="header-logo">
+  </h1>
+
+  <span class="header-subtitle">MultiversX Viking Ecosystem</span>
+
+  <!-- NOUVEAU LOGO CENTRÉ -->
+  <div class="header-bottom-logo">
+    <img src="./assets/logo3-DV8WFtqz.png" alt="Centered Logo">
+  </div>
 </header>
 
 <main>
@@ -476,7 +526,7 @@ button.secondary {
 
 
   <div class="nft-section" id="nftSectionOdins" style="display:none;">
-  <h2>Odin'Deck</h2>
+  <h2>Odin'Deck NFT(s)</h2>
 
   <!-- RECAP -->
   <div class="odins-recap">
@@ -495,7 +545,7 @@ button.secondary {
 
 
   <div class="nft-section" id="nftSectionOthers" style="display:none;">
-    <h2>Other NFTs</h2>
+    <h2>Other NFT(s)</h2>
     <div class="nft-list" id="otherNftsList"></div>
   </div>
 
