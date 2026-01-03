@@ -399,9 +399,22 @@ footer a:visited {
     display: inline-block;
   }
 }
+/* ===== XPORTAL BUTTON ===== */
+.xportal-btn {
+  background: linear-gradient(135deg, #6f2cff, #4b1fb8);
+  color: #fff;
+  font-weight: 800;
+  border: none;
+  box-shadow: 0 6px 16px rgba(111,44,255,0.45);
+}
+
+.xportal-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(111,44,255,0.6);
+}
 
 </style>
-  <script type="module" crossorigin src="./assets/index-DZHSf_uH.js"></script>
+  <script type="module" crossorigin src="./assets/index-Cz8PPhxu.js"></script>
 </head>
 
 <body>
@@ -442,8 +455,8 @@ footer a:visited {
   <div class="wallet-actions" id="walletChoices" style="display:none;">
     <button id="connectExtension">Extension</button>
     <button id="connectWalletConnect">WalletConnect</button>
-    <button id="connectXPortal" class="mobile-only">
-      Connect xPortal (Mobile)
+    <button id="connectXPortal" class="mobile-only xportal-btn">
+      Connect xPortal
     </button>
 
   </div>
