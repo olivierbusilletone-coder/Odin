@@ -1,290 +1,528 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Odinverse Wallet</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<title>AppOdinverse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    /* ================= RESET ================= */
-    * {
-      box-sizing: border-box;
-    }
+<style>
+/* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Segoe UI", system-ui, sans-serif;
-      background: radial-gradient(circle at top, #1b1b1b, #0a0a0a);
-      color: #f5f5f5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+/* ================= ROOT ================= */
+:root {
+  --bg-main: #000;
+  --bg-soft: rgba(0,0,0,0.4);
+  --border-soft: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+  --gold: #e0b44c;
+  --text-main: #f5f5f5;
+  --text-soft: rgba(255,255,255,0.75);
+}
 
-    /* ================= HEADER ================= */
-    header {
-      width: 100%;
-      padding: 20px 40px;
-      background: rgba(0,0,0,0.5);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      text-align: center;
-    }
+/* ================= BODY ================= */
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+    url("./images/aaheader-bg.jpg") center / cover no-repeat fixed;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    header h1 {
-      margin: 0;
-      letter-spacing: 5px;
-    }
+/* ================= HEADER ================= */
+header {
+  width: 100%;
+  padding: 24px 16px;
+  text-align: center;
+  background:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+    url("./assets/aheader-bg-BLcf9Hd0.jpg") center / cover no-repeat;
+  border-bottom: 1px solid var(--border-soft);
+}
 
-    header span {
-      font-size: 0.85rem;
-      opacity: 0.7;
-    }
+.header-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  letter-spacing: 12px;
+}
 
-    /* ================= MAIN ================= */
-    main {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding: 30px;
-      flex: 1;
-    }
+.header-logo {
+  height: 48px;
+}
 
-    /* ================= ABOUT ================= */
-    .about {
-      max-width: 1000px;
-      margin-bottom: 30px;
-      padding: 20px 28px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
+header span {
+  font-size: clamp(1.4rem, 4vw, 1.85rem);
+  opacity: 0.85;
+}
 
-    /* ================= WALLET BOX ================= */
-    .wallet-box {
-      width: 100%;
-      max-width: 1000px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 18px;
-      padding: 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-    }
+.header-subtitle {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
 
-    .wallet-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.header-bottom-logo img {
+  margin-top: 16px;
+  height: 96px;
+}
 
-    .subtitle {
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
+/* ================= MAIN ================= */
+main {
+  width: 100%;
+  max-width: 1600px;
+  padding: 16px;
+  flex: 1;
+}
 
-    /* ================= ACTIONS ================= */
-    .wallet-actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin: 20px 0;
-    }
+/* ================= ABOUT ================= */
+.about {
+  background: var(--bg-main);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid var(--border-soft);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
 
-    button {
-      padding: 14px 24px;
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #9b6b2f, #e0b44c);
-      color: #000;
-      cursor: pointer;
-    }
+/* ================= WALLET ================= */
+.wallet-box {
+  background: var(--bg-main);
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid var(--border-soft);
+}
 
-    button.secondary {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff;
-    }
+.wallet-actions,
+.post-connect-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 16px 0;
+}
 
-    .status,
-    .address {
-      text-align: center;
-      font-size: 0.85rem;
-      margin-top: 6px;
-    }
+button,
+.action-btn {
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
 
-    /* ================= QR ================= */
-    .qr-wrapper {
-      margin-top: 18px;
-      display: flex;
-      justify-content: center;
-    }
+button:hover,
+.action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(224,180,76,0.35);
+}
 
-    .qr-wrapper svg {
-      width: 220px;
-      height: 220px;
-      background: #fff;
-      padding: 12px;
-      border-radius: 12px;
-    }
+button.secondary {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+}
 
-    /* ================= BALANCES ================= */
-    .wallet-balances {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      margin: 30px 0;
-      padding: 16px;
-      background: rgba(0,0,0,0.35);
-      border-radius: 14px;
-      font-weight: bold;
-    }
+.status,
+.address {
+  font-size: 0.8rem;
+  text-align: center;
+  opacity: 0.8;
+}
 
-    /* ================= NFT SECTION ================= */
-    .nft-section {
-      margin-top: 30px;
-    }
+/* ================= QR ================= */
+.qr-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
 
-    /* ======= NFT LIST (fenêtre plus petite) ======= */
-    .nft-list {
-      width: 100%;
-      height: 190px;                /* 🔒 fenêtre contrôlée */
-      display: flex;
-      gap: 12px;
+.qr-wrapper svg {
+  width: min(220px, 80vw);
+  height: auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+}
 
-      overflow-x: auto;
-      overflow-y: hidden;
+/* ================= BALANCES ================= */
+.wallet-balances {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  padding: 14px;
+  background: var(--bg-soft);
+  border-radius: 14px;
+  font-weight: 800;
+}
 
-      padding: 10px;
-      background: rgba(0,0,0,0.25);
-      border-radius: 12px;
-    }
+/* ================= NFT ================= */
+.nft-section {
+  margin-top: 24px;
+}
 
-    /* ======= NFT CARD (plus petite) ======= */
-    .nft-card {
-      width: 120px;
-      height: 165px;
-      flex-shrink: 0;
+.nft-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  padding: 14px;
+  background: #000;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  max-height: calc(2 * 270px); /* 2 lignes visibles */
+  overflow-y: auto;
+}
 
-      background: #f9f5f0;
-      color: #000;
-      border-radius: 12px;
-      padding: 6px;
+/* 🔒 TAILLE FIXE POUR TOUTES LES CARTES */
+.nft-card {
+  width: 100%;
+  height: 270px;                 /* ✅ hauteur verrouillée */
+  background: #000;
+  border-radius: 12px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-sizing: border-box;
+}
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+/* 🔒 MEDIA IDENTIQUE */
+.nft-card img,
+.nft-card video {
+  width: 100%;
+  height: 200px;                 /* ✅ media fixe */
+  object-fit: contain;
+  border-radius: 8px;
+  background: #000;
+}
 
-      overflow: hidden;            /* 🔒 empêche tout débordement */
-      text-align: center;
-    }
+/* 🔒 TEXTE RÉSERVÉ */
+.nft-name {
+  margin-top: 6px;
+  height: 18px;                  /* ✅ réserve espace */
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-    /* ======= IMAGE WRAPPER ======= */
-    .nft-image {
-      width: 100%;
-      height: 100px;
-      overflow: hidden;
-      border-radius: 8px;
-      background: #ddd;
-    }
+/* 🔒 NONCE STABLE */
+.nft-nonce {
+  height: 14px;                  /* ✅ réserve espace */
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
 
-    .nft-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;           /* 🔥 image coupée proprement */
-      display: block;
-    }
 
-    /* ======= TEXT ======= */
-    .nft-name {
-      margin-top: 6px;
-      font-size: 13px;
-      font-weight: bold;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-    }
+/* ================= MODAL ================= */
+.nft-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-y: auto;          /* ✅ scroll modal */
+  padding: 20px;
+}
 
-    .nft-nonce {
-      font-size: 11px;
-      opacity: 0.6;
-    }
+.nft-modal-content {
+  width: 90%;
+  max-width: 420px;
+  background: #000;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border-strong);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;          /* ✅ scroll interne */
+  position: relative;
+}
 
-    /* ================= FOOTER ================= */
-    footer {
-      width: 100%;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.8rem;
-      opacity: 0.6;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      background: rgba(0,0,0,0.4);
-    }
-  </style>
-  <script type="module" crossorigin src="./assets/index-CxD4gRrI.js"></script>
+/* MODAL MEDIA */
+.modal-image,
+.nft-modal video {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* ================= ATTRIBUTES ================= */
+.nft-attributes {
+  margin-top: 14px;
+  max-height: 220px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+/* traits blancs entre lignes */
+.attr {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: #000;
+  margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.attr:last-child {
+  border-bottom: none;
+}
+
+/* ================= CLOSE BUTTON ================= */
+.close-modal {
+  margin-top: 16px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  background: var(--bg-soft);
+  color: #aaa;
+}
+
+/* ================= SCROLLBAR ================= */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ddd #000;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#eee, #bbb);
+  border-radius: 10px;
+}
+
+/* ===== REMOVE TEXT UNDERLINE ON BUTTONS ===== */
+button,
+button *,
+.action-btn,
+.action-btn * {
+  text-decoration: none !important;
+}
+
+/* ===== FOOTER LINKS STYLE ONLY ===== */
+footer a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer a:visited {
+  color: #fff;
+}
+/* ===== ODINS RECAP ===== */
+.odins-recap {
+  margin-bottom: 16px;
+  padding: 14px;
+  background: #000;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.odins-count {
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.odins-attributes {
+  max-height: 220px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 10px;
+}
+
+/* ligne attribut */
+.attr-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr auto;
+  gap: 10px;
+  padding: 6px 8px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.attr-row span {
+  opacity: 0.85;
+}
+
+.attr-row strong {
+  font-weight: 600;
+}
+
+</style>
+  <script type="module" crossorigin src="./assets/index-4gGI5hGj.js"></script>
 </head>
 
 <body>
 
 <header>
-  <h1>ODINVERSE</h1>
-  <span>MultiversX Viking Ecosystem</span>
+  <h1 class="header-title">
+	  <img src="./assets/multiversx-mvx-DBYva4q6.gif" alt="Logo Left" class="header-logo">
+	  <span>ODINVERSE</span>
+	  <img src="./assets/multiversx-mvx-DBYva4q6.gif" alt="Logo Right" class="header-logo">
+  </h1>
+
+  <span class="header-subtitle">MultiversX Viking Ecosystem</span>
+
+  <!-- NOUVEAU LOGO CENTRÉ -->
+  <div class="header-bottom-logo">
+    <img src="./assets/logo3-DV8WFtqz.png" alt="Centered Logo">
+  </div>
 </header>
 
 <main>
-  <div>
+<div>
 
-    <section class="about">
-      <h2>ABOUT</h2>
-      <p>
-        Odin'sDeck is a Viking-inspired ecosystem built on MultiversX.
-        This app allows you to connect and view your NFTs.
-      </p>
-    </section>
+<section class="about" id="aboutSection">
+  <h2>ABOUT</h2>
+  <p>
+    Odin'sDeck is a Viking-inspired ecosystem built on MultiversX.
+    This app allows you to connect and view your NFTs.
+  </p>
+</section>
 
-    <div class="wallet-box">
+<div class="wallet-box">
 
-      <div class="wallet-header">
-        <div class="subtitle">Viking Wallet Connect</div>
-      </div>
+  <div class="wallet-actions">
+    <button id="connectBtn">Connect Wallet</button>
+    <button id="disconnectBtn" class="secondary" style="display:none;">Disconnect</button>
+  </div>
 
-      <div class="wallet-actions">
-        <button id="connectBtn">Connect Wallet</button>
-        <button id="disconnectBtn" class="secondary" style="display:none;">
-          Disconnect
-        </button>
-      </div>
+  <div class="wallet-actions" id="walletChoices" style="display:none;">
+    <button id="connectExtension">MultiversX Wallet Extension</button>
+    <button id="connectXPortal">xPortal App</button>
+    <button id="connectWalletConnect" class="mobile-only">
+      MultiversX Web Wallet
+    </button>
 
-      <div class="wallet-actions" id="walletChoices" style="display:none;">
-        <button id="connectExtension">Extension</button>
-        <button id="connectWalletConnect">WalletConnect</button>
-      </div>
+  </div>
 
-      <div class="status" id="status">Status: Not connected</div>
-      <div class="address" id="address">—</div>
+  <div class="status" id="status">Status: Not connected</div>
+  <div class="address" id="address">—</div>
 
-      <div class="qr-wrapper">
-        <div id="MyWalletConnectQRContainer"></div>
-      </div>
+  <div class="qr-wrapper">
+    <div id="MyWalletConnectQRContainer"></div>
+  </div>
 
-      <div class="wallet-balances"></div>
+  <div class="wallet-balances"></div>
 
-      <div class="nft-section" id="nftSectionOdins" style="display:none;">
-        <h2>Odin'Deck</h2>
-        <div class="nft-list" id="odinsList"></div>
-      </div>
+<!-- ACTIONS AFTER CONNECTION -->
+<div class="post-connect-actions" >
 
-      <div class="nft-section" id="nftSectionOthers" style="display:none;">
-        <h2>Other NFTs</h2>
-        <div class="nft-list" id="otherNftsList"></div>
-      </div>
+  <a href="https://xoxno.com/collection/ODINSDECK-4e300a/drops"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="action-btn">
+    Mint Odin'sDeck
+  </a>
 
+  <a href="https://e-compass.io/token/TSK-4c0988"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="action-btn">
+    $TSK
+  </a>
+
+  <a href="./images/odinsdeck-map.jpg"
+	 target="_blank"
+	 rel="noopener noreferrer"
+	 class="action-btn">
+	 Odin'sDeck Map
+  </a>
+  
+</div>
+
+
+<!-- SECTION ODINS : VISIBLE -->
+<div class="nft-section" id="nftSectionOdins">
+  <h2>Odin'Deck NFT(s)</h2>
+
+  <!-- RECAP -->
+  <div class="odins-recap">
+    <div class="odins-count">
+      Total NFT : <span id="odinsCount">0</span>
+    </div>
+
+    <div class="odins-attributes" id="odinsAttributesTable">
+      <!-- rempli en JS -->
     </div>
   </div>
+
+  <!-- NFT GRID -->
+  <div class="nft-list" id="odinsList"></div>
+</div>
+
+  <div class="nft-section" id="nftSectionOthers" style="display:none;">
+    <h2>Other NFT(s)</h2>
+    <div class="nft-list" id="otherNftsList"></div>
+  </div>
+
+</div>
+</div>
 </main>
 
+<!-- MODAL -->
+<div class="nft-modal" id="nftModal">
+  <div class="nft-modal-content">
+    <h3 id="modalTitle"></h3>
+    <div id="modalMediaContainer">
+      <img id="modalImage" class="modal-image">
+    </div>
+    <div class="nft-attributes" id="modalAttributes"></div>
+    <button class="close-modal secondary" id="closeModal">Close</button>
+  </div>
+</div>
+
 <footer>
-  © 2025 Odinverse — Built on MultiversX
+  © 2025 Odinverse — Built by
+  <a href="https://x.com/Triskel_MvX" target="_blank" rel="noopener noreferrer">
+    Triskel
+  </a>
+  •
+  <a href="https://t.me/TriskelMultiversX" target="_blank" rel="noopener noreferrer">
+    Telegram
+  </a>
 </footer>
 
 </body>
