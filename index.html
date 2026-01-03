@@ -389,9 +389,19 @@ footer a:visited {
 .attr-row strong {
   font-weight: 600;
 }
+/* ===== MOBILE ONLY ===== */
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-only {
+    display: inline-block;
+  }
+}
 
 </style>
-  <script type="module" crossorigin src="./assets/index-Cz8PPhxu.js"></script>
+  <script type="module" crossorigin src="./assets/index-DZHSf_uH.js"></script>
 </head>
 
 <body>
@@ -432,7 +442,9 @@ footer a:visited {
   <div class="wallet-actions" id="walletChoices" style="display:none;">
     <button id="connectExtension">Extension</button>
     <button id="connectWalletConnect">WalletConnect</button>
-    <button id="connectXPortal">xPortal (Mobile)</button>
+    <button id="connectXPortal" class="mobile-only">
+      Connect xPortal (Mobile)
+    </button>
 
   </div>
 
