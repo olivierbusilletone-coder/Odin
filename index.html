@@ -372,14 +372,43 @@ footer a:visited {
   padding-top: 10px;
 }
 
-/* ligne attribut */
+/* ===== ATTRIBUTES GRID WITH LINES ===== */
 .attr-row {
   display: grid;
-  grid-template-columns: 1.2fr 1fr auto;
-  gap: 10px;
-  padding: 6px 8px;
+  grid-template-columns: 1.2fr 2fr; /* label | values */
+  gap: 12px;
+
+  padding: 10px 12px;
   font-size: 0.85rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  background: #000;
+
+  /* 🔲 LIGNES */
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* 🔲 LIGNE DU HAUT */
+.attr-row:first-child {
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+/* 🔲 COLONNE GAUCHE */
+.attr-row strong {
+  padding-right: 12px;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  font-weight: 700;
+}
+
+/* 🔲 COLONNE DROITE */
+.attr-row span {
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+/* 🔥 LIGNE TOTAL */
+.attr-row:last-child {
+  background: rgba(224,180,76,0.08);
+  font-size: 0.95rem;
 }
 
 .attr-row span {
@@ -400,9 +429,75 @@ footer a:visited {
     display: inline-flex !important;
   }
 }
+/* ================= PAGE CENTRALE ================= */
+.odins-preview {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-radius: 16px;            /* 🔥 coins arrondis visibles *
+  padding: 0;
+  display: flex;
+  justify-content: center;        /* 🔥 centrage horizontal */
+  align-items: center;
+  background-color: #000;
+}
+
+/* ================= LIGNE NFT ================= */
+.odins-row {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;                      /* espace entre NFT */
+  align-items: center;            /* 🔥 centrage vertical */
+  justify-content: center;
+  
+  background-color: transparent;
+}
+
+/* ================= CARD NFT ================= */
+.odins-item {
+  width: 220px;
+  height: 220px;
+ 
+  margin-top: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;               /* 🔥 coupe proprement */
+  display: flex;
+  align-items: center;            /* 🔥 centre le média */
+  justify-content: center;
+  background-color: transparent;  /* 🔥 PAS de fond noir */
+  position: relative;
+}
+
+/* ================= IMAGE & VIDEO ================= */
+.odins-item img,
+.odins-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;            /* 🔥 conserve le ratio */
+  object-position: center;        /* 🔥 parfaitement centré */
+  
+  display: block;
+  background-color: transparent !important;
+}
+
+/* ================= VIDEO FIXES (ANTI FOND NOIR) ================= */
+.odins-item video {
+  muted: true;
+  autoplay: true;
+  loop: true;
+  playsinline: true;
+  
+  background-color: transparent !important;
+}
+
+/* ================= SAFARI / IOS FIX ================= */
+.odins-item video::-webkit-media-controls {
+  display: none !important;
+}
+
 
 </style>
-  <script type="module" crossorigin src="./assets/index-32596ffe.js"></script>
+  <script type="module" crossorigin src="./assets/index-9e1c8c55.js"></script>
 </head>
 
 <body>
@@ -431,6 +526,10 @@ footer a:visited {
     Odin'sDeck is a Viking-inspired ecosystem built on MultiversX.
     This app allows you to connect and view your NFTs.
   </p>
+</section>
+
+<section class="odins-preview" id="odinsPreview">
+  <div class="odins-row" id="odinsRow"></div>
 </section>
 
 <div class="wallet-box">
