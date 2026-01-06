@@ -42,13 +42,15 @@ body {
 /* ================= HEADER ================= */
 header {
   width: 100%;
-  padding: 24px 16px;
+  padding: 16px 16px;
   text-align: center;
   background:
     linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
     url("./assets/aheader-bg-276cd346.jpg") center / cover no-repeat;
   border-bottom: 1px solid var(--border-soft);
 }
+
+/* ================= HEADER TITLE WHITE SHIMMER ================= */
 
 .header-title {
   display: flex;
@@ -57,7 +59,46 @@ header {
   align-items: center;
   gap: 16px;
   letter-spacing: 12px;
+
+  color: #fff;
+
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.35),
+    0 0 14px rgba(255,255,255,0.25);
+
+  animation: headerWhiteShimmer 4s ease-in-out infinite;
 }
+
+/* Animation douce premium */
+@keyframes headerWhiteShimmer {
+  0% {
+    opacity: 0.75;
+    text-shadow:
+      0 0 6px rgba(255,255,255,0.25),
+      0 0 12px rgba(255,255,255,0.15);
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 12px rgba(255,255,255,0.7),
+      0 0 28px rgba(255,255,255,0.45),
+      0 0 44px rgba(255,255,255,0.25);
+  }
+  100% {
+    opacity: 0.75;
+    text-shadow:
+      0 0 6px rgba(255,255,255,0.25),
+      0 0 12px rgba(255,255,255,0.15);
+  }
+}
+
+/* ♿ Accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .header-title {
+    animation: none;
+  }
+}
+
 
 .header-logo {
   height: 48px;
@@ -495,6 +536,111 @@ footer a:visited {
   display: none !important;
 }
 
+/* ================= ODIN MAGIC TEXT ================= */
+
+.magic-text {
+  color: #fff;
+  font-weight: 700;
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.35),
+    0 0 14px rgba(255,255,255,0.25);
+  animation: odinGlow 3s ease-in-out infinite;
+}
+
+/* Animation douce, pas agressive */
+@keyframes odinGlow {
+    0% {
+    opacity: 0.75;
+    text-shadow:
+      0 0 6px rgba(255,255,255,0.25),
+      0 0 12px rgba(255,255,255,0.15);
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 12px rgba(255,255,255,0.7),
+      0 0 28px rgba(255,255,255,0.45),
+      0 0 44px rgba(255,255,255,0.25);
+  }
+  100% {
+    opacity: 0.75;
+    text-shadow:
+      0 0 6px rgba(255,255,255,0.25),
+      0 0 12px rgba(255,255,255,0.15);
+  }
+}
+
+/* ♿ Respect accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .magic-text {
+    animation: none;
+  }
+}
+
+.magic-text.runic {
+  letter-spacing: 2px;
+  animation-duration: 4.5s;
+}
+/* ================= WHITE SHIMMER TITLE ================= */
+
+.section-title-white {
+  font-size: clamp(1.2rem, 2.5vw, 0.6rem);
+  letter-spacing: 6px;
+  text-align: center;
+  margin-bottom: 14px;
+  color: #fff;
+  position: relative;
+
+  text-shadow:
+    0 0 4px rgba(255,255,255,0.35),
+    0 0 10px rgba(255,255,255,0.25);
+
+  animation: whiteShimmer 3.5s ease-in-out infinite;
+}
+
+/* Ligne décorative blanche */
+.section-title-white::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 1px;
+  margin: 10px auto 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.8),
+    transparent
+  );
+}
+
+@keyframes whiteShimmer {
+  0% {
+    opacity: 0.7;
+    text-shadow:
+      0 0 4px rgba(255,255,255,0.25),
+      0 0 8px rgba(255,255,255,0.15);
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px rgba(255,255,255,0.7),
+      0 0 22px rgba(255,255,255,0.45),
+      0 0 36px rgba(255,255,255,0.25);
+  }
+  100% {
+    opacity: 0.7;
+    text-shadow:
+      0 0 4px rgba(255,255,255,0.25),
+      0 0 8px rgba(255,255,255,0.15);
+  }
+}
+
+/* ♿ Accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .section-title-white {
+    animation: none;
+  }
+}
 
 </style>
   <script type="module" crossorigin src="./assets/index-59ca78ea.js"></script>
@@ -509,7 +655,7 @@ footer a:visited {
 	  <img src="./assets/multiversx-mvx-a940d9b8.gif" alt="Logo Right" class="header-logo">
   </h1>
 
-  <span class="header-subtitle">MultiversX Viking Ecosystem</span>
+  <span class="section-title-white">MultiversX Viking Ecosystem</span>
 
   <!-- NOUVEAU LOGO CENTRÉ -->
   <div class="header-bottom-logo">
@@ -521,11 +667,15 @@ footer a:visited {
 <div>
 
 <section class="about" id="aboutSection">
-  <h2>ABOUT</h2>
-  <p>
-    Odin'sDeck is a Viking-inspired ecosystem built on MultiversX.
-    This app allows you to connect and view your NFTs.
-  </p>
+  <h2 class="magic-text runic">ABOUT</h2>
+
+	 <p class="magic-text runic">
+	 <br />
+	  Dive into the mythical world of the digital realm with the Odin's Deck collection on MultiversX.<br />
+	  An exclusive animated collection of 377 NFTs across 15 categories. These digital artifacts offer you much more than just images: powers and rewards.<br />
+	  Your destiny now rests in your hands.
+	 </p>
+
 </section>
 
 <section class="odins-preview" id="odinsPreview">
