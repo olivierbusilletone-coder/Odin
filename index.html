@@ -2,6 +2,13 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
+
+  <!-- FAVICON -->
+  <link rel="icon" href="data:image/png;base64,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">
+  <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
+  <link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+<meta charset="UTF-8" />
 <title>AppOdinverse</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -31,8 +38,8 @@ body {
   min-height: 100vh;
   font-family: "Segoe UI", system-ui, sans-serif;
   background:
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-    url("./images/aaheader-bg.jpg") center / cover no-repeat fixed;
+    linear-gradient(rgba(0,0,0,0.95), rgba(0,0,0,0.9)),
+    url("./images/aabackground1.png") center / cover no-repeat fixed;
   color: var(--text-main);
   display: flex;
   flex-direction: column;
@@ -160,6 +167,7 @@ button,
   padding: 14px 22px;
   border-radius: 10px;
   font-weight: 700;
+  font-size: 14px; /* ← taille du texte */
   cursor: pointer;
   background: var(--gold);
   color: #000;
@@ -602,7 +610,7 @@ footer a:visited {
 .section-title-white::after {
   content: "";
   display: block;
-  width: 100px;
+  width: 400px;
   height: 1px;
   margin: 10px auto 0;
   background: linear-gradient(
@@ -642,8 +650,91 @@ footer a:visited {
   }
 }
 
+/* ================= ODINS STATS BAND ================= */
+.odins-stats-band {
+  width: 100%;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  padding: 24px 16px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.95),
+      rgba(224,180,76,0.08),
+      rgba(0,0,0,0.95)
+    );
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.odins-stats-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  justify-content: center; /* 🔥 centrage horizontal */
+}
+
+/* ================= STAT CARD ================= */
+.odins-stat-card {
+  background: #000;
+  border-radius: 18px;
+  padding: 24px 20px;
+
+  border: 1px solid rgba(255,255,255,0.12);
+  text-align: center;
+
+  box-shadow:
+    inset 0 0 20px rgba(255,255,255,0.03),
+    0 0 20px rgba(0,0,0,0.6);
+}
+
+/* VALEUR */
+.stat-value {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: #fff;
+
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.35),
+    0 0 14px rgba(255,255,255,0.25);
+}
+
+/* LABEL */
+.stat-label {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ICON */
+.stat-icon {
+  font-size: 0.9rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .odins-stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .odins-stats-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
-  <script type="module" crossorigin src="./assets/index-59ca78ea.js"></script>
+  <script type="module" crossorigin src="./assets/index-9d0cafb5.js"></script>
 </head>
 
 <body>
@@ -667,7 +758,7 @@ footer a:visited {
 <div>
 
 <section class="about" id="aboutSection">
-  <h2 class="magic-text runic">ABOUT</h2>
+  <h2 class="magic-text runic">ᚠᚢᚦᚨ - ABOUT - ᚨᚦᚢᚠ</h2>
 
 	 <p class="magic-text runic">
 	 <br />
@@ -776,6 +867,29 @@ footer a:visited {
     <button class="close-modal secondary" id="closeModal">Close</button>
   </div>
 </div>
+
+<section class="odins-stats-band">
+  <div class="odins-stats-container">
+
+    <div class="odins-stat-card">
+      <div class="stat-value nfts-count">…</div>
+      <div class="stat-label">
+        <span class="stat-icon">🔥</span>
+        NFTs for sale
+      </div>
+    </div>
+
+    <div class="odins-stat-card">
+  <div class="stat-value holders-count">…</div>
+  <div class="stat-label">
+    <span class="stat-icon">👥</span>
+    Holders
+  </div>
+</div>
+
+  </div>
+</section>
+
 
 <footer>
   © 2025 Odinverse — Built by
