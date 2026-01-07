@@ -145,8 +145,6 @@ main {
   margin-bottom: 16px;
 }
 
-/* ================= WALLET ================= */
-
 
 /* ================= QR ================= */
 .qr-wrapper {
@@ -164,16 +162,61 @@ main {
 }
 
 /* ================= BALANCES ================= */
+/* ================= WALLET BALANCES ================= */
 .wallet-balances {
   display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
   justify-content: center;
-  padding: 14px;
-  background: var(--bg-soft);
-  border-radius: 14px;
-  font-weight: 800;
+  align-items: center;
+  gap: 22px;
+
+  padding: 18px 26px;
+  border-radius: 18px;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+
+  /* 🎨 même background que wallet-btn */
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
+
+  color: #7dffb2;
+
+  border: none;
+  outline: none;
+
+  /* ✨ même glow */
+  box-shadow:
+    inset 0 0 0 1px rgba(92, 255, 157, 0.25),
+    0 0 18px rgba(92, 255, 157, 0.25);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
+
+/* disparaît si vide */
+.wallet-balances:empty {
+  display: none;
+}
+
+/* 🔹 LIGNES INTERNES */
+.wallet-balances .balance-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 16px;
+  border-radius: 14px;
+
+  background: rgba(0, 0, 0, 1.25);
+}
+
+
+
+
 
 /* ================= NFT ================= */
 .nft-section {
@@ -885,13 +928,30 @@ footer a:visited {
     0 0 60px rgba(12, 255, 198, 0.45);
 }
 
-/* Bouton secondaire (Disconnect) */
-.wallet-btn.secondary {
+.wallet-balances.secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+
+  padding: 18px 26px;
+  border-radius: 18px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+
   background: rgba(255, 255, 255, 0.06);
   color: #aaa;
 
+  border: none;
+  outline: none;
+
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.15);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 /* Boutons choix wallet */
@@ -965,11 +1025,13 @@ footer a:visited {
     display: block;
   }
 }
-
+.post-connect-actions {
+  display: none;
+}
 
 
 </style>
-  <script type="module" crossorigin src="./assets/index-21957cf2.js"></script>
+  <script type="module" crossorigin src="./assets/index-be7fc1f3.js"></script>
 </head>
 
 <body>
@@ -1004,6 +1066,8 @@ footer a:visited {
 
 </section>
 
+ <div class="wallet-balances"></div> 
+  
 <section class="odins-preview" id="odinsPreview">
   <div class="odins-row" id="odinsRow"></div>
 </section>
@@ -1013,12 +1077,10 @@ footer a:visited {
   <div class="wallet-actions primary-actions" id="walletMainActions">
 	
   <button id="connectBtn" class="wallet-btn tsk-style">
-  Connect Wallet
-</button>
+   Connect Wallet
+  </button>
 
-  <button id="disconnectBtn"
-          class="wallet-btn secondary"
-          style="display:none;">
+  <button id="disconnectBtn" class="wallet-btn secondary" style="display:none;">
     Disconnect
   </button>
 
@@ -1056,9 +1118,6 @@ footer a:visited {
   </div>
 
 </div>
-
-
-  <div class="wallet-balances"></div>
 
 <div class="post-connect-actions">
 
