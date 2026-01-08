@@ -137,7 +137,17 @@ main {
 
 /* ================= ABOUT ================= */
 .about {
-  background: var(--bg-main);
+    /* 🎨 même background que wallet-btn */
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
+
+  color: #7dffb2;
+
+  border: none;
+  outline: none;
   border-radius: 16px;
   padding: 20px;
   border: 1px solid var(--border-soft);
@@ -215,68 +225,113 @@ main {
 }
 
 
-
-
-
 /* ================= NFT ================= */
 .nft-section {
-  margin-top: 24px;
+  border-radius: 14px;
+  font-size: 1.2rem;
+  margin-top: 32px;
+  padding: 10px 16px;
+  color: #7dffb2;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
 }
 
 .nft-list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 14px;
-  padding: 14px;
-  background: #000;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.08);
-  max-height: calc(2 * 270px); /* 2 lignes visibles */
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+
+  padding: 16px;
+
+  color: #7dffb2;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
+
+  border-radius: 18px;
+
+  /* 2 lignes visibles réelles */
+  max-height: calc(2 * 170px + 16px);
   overflow-y: auto;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
+
 
 /* 🔒 TAILLE FIXE POUR TOUTES LES CARTES */
 .nft-card {
   width: 100%;
-  height: 270px;                 /* ✅ hauteur verrouillée */
-  background: #000;
-  border-radius: 12px;
-  padding: 8px;
+  height: 170px;
+
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 14px;
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 🔥 clé */
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+.nft-text {
+  width: 100%;
+  height: 38px; /* 🔒 espace verrouillé */
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  border: 1px solid rgba(255,255,255,0.12);
-  box-sizing: border-box;
+  justify-content: center;
+
+  gap: 2px;
 }
 
 /* 🔒 MEDIA IDENTIQUE */
 .nft-card img,
 .nft-card video {
   width: 100%;
-  height: 200px;                 /* ✅ media fixe */
+  height: 105px; /* 🔧 légèrement réduit */
+
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 10px;
+
   background: #000;
 }
 
+
+
 /* 🔒 TEXTE RÉSERVÉ */
 .nft-name {
-  margin-top: 6px;
-  height: 18px;                  /* ✅ réserve espace */
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  text-align: center;
+
+  max-width: 100%;
+  line-height: 1.1;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  opacity: 0.9;
 }
+
+
 
 /* 🔒 NONCE STABLE */
 .nft-nonce {
-  height: 14px;                  /* ✅ réserve espace */
-  font-size: 0.7rem;
-  opacity: 0.6;
+  font-size: 0.65rem;
+  line-height: 1;
+
+  opacity: 0.55;
 }
 
 
@@ -284,7 +339,13 @@ main {
 .nft-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.95);
+  color: #7dffb2;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
   display: none;
   justify-content: center;
   align-items: center;
@@ -296,7 +357,13 @@ main {
 .nft-modal-content {
   width: 90%;
   max-width: 420px;
-  background: #000;
+  color: #7dffb2;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
   padding: 20px;
   border-radius: 16px;
   border: 1px solid var(--border-strong);
@@ -316,6 +383,7 @@ main {
 
 /* ================= ATTRIBUTES ================= */
 .nft-attributes {
+  border-radius: 14px;
   margin-top: 14px;
   max-height: 220px;
   overflow-y: auto;
@@ -327,7 +395,9 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 8px 10px;
-  background: #000;
+  color: #7dffb2; 
+  background: linear-gradient( 135deg, rgba(20, 40, 30, 0.85), 
+  rgba(10, 20, 15, 0.95) );
   margin: 0;
   border-bottom: 1px solid rgba(255,255,255,0.15);
 }
@@ -337,7 +407,6 @@ main {
 }
 
 /* ================= CLOSE BUTTON ================= */
-/* ================= CLOSE BUTTON ================= */
 .close-modal {
   margin-top: 16px;
   width: 100%;
@@ -346,8 +415,9 @@ main {
   border-radius: 10px;
   font-weight: 700;
 
-  background: #0c0c0c;
-  color: #f1f1f1;
+  color: #7dffb2; 
+  background: linear-gradient( 135deg, rgba(20, 40, 30, 0.85), 
+  rgba(10, 20, 15, 0.95) );
 
   border: none;
   cursor: pointer;
@@ -412,7 +482,13 @@ footer a:visited {
 .odins-recap {
   margin-bottom: 16px;
   padding: 14px;
-  background: #000;
+  color: #7dffb2;
+  
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.15);
 }
@@ -424,58 +500,150 @@ footer a:visited {
 }
 
 .odins-attributes {
-  max-height: 220px;
+  max-height: 440px;
   overflow-y: auto;
   border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 10px;
+  padding-top: 2px;
 }
 
-/* ===== ATTRIBUTES GRID WITH LINES ===== */
+/* ===== ATTRIBUTES PILLS CONTAINER ===== */
+
 .attr-row {
-  display: grid;
-  grid-template-columns: 1.2fr 2fr; /* label | values */
-  gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  row-gap: 4px;
+  padding: 8px 6px;
+  font-size: 0.8rem;
 
-  padding: 10px 12px;
-  font-size: 0.85rem;
+  background: transparent;
 
-  background: #000;
-
-  /* 🔲 LIGNES */
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  /* ❌ surtout PAS de height / max-height */
+  overflow: visible;
 }
 
-/* 🔲 LIGNE DU HAUT */
-.attr-row:first-child {
-  border-top: 1px solid rgba(255,255,255,0.15);
-}
-
-/* 🔲 COLONNE GAUCHE */
+/* Titre de ligne */
 .attr-row strong {
-  padding-right: 12px;
-  border-right: 1px solid rgba(255,255,255,0.15);
+  width: 100%;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+ 
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 2px;
+}
+
+/* ===== PILLS ===== */
+.attr-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 12px;
+  border-radius: 999px;
+
   font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+
+  color: #7dffb2;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92,255,157,0.28),
+    0 0 14px rgba(92,255,157,0.18);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  white-space: nowrap;
 }
 
-/* 🔲 COLONNE DROITE */
+/* BONUS PILL */
 .attr-row span {
-  opacity: 0.85;
-  line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 7px 12px;
+  border-radius: 999px;
+
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+
+  color: #7dffb2;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92,255,157,0.28),
+    0 0 12px rgba(92,255,157,0.15);
+
+  white-space: nowrap;
 }
 
-/* 🔥 LIGNE TOTAL */
+
+/* ===== TOTAL CHIP ===== */
 .attr-row:last-child {
-  background: rgba(224,180,76,0.08);
-  font-size: 0.95rem;
+  justify-content: center;
 }
 
-.attr-row span {
-  opacity: 0.85;
+.attr-row:last-child span {
+  padding: 10px 22px;
+
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    rgba(92,255,157,0.45),
+    rgba(20,40,30,0.95)
+  );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92,255,157,0.6),
+    0 0 26px rgba(92,255,157,0.45);
+}
+.attr-row span[data-bonus] {
+  background: linear-gradient(
+    135deg,
+    rgba(92,255,157,0.22),
+    rgba(10, 20, 15, 0.95)
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92,255,157,0.45),
+    0 0 18px rgba(92,255,157,0.28);
+}
+@media (max-width: 600px) {
+  .attr-row span {
+    font-size: 0.68rem;
+    padding: 6px 10px;
+  }
+
+  .attr-row:last-child span {
+    font-size: 0.8rem;
+    padding: 9px 20px;
+  }
 }
 
-.attr-row strong {
-  font-weight: 600;
-}
+
 /* ================= DESKTOP ONLY ================= */
 #connectExtension {
   display: none !important;
@@ -507,7 +675,7 @@ footer a:visited {
   gap: 24px;                      /* espace entre NFT */
   align-items: center;            /* 🔥 centrage vertical */
   justify-content: center;
-  
+  border-radius: 14px;
   background-color: transparent;
 }
 
@@ -515,7 +683,7 @@ footer a:visited {
 .odins-item {
   width: 220px;
   height: 220px;
- 
+  border-radius: 10px;
   margin-top: 12px;
   margin-bottom: 12px;
   overflow: hidden;               /* 🔥 coupe proprement */
@@ -665,7 +833,7 @@ footer a:visited {
   margin-top: 32px;
   margin-bottom: 16px;
   padding: 24px 16px;
-
+  border-radius: 14px;
   background:
     linear-gradient(
       90deg,
@@ -689,7 +857,13 @@ footer a:visited {
 
 /* ================= STAT CARD ================= */
 .odins-stat-card {
-  background: #000;
+  color: #7dffb2;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
   border-radius: 18px;
   padding: 24px 20px;
 
@@ -744,21 +918,24 @@ footer a:visited {
 
 /* ================= BOUTONS CENTRAL 3 ================= */
 .post-connect-actions {
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 22px;
   margin: 60px auto;
   max-width: 1000px;
+  /* ✅ CENTRAGE */
+  justify-content: center;   /* centre la grille */
+  justify-items: center;     /* centre chaque bouton */
 }
 
 .action-card {
   display: flex;
+  width: 100%;
+  max-width: 260px;
   flex-direction: column;
   justify-content: center;   /* centrage vertical */
   align-items: center;       /* centrage horizontal */
   text-align: center;
-
   position: relative;
   padding: 26px;
   border-radius: 18px;
@@ -1027,10 +1204,46 @@ footer a:visited {
   }
 }
 
+/* ================= NFT SEARCH ================= */
+.nft-search {
+  width: 100%;
+  max-width: 420px;
+  margin: 12px auto 18px;
+
+  padding: 14px 18px;
+  border-radius: 14px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  color: #7dffb2;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
+
+  border: none;
+  outline: none;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92, 255, 157, 0.25),
+    0 0 14px rgba(92, 255, 157, 0.18);
+
+  display: block;
+}
+
+.nft-search::placeholder {
+  color: rgba(125, 255, 178, 0.45);
+}
+
+
 
 
 </style>
-  <script type="module" crossorigin src="./assets/index-e5e52375.js"></script>
+  <script type="module" crossorigin src="./assets/index-5f2b8ec2.js"></script>
 </head>
 
 <body>
@@ -1118,7 +1331,7 @@ footer a:visited {
 
 </div>
 
-<div class="post-connect-actions">
+<div class="post-connect-actions" id="postconnectactions" >
 
   <a href="https://xoxno.com/collection/ODINSDECK-4e300a/drops"
      target="_blank"
@@ -1147,7 +1360,7 @@ footer a:visited {
 
 <!-- SECTION ODINS : VISIBLE -->
 <div class="nft-section" id="nftSectionOdins">
-  <h2>Odin'Deck NFT(s)</h2>
+  <h2>Odins'Deck NFT(s)</h2>
 
   <!-- RECAP -->
   <div class="odins-recap">
@@ -1167,8 +1380,18 @@ footer a:visited {
 <!-- SECTION AUTRES NFT : MASQUÉE -->
 <div class="nft-section" id="nftSectionOthers" style="display:none;">
   <h2>Other NFT(s)</h2>
+
+  <!-- 🔍 SEARCH -->
+  <input
+    type="text"
+    id="otherNftSearch"
+    class="nft-search"
+    placeholder="Search NFT (name or nonce)…"
+  />
+
   <div class="nft-list" id="otherNftsList"></div>
 </div>
+
 
 </main>
 
