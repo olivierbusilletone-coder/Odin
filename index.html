@@ -658,15 +658,45 @@ footer a:visited {
 /* ================= PAGE CENTRALE ================= */
 .odins-preview {
   width: 100%;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  border-radius: 16px;            /* 🔥 coins arrondis visibles *
-  padding: 0;
+  max-width: 1200px;
+
+  margin: 24px auto;
+  padding: 12px;
+
+  border-radius: 16px;
+
   display: flex;
-  justify-content: center;        /* 🔥 centrage horizontal */
+  justify-content: center;
   align-items: center;
-  background-color: #000;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
 }
+
+@media (max-width: 600px) {
+  .odins-preview {
+    margin: 16px auto;
+    padding: 8px;
+
+    border-radius: 14px;
+
+    background: rgba(0, 0, 0, 0.45);
+  }
+}
+
+@media (max-width: 600px) {
+  .odins-row {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .odins-item {
+    width: 140px;
+    height: 140px;
+  }
+}
+
 
 /* ================= LIGNE NFT ================= */
 .odins-row {
@@ -1508,8 +1538,6 @@ footer a:visited {
 
   <div class="nft-list" id="otherNftsList"></div>
 </div>
-
-
 </main>
 
 <!-- MODAL -->
