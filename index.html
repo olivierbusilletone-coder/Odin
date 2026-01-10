@@ -1423,58 +1423,41 @@ footer a:visited {
   overflow: hidden;
 }
 
-/* FLOCONS */
 .snowflake {
   position: absolute;
   top: -10%;
-  color: white;
-  user-select: none;
-  pointer-events: none;
+  opacity: 0.6;
+  font-size: 14px;
 
-  animation-name: fall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-
-  will-change: transform; /* 🔥 perf mobile */
+  animation: fall linear infinite;
+  will-change: transform;
 }
 
-@keyframes fall {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  100% {
-    transform: translate3d(var(--drift), 110vh, 0) rotate(360deg);
-  }
-}
-
-
-/* ANIMATION */
 @keyframes fall {
   to {
-    transform: translate3d(0, 120vh, 0);
+    transform: translate3d(var(--drift), 120vh, 0);
   }
 }
 
-/* 📱 MOBILE */
+/* 📱 MOBILE = MOINS */
 @media (max-width: 768px) {
   .snowflake {
-    animation-duration: 10s !important;
-    font-size: 14px !important;
-    opacity: 0.7;
+    font-size: 12px;
+    opacity: 0.5;
   }
 }
 
 /* ♿ ACCESSIBILITÉ */
 @media (prefers-reduced-motion: reduce) {
-  .snowflake {
-    animation: none;
+  .snow-container {
     display: none;
   }
 }
 
 
+
 </style>
-  <script type="module" crossorigin src="./assets/index-4c0f0546.js"></script>
+  <script type="module" crossorigin src="./assets/index-748bf52e.js"></script>
 </head>
 
 <body>
