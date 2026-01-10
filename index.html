@@ -1390,12 +1390,27 @@ footer a:visited {
 /* FLOCONS */
 .snowflake {
   position: absolute;
-  top: -12%;
-  color: rgba(255,255,255,0.9);
+  top: -10%;
+  color: white;
   user-select: none;
-  will-change: transform;
-  animation: fall linear infinite;
+  pointer-events: none;
+
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  will-change: transform; /* 🔥 perf mobile */
 }
+
+@keyframes fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(var(--drift), 110vh, 0) rotate(360deg);
+  }
+}
+
 
 /* ANIMATION */
 @keyframes fall {
@@ -1423,7 +1438,7 @@ footer a:visited {
 
 
 </style>
-  <script type="module" crossorigin src="./assets/index-e71c7e81.js"></script>
+  <script type="module" crossorigin src="./assets/index-ba01272a.js"></script>
 </head>
 
 <body>
