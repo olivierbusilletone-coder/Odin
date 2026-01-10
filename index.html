@@ -136,7 +136,7 @@ main {
 
 /* ================= ABOUT ================= */
 .about {
-    /* 🎨 même background que wallet-btn */
+  /* 🎨 background conservé */
   background: linear-gradient(
     135deg,
     rgba(20, 40, 30, 0.85),
@@ -145,14 +145,39 @@ main {
 
   color: #7dffb2;
 
-  border: none;
-  outline: none;
   border-radius: 16px;
   padding: 20px;
-  border: 1px solid var(--border-soft);
-  line-height: 1.6;
   margin-bottom: 16px;
+
+  border: 1px solid var(--border-soft);
+
+  font-size: 1rem;
+  line-height: 1.6;
+
+  /* perf */
+  contain: layout paint;
 }
+
+/* 📱 MOBILE */
+@media (max-width: 600px) {
+  .about {
+    padding: 14px 14px;
+    margin-bottom: 12px;
+
+    border-radius: 14px;
+
+    font-size: 0.95rem;
+    line-height: 1.55;
+
+    /* plus léger visuellement */
+    background: linear-gradient(
+      135deg,
+      rgba(20, 40, 30, 0.75),
+      rgba(10, 20, 15, 0.9)
+    );
+  }
+}
+
 
 
 /* ================= QR CHIPS ================= */
@@ -427,7 +452,7 @@ html, body {
   }
 
   .nft-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 🔥 FIX scroll */
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* 🔥 FIX scroll */
     gap: 10px;
     padding: 10px;
 
@@ -1881,7 +1906,7 @@ footer a:visited {
 
 
 <footer>
-  © 2025 Odinverse — Built by
+  © 2026 Odinverse — Built by
   <a href="https://x.com/Triskel_MvX" target="_blank" rel="noopener noreferrer">
     Triskel
   </a>
