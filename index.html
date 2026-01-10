@@ -658,10 +658,10 @@ footer a:visited {
 /* ================= PAGE CENTRALE ================= */
 .odins-preview {
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px; /* ⬅️ plus raisonnable */
 
-  margin: 24px auto;
-  padding: 12px;
+  margin: 20px auto;
+  padding: 10px;
 
   border-radius: 16px;
 
@@ -669,33 +669,31 @@ footer a:visited {
   justify-content: center;
   align-items: center;
 
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.55);
+
+  /* blur léger */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  will-change: transform;
 }
 
-@media (max-width: 600px) {
+
+@media (max-width: 768px) {
   .odins-preview {
-    margin: 16px auto;
+    margin: 14px auto;
     padding: 8px;
 
     border-radius: 14px;
 
     background: rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
   }
 }
 
-@media (max-width: 600px) {
-  .odins-row {
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 
-  .odins-item {
-    width: 140px;
-    height: 140px;
-  }
-}
 
 
 /* ================= LIGNE NFT ================= */
