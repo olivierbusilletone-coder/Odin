@@ -1378,12 +1378,37 @@ footer a:visited {
   color: #ffffff;
 }
 
+/* ================= NEIGE JS ================= */
+.snow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
 
+.snowflake {
+  position: absolute;
+  top: -10%;
+  color: white;
+  user-select: none;
 
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
 
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
 
 </style>
-  <script type="module" crossorigin src="./assets/index-b212e4a0.js"></script>
+  <script type="module" crossorigin src="./assets/index-11b5dc2b.js"></script>
 </head>
 
 <body>
@@ -1394,6 +1419,7 @@ footer a:visited {
 	  <span>ODINVERSE</span>
 	  <img src="./assets/multiversx-mvx-a940d9b8.gif" alt="Logo Right" class="header-logo">
   </h1>
+<div class="snow"></div>
 
   <span class="section-title-white">MultiversX Viking Ecosystem</span>
 
@@ -1418,12 +1444,13 @@ footer a:visited {
 
 </section>
 
- <div class="wallet-balances"></div> 
   
 <section class="odins-preview" id="odinsPreview">
   <div class="odins-row" id="odinsRow"></div>
 </section>
 
+<div class="wallet-balances"></div> 
+ 
 <div class="wallet-box">
 
   <div class="wallet-actions primary-actions" id="walletMainActions">
@@ -1496,6 +1523,7 @@ footer a:visited {
 
 </div>
 
+</div>
 
 
 <!-- SECTION ODINS : VISIBLE -->
