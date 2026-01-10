@@ -156,20 +156,84 @@ main {
 }
 
 
-/* ================= QR ================= */
+/* ================= QR CHIPS ================= */
 .qr-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
-.qr-wrapper svg {
+.qr-chip {
+  padding: 16px;
+  border-radius: 22px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92, 255, 157, 0.25),
+    0 0 22px rgba(92, 255, 157, 0.25);
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+/* 🔥 cache le chip tant que le QR n'est pas injecté */
+.qr-chip:empty {
+  display: none;
+}
+.qr-chip.has-qr {
+  animation: qrFadeIn 0.35s ease-out both;
+}
+
+@keyframes qrFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.qr-chip svg {
   width: min(220px, 80vw);
   height: auto;
-  background: #fff;
-  padding: 10px;
-  border-radius: 12px;
+
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.4);
+
+  image-rendering: crisp-edges;
 }
+@media (hover: hover) {
+  .qr-chip:hover {
+    transform: scale(1.03);
+    box-shadow:
+      inset 0 0 0 1px rgba(92, 255, 157, 0.4),
+      0 0 36px rgba(92, 255, 157, 0.45);
+  }
+}
+@media (max-width: 600px) {
+  .qr-chip {
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .qr-chip svg {
+    width: min(200px, 85vw);
+    padding: 10px;
+  }
+}
+
 
 /* ================= WALLET BALANCES — CHIP STYLE ================= */
 .wallet-balances {
@@ -1621,7 +1685,7 @@ footer a:visited {
 
 
 </style>
-  <script type="module" crossorigin src="./assets/index-92823710.js"></script>
+  <script type="module" crossorigin src="./assets/index-7ff23424.js"></script>
 </head>
 
 <body>
@@ -1705,9 +1769,10 @@ footer a:visited {
     <div class="address" id="address">—</div>
   </div>
 
-  <div class="qr-wrapper">
-    <div id="MyWalletConnectQRContainer"></div>
-  </div>
+ <div class="qr-wrapper">
+  <div id="MyWalletConnectQRContainer" class="qr-chip"></div>
+</div>
+
 
 </div>
 
