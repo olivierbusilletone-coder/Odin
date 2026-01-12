@@ -1707,9 +1707,132 @@ footer a:visited {
   filter: drop-shadow(0 0 8px rgba(92,255,157,0.6));
 }
 
+/* ================= ONGLET BOUTONS (CHIPS++) ================= */
+
+.main-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 22px 0 30px;
+}
+
+/* ===== CHIP BASE ===== */
+.main-tab {
+  position: relative;
+  padding: 14px 30px;
+  border-radius: 999px;
+
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  border: 1px solid rgba(125,255,178,.45);
+
+  background: linear-gradient(
+    135deg,
+    rgba(25, 55, 40, 0.8),
+    rgba(10, 25, 18, 0.95)
+  );
+
+  color: #9cffc7;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(125,255,178,.22),
+    0 12px 34px rgba(0,0,0,.65),
+    0 0 24px rgba(125,255,178,.15);
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+/* ✨ glow léger permanent */
+.main-tab::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  box-shadow: 0 0 20px rgba(125,255,178,.18);
+  opacity: .6;
+  pointer-events: none;
+}
+
+/* ===== HOVER ===== */
+.main-tab:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    inset 0 0 0 1px rgba(125,255,178,.45),
+    0 20px 46px rgba(0,0,0,.85),
+    0 0 34px rgba(125,255,178,.35);
+}
+
+/* ===== ACTIF ===== */
+.main-tab.active {
+  background: linear-gradient(135deg, #2e5c44, #142b21);
+  color: #ffffff;
+
+  box-shadow:
+    0 0 36px rgba(125,255,178,.65),
+    0 0 0 2px rgba(125,255,178,.6);
+}
+
+/* ================= COMBAT (ROUGE) ================= */
+
+.main-tab.combat {
+  border-color: rgba(255, 90, 90, 0.55);
+  color: #ff8a8a;
+
+  background: linear-gradient(
+    135deg,
+    rgba(80, 15, 15, 0.9),
+    rgba(30, 5, 5, 0.98)
+  );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,90,90,.35),
+    0 12px 34px rgba(0,0,0,.7),
+    0 0 28px rgba(255,90,90,.25);
+}
+
+/* hover combat */
+.main-tab.combat:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow:
+    0 0 40px rgba(255,90,90,.55),
+    0 22px 50px rgba(0,0,0,.9);
+}
+
+/* actif combat */
+.main-tab.combat.active {
+  color: #fff;
+  box-shadow:
+    0 0 48px rgba(255,70,70,.75),
+    0 0 0 2px rgba(255,90,90,.7);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .main-tabs {
+    gap: 12px;
+  }
+
+  .main-tab {
+    padding: 12px 22px;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+  }
+}
+
 
 </style>
-  <script type="module" crossorigin src="./assets/index-7ff23424.js"></script>
+  <script type="module" crossorigin src="./assets/index-f5363aa4.js"></script>
 </head>
 
 <body>
@@ -1824,50 +1947,84 @@ footer a:visited {
   </a>
 
 </div>
+</div>
 
+<div class="main-tabs" id="mainTabs">
+  <button class="main-tab active" data-main-tab="collection">
+    🧩 Odin'sDeck
+  </button>
+ <!-- ⚔️ COMBAT (caché avant connexion) -->
+  <button class="main-tab combat"
+          data-main-tab="combat"
+          id="combatTabBtn"
+          style="display:none;">
+    ⚔️ Combat
+  </button>
 </div>
 
 
-<!-- SECTION ODINS : VISIBLE -->
-<div class="nft-section" id="nftSectionOdins">
-  <h2 class="section-title-white">Odins'Deck NFT(s)</h2>
+<div id="mainTabContents">
 
-  <!-- RECAP -->
-  <div class="odins-recap">
-    <div class="odins-count">
-      Total NFT : <span id="odinsCount">0</span>
+  <!-- 🧩 COLLECTION -->
+  <div class="main-tab-content active" data-main-content="collection">
+
+    <!-- SECTION ODINS -->
+    <div class="nft-section" id="nftSectionOdins">
+      <h2 class="section-title-white">Odins'Deck NFT(s)</h2>
+
+      <div class="odins-recap">
+        <div class="odins-count">
+          Total NFT : <span id="odinsCount">0</span>
+        </div>
+
+        <div class="odins-attributes" id="odinsAttributesTable"></div>
+      </div>
+
+      <div class="nft-list" id="odinsList"></div>
     </div>
 
-    <div class="odins-attributes" id="odinsAttributesTable">
-      <!-- rempli en JS -->
+    <!-- 🏆 TOP HOLDERS -->
+    <div class="nft-section top-holders" id="topHoldersDeck">
+      <h2 class="section-title-white">🏆 Top Holders</h2>
+      <div class="top-holders-list" id="topHoldersList"></div>
     </div>
+
+    <!-- OTHER NFT -->
+    <div class="nft-section" id="nftSectionOthers">
+      <h2 class="section-title-white">Other NFT(s)</h2>
+
+      <input
+        type="text"
+        id="otherNftSearch"
+        class="nft-search"
+        placeholder="Search NFT (name or nonce)…"
+      />
+
+      <div class="nft-list" id="otherNftsList"></div>
+    </div>
+
   </div>
 
-  <!-- NFT GRID -->
-  <div class="nft-list" id="odinsList"></div>
+<!-- ONGLET COMBAT (contenu) -->
+<div class="main-tab-content"
+     data-main-content="combat"
+     id="combatTabContent"
+     style="display:none;">
+  <div class="nft-section">
+    <h2 class="section-title-white">⚔️ Combat Arena</h2>
+
+    <p style="text-align:center; opacity:.7;">
+      Select your Odin and prepare for battle.<br>
+      Coming soon…
+    </p>
+  </div>
 </div>
 
-<!-- 🏆 TOP HOLDERS -->
-<div class="nft-section top-holders" id="topHoldersDeck" style="display:none;">
-  <h2 class="section-title-white">🏆 Top Holders</h2>
-  <div class="top-holders-list" id="topHoldersList"></div>
+
 </div>
 
- 
-<!-- SECTION AUTRES NFT : MASQUÉE -->
-<div class="nft-section" id="nftSectionOthers" style="display:none;">
-  <h2 class="section-title-white">Other NFT(s)</h2>
 
-  <!-- 🔍 SEARCH -->
-  <input
-    type="text"
-    id="otherNftSearch"
-    class="nft-search"
-    placeholder="Search NFT (name or nonce)…"
-  />
 
-  <div class="nft-list" id="otherNftsList"></div>
-</div>
 </main>
 
 <!-- MODAL -->
