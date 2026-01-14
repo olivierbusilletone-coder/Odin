@@ -137,6 +137,40 @@ header span {
   opacity: 0.8; /* 🔥 ajuste entre 0.4 et 0.8 */
 }
 
+@media (max-width: 600px) {
+
+  header {
+    padding: 8px 6px;
+  }
+
+  .header-title {
+    gap: 10px;                 /* 🔽 moins d’espace entre logo / texte */
+    letter-spacing: 10px;      /* 🔥 CRUCIAL sur mobile */
+  }
+
+  header span {
+    font-size: clamp(1.1rem, 6vw, 1.4rem);
+    letter-spacing: 0.18em;    /* remplace le letter-spacing énorme */
+  }
+
+  .header-logo {
+    height: 32px;              /* 🔽 logos plus petits */
+    opacity: 0.55;
+  }
+
+  .header-subtitle {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+  }
+
+  .header-bottom-logo img {
+    margin-top: 10px;
+    height: 64px;              /* 🔽 logo bas plus discret */
+    opacity: 0.75;
+  }
+}
+
 /* ================= MAIN ================= */
 main {
   width: 100%;
@@ -1545,15 +1579,22 @@ footer a:visited {
 }
 
 @media (max-width: 600px) {
-  .wallet-status {
-    gap: 6px;
-  }
 
   .address {
-    font-size: 0.7rem;
-    padding: 5px 12px;
+    max-width: 100%;             /* 🔥 prend toute la largeur */
+    padding: 8px 14px;           /* 🔥 plus confortable au doigt */
+
+    font-size: 0.65rem;          /* 🔽 plus compact */
+    letter-spacing: 0.04em;      /* 🔥 essentiel sur mobile */
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;     /* … propre */
+
+    justify-content: center;     /* centre visuellement */
   }
 }
+
 
 
 
