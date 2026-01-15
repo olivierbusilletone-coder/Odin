@@ -691,20 +691,52 @@ footer {
   letter-spacing: 0.06em;
 }
 
-/* ================= SCROLLBAR ================= */
+/* ================= SCROLLBAR – CHIP STYLE ================= */
+
+/* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ddd #000;
+  scrollbar-color: rgba(92,255,157,0.7) rgba(10,20,15,0.9);
 }
 
+/* WebKit (Chrome / Edge / Safari) */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(#eee, #bbb);
-  border-radius: 10px;
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    180deg,
+    rgba(10,20,15,0.85),
+    rgba(5,10,8,0.95)
+  );
+  border-radius: 999px;
 }
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    145deg,
+    rgba(92,255,157,0.75),
+    rgba(20,40,30,0.95)
+  );
+
+  border-radius: 999px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92,255,157,0.6),
+    inset 0 0 10px rgba(92,255,157,0.35),
+    0 0 8px rgba(92,255,157,0.25);
+}
+
+/* Hover subtil */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    145deg,
+    rgba(120,255,180,0.9),
+    rgba(30,60,40,1)
+  );
+}
+
 
 /* ===== REMOVE TEXT UNDERLINE ON BUTTONS ===== */
 button,
@@ -942,21 +974,30 @@ footer a:visited {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .odins-preview {
-    margin: 14px auto;
-    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    border-radius: 14px;
+    padding: 12px;
+    margin: 12px auto;
 
-    background: rgba(0, 0, 0, 0.45);
+    max-width: 100%;
+    overflow: hidden; /* 🔥 empêche le scroll */
+  }
 
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+  /* 🔥 Ne montrer qu'une NFT */
+  .odins-preview .nft-card {
+    max-width: 260px;   /* taille idéale mobile */
+    width: 100%;
+  }
+
+  /* 🔥 Masquer les autres NFTs */
+  .odins-preview .nft-card:not(:first-child) {
+    display: none;
   }
 }
-
-
 
 
 /* ================= LIGNE NFT ================= */
