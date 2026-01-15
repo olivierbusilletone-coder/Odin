@@ -973,31 +973,33 @@ footer a:visited {
   letter-spacing: 0.06em;
 }
 
-
 @media (max-width: 600px) {
+
   .odins-preview {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    padding: 12px;
-    margin: 12px auto;
-
-    max-width: 100%;
-    overflow: hidden; /* 🔥 empêche le scroll */
+    overflow: hidden;
   }
 
-  /* 🔥 Ne montrer qu'une NFT */
-  .odins-preview .nft-card {
-    max-width: 260px;   /* taille idéale mobile */
+  /* 🔥 le bon conteneur */
+  .odins-row {
+    display: flex;
+    justify-content: center;
     width: 100%;
   }
 
-  /* 🔥 Masquer les autres NFTs */
-  .odins-preview .nft-card:not(:first-child) {
+  /* 🔥 UNE seule NFT visible */
+  .odins-row .nft-card {
+    max-width: 260px;
+    width: 100%;
+  }
+
+  .odins-row .nft-card:not(:first-child) {
     display: none;
   }
 }
+
 
 
 /* ================= LIGNE NFT ================= */
