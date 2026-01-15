@@ -975,30 +975,33 @@ footer a:visited {
 
 @media (max-width: 600px) {
 
-  /* sécurité */
+  /* stop scroll horizontal */
   .odins-preview {
     overflow: hidden;
   }
 
-  /* peu importe grid / flex / block */
+  /* casser le layout horizontal */
   .odins-row {
+    display: block !important;
     width: 100%;
   }
 
   /* 🔥 cacher TOUTES les NFTs */
-  .odins-row .nft-card {
+  .odins-row .odins-item {
     display: none !important;
   }
 
   /* 🔥 montrer UNE seule NFT */
-  .odins-row .nft-card:first-child {
-    display: block !important;
+  .odins-row .odins-item:first-child {
+    display: flex !important;   /* garde ton centrage */
     margin: 0 auto;
 
     width: 100%;
-    max-width: 180px;
+    max-width: 220px;
+    height: 220px;
   }
 }
+
 
 
 
