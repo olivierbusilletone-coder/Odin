@@ -54,7 +54,7 @@ body {
 /* ================= HEADER ================= */
 header {
   width: 100%;
-  padding: 6px 6px;
+  padding: 16px 16px;
   
   text-align: center;
   background:
@@ -72,7 +72,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 16px;
-  letter-spacing: 24px;
+  letter-spacing: 20px;
 
   color: #fff;
 
@@ -121,13 +121,13 @@ header {
 }
 
 header span {
-  font-size: clamp(1.4rem, 4vw, 1.85rem);
+  font-size: clamp(1.4rem, 4vw, 1.75rem);
   opacity: 0.85;
 }
 
 .header-subtitle {
   margin-top: 8px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   opacity: 0.7;
 }
 
@@ -137,7 +137,7 @@ header span {
   opacity: 0.8; /* 🔥 ajuste entre 0.4 et 0.8 */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
 
   header {
     padding: 8px 6px;
@@ -1083,7 +1083,7 @@ footer a:visited {
   display: inline-block;
 
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.8rem, 5vw, 2rem);
+  font-size: clamp(1.6rem, 5vw, 1.8rem);
 
   letter-spacing: 0.65em;
   padding-left: 0.225em; /* 🔥 compensation optique */
@@ -1102,7 +1102,7 @@ footer a:visited {
   font-weight: 600;
   line-height: 1.2;
   font-family: 'Cinzel', serif;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
 
   letter-spacing: 0.18em;
   padding-left: 0.09em;
@@ -2008,9 +2008,77 @@ footer a:visited {
   }
 }
 
+/* ================= LOADING CHIP ================= */
+.loading-chip {
+  margin: 20px auto;
+  padding: 14px 18px;
+  max-width: 320px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+
+  border-radius: 999px;
+
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+
+  color: #dfffee;
+
+  background: linear-gradient(
+    145deg,
+    rgba(20,40,30,0.85),
+    rgba(10,20,15,0.95)
+  );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92,255,157,0.35),
+    0 0 18px rgba(92,255,157,0.25);
+
+  backdrop-filter: blur(6px);
+}
+
+.loading-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  overflow: hidden;
+
+  background: rgba(255,255,255,0.08);
+}
+
+.loading-bar-fill {
+  height: 100%;
+  width: 0%;
+
+  background: linear-gradient(
+    90deg,
+    rgba(92,255,157,0.4),
+    rgba(92,255,157,0.9),
+    rgba(92,255,157,0.4)
+  );
+
+  box-shadow: 0 0 10px rgba(92,255,157,0.6);
+}
+
+
+@keyframes loadingMove {
+  0%   { transform: translateX(-100%); }
+  50%  { transform: translateX(40%); }
+  100% { transform: translateX(120%); }
+}
+@media (max-width: 600px) {
+  .loading-chip {
+    max-width: 260px;
+    font-size: 0.65rem;
+    padding: 12px 16px;
+  }
+}
 
 </style>
-  <script type="module" crossorigin src="./assets/index-d6157838.js"></script>
+  <script type="module" crossorigin src="./assets/index-6582d894.js"></script>
 </head>
 
 <body>
@@ -2201,10 +2269,14 @@ footer a:visited {
   <div class="nft-section">
     <h2 class="section-title-white-connect">⚔️ Combat Arena</h2>
 
-    <p style="text-align:center; opacity:.7;">
-      Select your Odin and prepare for battle.<br>
-      Coming soon…
-    </p>
+<div class="loading-chip">
+  <span class="loading-text">Preparing for battle<br />Coming soon…<br /></span>
+  <div class="loading-bar">
+    <div class="loading-bar-fill"></div>
+  </div>
+</div>
+
+
   </div>
 </div>
 
