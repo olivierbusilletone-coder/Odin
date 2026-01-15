@@ -975,30 +975,26 @@ footer a:visited {
 
 @media (max-width: 600px) {
 
-  .odins-preview {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  /* 🔥 le bon conteneur */
+  /* 🔥 force UNE seule colonne */
   .odins-row {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+    gap: 0;
   }
 
-  /* 🔥 UNE seule NFT visible */
+  /* 🔥 toutes les cartes prennent la largeur */
   .odins-row .nft-card {
-    max-width: 260px;
     width: 100%;
+    max-width: 280px;
   }
 
-  .odins-row .nft-card:not(:first-child) {
-    display: none;
+  /* 🔥 cache TOUT sauf la première */
+  .odins-row .nft-card:nth-child(n+2) {
+    display: none !important;
   }
 }
+
 
 
 
