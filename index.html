@@ -3399,16 +3399,26 @@ footer a:visited {
 }
 
 .combat-msg.limit::before {
-  content: "⛔ You already played the maximum of 7 NFTs";
+  content: "⛔ You already played the maximum NFTs ";
   font-family: 'Cinzel', serif;
 }
 
-/* ❌ COOLDOWN */
 .combat-msg.cooldown {
   display: block;
   color: #ffd27d;
   background: rgba(120, 90, 0, 0.35);
   border: 1px solid rgba(255, 200, 80, 0.6);
+
+  width: 240px;
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  white-space: nowrap;
+
+  font-family: 'Cinzel', serif;
+
+  /* 🔥 FIX ANTI-SAUT */
+  font-variant-numeric: tabular-nums;
 }
 
 .combat-msg.cooldown::before {
@@ -3516,7 +3526,7 @@ footer a:visited {
   z-index: 20;
 }
 </style>
-  <script type="module" crossorigin src="./assets/index-2b2c3324.js"></script>
+  <script type="module" crossorigin src="./assets/index-1c2bd6f3.js"></script>
 </head>
 
 <body>
