@@ -25,11 +25,20 @@
 
 /* ================= ROOT ================= */
 :root {
-  --bg-main: #000;
+  --bg-main: #060e0a;
   --bg-soft: rgba(0,0,0,0.4);
+
   --border-soft: rgba(255,255,255,0.08);
   --border-strong: rgba(255,255,255,0.15);
-  --gold: #e0b44c;
+
+  /* 🔥 WHITE THEME */
+  --gold: #ffffff;
+  --gold-light: #f5f5f5;
+  --gold-glow: rgba(255,255,255,0.22);
+
+  --green-accent: #7dffb2;
+  --green-glow: rgba(92, 255, 157, 0.25);
+
   --text-main: #f5f5f5;
   --text-soft: rgba(255,255,255,0.75);
 }
@@ -40,11 +49,26 @@ body {
   min-height: 100vh;
   font-family: "Segoe UI", system-ui, sans-serif;
   background:
-    linear-gradient(rgba(0,0,0,0.95), rgba(0,0,0,0.9));
+    radial-gradient(ellipse at 20% 0%, rgba(18, 52, 35, 0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 10%, rgba(42, 32, 8, 0.45) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(10, 30, 20, 0.6) 0%, transparent 60%),
+    linear-gradient(170deg, #060e0a 0%, #0a1610 30%, #080c08 60%, #050a06 100%);
   color: var(--text-main);
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Grain texture subtil */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
 }
 
 h1, h2, h3, .viking-title {
@@ -55,14 +79,44 @@ h1, h2, h3, .viking-title {
 /* ================= HEADER ================= */
 header {
   width: 100%;
-  padding: 16px 16px;
+  padding: 28px 24px 22px;
   
   text-align: center;
   background:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.85)),
+    linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%),
     url("./assets/aheader-bg-276cd346.jpg") center / cover no-repeat;
-  border-bottom: 1px solid var(--border-soft);
-  /* 🪓 POLICE VIKING */ font-family: 'Cinzel', serif; letter-spacing: 0.06em;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06),
+    0 8px 40px rgba(0, 0, 0, 0.6);
+
+  /* 🪓 POLICE VIKING */
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.06em;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ligne blanche décorative en bas du header */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
 }
 
 /* ================= HEADER TITLE WHITE SHIMMER ================= */
@@ -78,8 +132,9 @@ header {
   color: #fff;
 
   text-shadow:
-    0 0 6px rgba(255,255,255,0.35),
-    0 0 14px rgba(255,255,255,0.25);
+    0 0 8px rgba(255,255,255,0.45),
+    0 0 20px rgba(255,255,255,0.25),
+    0 0 40px rgba(255,255,255,0.12);
 
   animation: headerWhiteShimmer 4s ease-in-out infinite;
 }
@@ -87,23 +142,24 @@ header {
 /* Animation douce premium */
 @keyframes headerWhiteShimmer {
   0% {
-    opacity: 0.75;
+    opacity: 0.78;
     text-shadow:
-      0 0 6px rgba(255,255,255,0.25),
-      0 0 12px rgba(255,255,255,0.15);
+      0 0 6px rgba(255,255,255,0.3),
+      0 0 14px rgba(224, 180, 76, 0.1);
   }
   50% {
     opacity: 1;
     text-shadow:
-      0 0 12px rgba(255,255,255,0.7),
-      0 0 28px rgba(255,255,255,0.45),
-      0 0 44px rgba(255,255,255,0.25);
+      0 0 14px rgba(255,255,255,0.75),
+      0 0 30px rgba(255,255,255,0.4),
+      0 0 50px rgba(224, 180, 76, 0.3),
+      0 0 80px rgba(224, 180, 76, 0.15);
   }
   100% {
-    opacity: 0.75;
+    opacity: 0.78;
     text-shadow:
-      0 0 6px rgba(255,255,255,0.25),
-      0 0 12px rgba(255,255,255,0.15);
+      0 0 6px rgba(255,255,255,0.3),
+      0 0 14px rgba(224, 180, 76, 0.1);
   }
 }
 
@@ -128,13 +184,16 @@ header span {
 .header-subtitle {
   margin-top: 8px;
   font-size: 0.75rem;
-  opacity: 0.7;
+  opacity: 0.75;
+  color: rgba(224, 180, 76, 0.85);
+  letter-spacing: 0.22em;
 }
 
 .header-bottom-logo img {
-  margin-top: 16px;
+  margin-top: 20px;
   height: 96px;
-  opacity: 0.8; /* 🔥 ajuste entre 0.4 et 0.8 */
+  opacity: 0.85; /* légèrement plus visible */
+  filter: drop-shadow(0 0 12px rgba(224, 180, 76, 0.2));
 }
 
 @media (max-width: 400px) {
@@ -191,13 +250,17 @@ main {
   color: #7dffb2;
 
   border-radius: 16px;
-  padding: 20px;
+  padding: 24px 28px;
+  margin-top: 36px;
   margin-bottom: 16px;
 
-  border: 1px solid var(--border-soft);
+  border: 1px solid rgba(224, 180, 76, 0.12);
+  box-shadow:
+    inset 0 0 0 1px rgba(92, 255, 157, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.5);
 
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
 
   /* perf */
   contain: layout paint;
@@ -692,11 +755,16 @@ html, body {
 /* ================= FOOTER ================= */
 footer {
   width: 100%;
-  padding: 16px;
+  padding: 20px 16px;
   text-align: center;
   font-size: 0.85rem;
-  background: var(--bg-soft);
-  color: #aaa;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  border-top: 1px solid rgba(224, 180, 76, 0.12);
+  color: rgba(255, 255, 255, 0.45);
     /* 🪓 POLICE VIKING */
   font-family: 'Cinzel', serif;
   letter-spacing: 0.06em;
@@ -759,18 +827,21 @@ button *,
 
 /* ===== FOOTER LINKS STYLE ONLY ===== */
 footer a {
-  color: #fff;
+  color: rgba(224, 180, 76, 0.85);
   font-weight: 700;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 footer a:hover {
-  text-decoration: underline;
+  color: #ffd86a;
+  text-decoration: none;
 }
 
 footer a:visited {
-  color: #fff;
+  color: rgba(224, 180, 76, 0.7);
 }
+
 /* ===== ODINS RECAP ===== */
 .odins-recap {
   margin-bottom: 16px;
@@ -808,144 +879,89 @@ footer a:visited {
   letter-spacing: 0.06em;
 }
 
-/* ===== ATTRIBUTES PILLS CONTAINER ===== */
+/* ================= ATTR ROW ================= */
 
 .attr-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  row-gap: 4px;
-  padding: 8px 6px;
-  font-size: 0.8rem;
+  margin-bottom: 18px;
 
-  background: transparent;
+  padding: 16px 18px;
 
-  /* ❌ surtout PAS de height / max-height */
-  overflow: visible;
-  /* 🪓 POLICE VIKING */ font-family: 'Cinzel', serif; letter-spacing: 0.06em;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.04),
+      rgba(0,0,0,0.18)
+    );
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.03);
 }
 
-/* Titre de ligne */
+/* ================= TITRES (STRONG) ================= */
 .attr-row strong {
-  width: 100%;
-  font-size: 1rem;
-  letter-spacing: 0.14em;
- 
-  text-transform: uppercase;
-  opacity: 0.65;
-  margin-bottom: 2px;
-}
+  display: block;
+  text-align: center; /* 🔥 centré */
 
-/* ===== PILLS ===== */
-.attr-row span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  margin-bottom: 12px;
 
-  padding: 6px 12px;
-  border-radius: 999px;
+  font-family: 'Cinzel', serif;
 
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-
-  color: #7dffb2;
-
-  background: linear-gradient(
-    135deg,
-    rgba(20, 40, 30, 0.85),
-    rgba(10, 20, 15, 0.95)
-  );
-
-  box-shadow:
-    inset 0 0 0 1px rgba(92,255,157,0.28),
-    0 0 14px rgba(92,255,157,0.18);
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  white-space: nowrap;
-}
-
-/* BONUS PILL */
-.attr-row span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  padding: 7px 12px;
-  border-radius: 999px;
-
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-
-  color: #7dffb2;
-
-  background: linear-gradient(
-    135deg,
-    rgba(20, 40, 30, 0.85),
-    rgba(10, 20, 15, 0.95)
-  );
-
-  box-shadow:
-    inset 0 0 0 1px rgba(92,255,157,0.28),
-    0 0 12px rgba(92,255,157,0.15);
-
-  white-space: nowrap;
-}
-
-
-/* ===== TOTAL CHIP ===== */
-.attr-row:last-child {
-  justify-content: center;
-}
-
-.attr-row:last-child span {
-  padding: 10px 22px;
-
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
 
-  color: #ffffff;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 
-  background: linear-gradient(
-    135deg,
-    rgba(92,255,157,0.45),
-    rgba(20,40,30,0.95)
-  );
+  color: #7dffb2; /* 💚 vert principal */
+
+  text-shadow:
+    0 0 10px rgba(125,255,178,.25),
+    0 0 22px rgba(125,255,178,.12);
+
+  opacity: 1;
+}
+
+/* ================= BADGES (SPAN) ================= */
+.attr-row span {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 8px 12px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(125,255,178,0.10),
+      rgba(125,255,178,0.04)
+    );
+
+  border: 1px solid rgba(125,255,178,0.18);
+
+  color: rgba(160,255,200,.95); /* 💚 vert secondaire */
+
+  font-size: 0.68rem;
 
   box-shadow:
-    inset 0 0 0 1px rgba(92,255,157,0.6),
-    0 0 26px rgba(92,255,157,0.45);
-}
-.attr-row span[data-bonus] {
-  background: linear-gradient(
-    135deg,
-    rgba(92,255,157,0.22),
-    rgba(10, 20, 15, 0.95)
-  );
-
-  color: #ffffff;
-
-  box-shadow:
-    inset 0 0 0 1px rgba(92,255,157,0.45),
-    0 0 18px rgba(92,255,157,0.28);
-}
-@media (max-width: 480px) {
-  .attr-row span {
-    font-size: 0.68rem;
-    padding: 6px 10px;
-  }
-
-  .attr-row:last-child span {
-    font-size: 0.8rem;
-    padding: 9px 20px;
-  }
+    0 6px 14px rgba(0,0,0,.22);
 }
 
+/* ================= TOTAL (PLUS IMPACT) ================= */
+.attr-row[style*="font-size:1rem"] strong {
+  font-size: 1.15rem;
+
+  color: #9cffc7;
+
+  text-shadow:
+    0 0 12px rgba(125,255,178,.35),
+    0 0 26px rgba(125,255,178,.16);
+}
 
 /* ================= DESKTOP ONLY ================= */
 #connectExtension {
@@ -958,6 +974,8 @@ footer a:visited {
     display: inline-flex !important;
   }
 }
+
+
 /* ================= PAGE CENTRALE ================= */
 .odins-preview {
   width: 100%;
@@ -1140,21 +1158,24 @@ footer a:visited {
   font-size: clamp(1.4rem, 5vw, 1.8rem);
 
   letter-spacing: 0.65em;
-  padding-left: 0.225em; /* 🔥 compensation optique */
+  padding-left: 0.225em;
 
   color: #fff;
 
   text-shadow:
     0 0 6px rgba(255,255,255,0.35),
-    0 0 14px rgba(255,255,255,0.25);
+    0 0 14px rgba(255,255,255,0.25),
+    0 0 28px rgba(255,255,255,0.12);
 }
 
 .section-title-white {
-  display: block;          /* 🔥 au lieu de inline-block */
+  display: block;
   text-align: center;
   margin-top: 6px;
+
   font-weight: 600;
   line-height: 1.2;
+
   font-family: 'Cinzel', serif;
   font-size: clamp(0.9rem, 2.5vw, 1.1rem);
 
@@ -1162,14 +1183,21 @@ footer a:visited {
   padding-left: 0.09em;
 
   color: #fff;
+
+  text-shadow:
+    0 0 5px rgba(255,255,255,0.20),
+    0 0 14px rgba(255,255,255,0.10);
 }
 
 .section-title-white-connect {
-  display: block;          /* 🔥 au lieu de inline-block */
+  display: block;
   text-align: center;
-  margin: 6px 0 18px; /* 🔥 top | sides | bottom */
+
+  margin: 6px 0 24px;
+
   font-weight: 600;
   line-height: 1.2;
+
   font-family: 'Cinzel', serif;
   font-size: clamp(1rem, 2.5vw, 1.6rem);
 
@@ -1177,6 +1205,10 @@ footer a:visited {
   padding-left: 0.09em;
 
   color: #fff;
+
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.25),
+    0 0 18px rgba(255,255,255,0.12);
 }
 
 /* Ligne décorative blanche */
@@ -1184,43 +1216,54 @@ footer a:visited {
   content: "";
   display: block;
   width: 600px;
+  max-width: 90%;
   height: 1px;
   margin: 10px auto 0;
+
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255,255,255,0.8),
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.92),
+    rgba(255,255,255,0.25),
     transparent
   );
-    /* 🪓 POLICE VIKING */
+
   font-family: 'Cinzel', serif;
   letter-spacing: 0.06em;
 }
 
 @keyframes whiteShimmer {
+
   0% {
     opacity: 0.7;
+
     text-shadow:
-      0 0 4px rgba(255,255,255,0.25),
-      0 0 8px rgba(255,255,255,0.15);
+      0 0 4px rgba(255,255,255,0.20),
+      0 0 8px rgba(255,255,255,0.12);
   }
+
   50% {
     opacity: 1;
+
     text-shadow:
-      0 0 10px rgba(255,255,255,0.7),
+      0 0 10px rgba(255,255,255,0.75),
       0 0 22px rgba(255,255,255,0.45),
-      0 0 36px rgba(255,255,255,0.25);
+      0 0 36px rgba(255,255,255,0.20);
   }
+
   100% {
     opacity: 0.7;
+
     text-shadow:
-      0 0 4px rgba(255,255,255,0.25),
-      0 0 8px rgba(255,255,255,0.15);
+      0 0 4px rgba(255,255,255,0.20),
+      0 0 8px rgba(255,255,255,0.12);
   }
 }
 
 /* ♿ Accessibilité */
 @media (prefers-reduced-motion: reduce) {
+
   .section-title-white {
     animation: none;
   }
@@ -1231,18 +1274,20 @@ footer a:visited {
   width: 100%;
   margin-top: 32px;
   margin-bottom: 16px;
-  padding: 24px 16px;
+  padding: 28px 16px;
   border-radius: 14px;
   background:
     linear-gradient(
       90deg,
       rgba(0,0,0,0.95),
-      rgba(224,180,76,0.08),
+      rgba(224,180,76,0.10),
       rgba(0,0,0,0.95)
     );
 
-  border-top: 1px solid rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(224, 180, 76, 0.18);
+  border-bottom: 1px solid rgba(224, 180, 76, 0.18);
+  box-shadow:
+    0 0 40px rgba(224, 180, 76, 0.05);
     /* 🪓 POLICE VIKING */
   font-family: 'Cinzel', serif;
   letter-spacing: 0.06em;
@@ -1282,18 +1327,19 @@ footer a:visited {
 
   background: linear-gradient(
     135deg,
-    rgba(20, 40, 30, 0.85),
-    rgba(10, 20, 15, 0.95)
+    rgba(22, 44, 32, 0.9),
+    rgba(10, 20, 15, 0.98)
   );
   border-radius: 18px;
-  padding: 24px 20px;
+  padding: 28px 20px;
 
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(224, 180, 76, 0.16);
   text-align: center;
 
   box-shadow:
-    inset 0 0 20px rgba(255,255,255,0.03),
-    0 0 20px rgba(0,0,0,0.6);
+    inset 0 0 20px rgba(255,255,255,0.02),
+    0 0 24px rgba(0,0,0,0.7),
+    0 0 1px rgba(224, 180, 76, 0.1);
 	
     /* 🪓 POLICE VIKING */
   font-family: 'Cinzel', serif;
@@ -1307,8 +1353,8 @@ footer a:visited {
   color: #fff;
 
   text-shadow:
-    0 0 6px rgba(255,255,255,0.35),
-    0 0 14px rgba(255,255,255,0.25);
+    0 0 8px rgba(255,255,255,0.4),
+    0 0 20px rgba(224, 180, 76, 0.25);
 }
 
 /* LABEL */
@@ -1489,22 +1535,35 @@ footer a:visited {
 /* ================= WALLET BOX (GLASS CARD) ================= */
 .wallet-box {
   max-width: 640px;
-  margin: 70px auto;
-  padding: 32px;
-  border-radius: 24px;
+  margin: 48px auto;
+  padding: 36px 32px;
+  border-radius: 28px;
 
-  background: rgba(15, 25, 20, 0.55);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 38, 28, 0.72) 0%,
+      rgba(8, 18, 13, 0.88) 100%
+    );
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  /* 🔥 WHITE VERSION */
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
   box-shadow:
-    0 0 0 1px rgba(120, 255, 180, 0.15),
-    0 30px 70px rgba(0, 0, 0, 0.9),
-    0 0 40px rgba(92, 255, 157, 0.08);
+    0 40px 80px rgba(0, 0, 0, 0.92),
+    0 0 60px rgba(255, 255, 255, 0.05),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+    inset 0 30px 60px rgba(255, 255, 255, 0.025);
 
   text-align: center;
-  
-    /* 🪓 POLICE VIKING */
+
+  /* 🪓 POLICE VIKING */
   font-family: 'Cinzel', serif;
   letter-spacing: 0.06em;
 }
@@ -1567,19 +1626,28 @@ footer a:visited {
 .wallet-btn.tsk-style {
   background: linear-gradient(
     135deg,
-    #2cff9a,
-    #0cffc6
+    #2cff9a 0%,
+    #0cffc6 50%,
+    #2cff9a 100%
   );
+  background-size: 200% 200%;
+  animation: btnShine 3s ease-in-out infinite;
   color: #002014;
   font-weight: 800;
 
   box-shadow:
-    0 0 30px rgba(44, 255, 154, 0.75),
-    0 0 60px rgba(12, 255, 198, 0.45);
+    0 0 30px rgba(44, 255, 154, 0.6),
+    0 0 60px rgba(12, 255, 198, 0.3),
+    0 4px 20px rgba(0, 0, 0, 0.4);
 	
     /* 🪓 POLICE VIKING */
   font-family: 'Cinzel', serif;
   letter-spacing: 0.06em;
+}
+
+@keyframes btnShine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .wallet-balances.secondary {
@@ -1971,68 +2039,143 @@ footer a:visited {
   filter: drop-shadow(0 0 8px rgba(92,255,157,0.6));
 }
 
-/* ================= ONGLET BOUTONS (CHIPS++) ================= */
+/* ================= ONGLET BOUTONS (WHITE GLASS TABS) ================= */
 
 .main-tabs {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin: 22px 0 30px;
-  
-    /* 🪓 POLICE VIKING */
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 22px;
+  margin: 28px 0 38px;
+
   font-family: 'Cinzel', serif;
   letter-spacing: 0.06em;
 }
 
-/* ===== CHIP BASE ===== */
+/* ================= TAB BASE ================= */
+
 .main-tab {
   position: relative;
-  padding: 14px 30px;
+
+  min-width: 220px;
+  padding: 18px 42px;
+
   border-radius: 999px;
 
-  font-size: 1.05rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-family: 'Cinzel', serif;
+  font-size: 1.08rem;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 
   cursor: pointer;
-  border: 1px solid rgba(125,255,178,.45);
+  user-select: none;
 
-  background: linear-gradient(
-    135deg,
-    rgba(25, 55, 40, 0.8),
-    rgba(10, 25, 18, 0.95)
-  );
+  color: rgba(255,255,255,0.92);
 
-  color: #9cffc7;
+  border: 1px solid rgba(255,255,255,0.16);
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.06) 0%,
+      rgba(255,255,255,0.02) 100%
+    );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
   box-shadow:
-    inset 0 0 0 1px rgba(125,255,178,.22),
-    0 12px 34px rgba(0,0,0,.65),
-    0 0 24px rgba(125,255,178,.15);
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 12px 34px rgba(0,0,0,0.62),
+    0 0 24px rgba(255,255,255,0.05);
 
   transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
- 
- /* 🪓 POLICE VIKING */
-  font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease,
+    background .22s ease,
+    color .22s ease;
 }
 
-/* ✨ glow léger permanent */
+/* ================= SOFT GLOW ================= */
+
 .main-tab::after {
   content: "";
+
   position: absolute;
   inset: -1px;
+
   border-radius: inherit;
-  box-shadow: 0 0 20px rgba(125,255,178,.18);
-  opacity: .6;
+
+  box-shadow:
+    0 0 18px rgba(255,255,255,0.08);
+
+  opacity: 0.9;
   pointer-events: none;
+}
+
+/* ================= HOVER ================= */
+
+.main-tab:hover {
+  transform: translateY(-2px) scale(1.03);
+
+  color: #ffffff;
+
+  border-color: rgba(255,255,255,0.32);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.10) 0%,
+      rgba(255,255,255,0.04) 100%
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.14),
+    0 16px 40px rgba(0,0,0,0.72),
+    0 0 28px rgba(255,255,255,0.10);
+}
+
+/* ================= ACTIVE ================= */
+
+.main-tab.active {
+  color: #ffffff;
+
+  border-color: rgba(255,255,255,0.38);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.14) 0%,
+      rgba(255,255,255,0.06) 100%
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 18px 42px rgba(0,0,0,0.78),
+    0 0 34px rgba(255,255,255,0.14);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .main-tabs {
+    gap: 14px;
+  }
+
+  .main-tab {
+    width: 100%;
+    max-width: 320px;
+
+    padding: 18px 24px;
+
+    font-size: 0.98rem;
+  }
 }
 
 /* ===== HOVER ===== */
@@ -2244,104 +2387,287 @@ footer a:visited {
 }
 
 /* ================= LIST ================= */
+
 .combat-nft-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* 📱 plus étroit */
-  gap: 14px;
-  padding: 14px;
-  
-  background: linear-gradient(
-    135deg,
-    rgba(20, 40, 30, 0.85),
-    rgba(10, 20, 15, 0.95)
-  );
 
-  border-radius: 16px;
+  /* 🔥 layout plus harmonieux */
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
 
-  max-height: calc(2 * 220px + 14px); /* 📱 hauteur réduite */
+  gap: 10px;
+  padding: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 40, 30, 0.88),
+      rgba(10, 20, 15, 0.96)
+    );
+
+  border-radius: 18px;
+
+  max-height: calc(2 * 240px + 10px);
+
   overflow-y: auto;
 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-
-/* ================= CARD ================= */
-.combat-nft-item {
-  width: 100%;
-  height: 210px; /* 📱 plus compact */
-
-  background: rgba(0, 0, 0, 0.45);
-  border-radius: 14px;
-  padding: 8px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
 
   box-sizing: border-box;
-  cursor: pointer;
-
-  border: 1px solid rgba(125, 255, 178, 0.15);
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
 }
+
+/* ================= EMPTY ================= */
 
 .combat-nft-list.empty {
   display: flex !important;
   justify-content: center;
   align-items: center;
-  min-height: 300px;
+
+  min-height: 320px;
   height: 100%;
 }
 
-/* Hover desktop only */
+/* ================= CARD ================= */
+
+.combat-nft-item {
+  position: relative;
+
+  width: 100%;
+  height: 240px;
+
+  padding: 8px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18, 32, 25, 0.92),
+      rgba(8, 14, 11, 0.98)
+    );
+
+  border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  box-sizing: border-box;
+  overflow: hidden;
+
+  cursor: pointer;
+
+  border: 1px solid rgba(125, 255, 178, 0.14);
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.03);
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    border-color .22s ease;
+}
+
+/* ================= STATES ================= */
+
+.combat-nft-item.selected {
+  border-color: rgba(125,255,178,.72);
+
+  box-shadow:
+    0 0 20px rgba(125,255,178,.22),
+    0 14px 30px rgba(0,0,0,.55);
+}
+
+.combat-nft-item.used {
+  opacity: .72;
+  filter: grayscale(.15);
+}
+
+/* ================= HOVER ================= */
+
 @media (hover: hover) {
+
   .combat-nft-item:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-4px);
+
+    border-color:
+      rgba(125,255,178,.30);
+
     box-shadow:
-      0 8px 20px rgba(0, 0, 0, 0.6),
-      0 0 14px rgba(125, 255, 178, 0.25);
+      0 16px 28px rgba(0,0,0,.55),
+      0 0 14px rgba(125,255,178,.14);
   }
 }
 
 /* ================= MEDIA ================= */
+
 .combat-nft-item img,
 .combat-nft-item video {
   width: 100%;
-  height: 150px; /* 📱 ajusté */
-  object-fit: contain;
 
-  border-radius: 10px;
+  /* 🔥 dimensions conservées */
+  height: 170px;
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 12px;
+
   background: #000;
+
+  display: block;
+
+  flex-shrink: 0;
 }
 
 /* ================= TEXT ================= */
+
 .combat-nft-item .nft-text {
   width: 100%;
-  height: 32px;
+
+  margin-top: 6px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
+  gap: 6px;
+
+  text-align: center;
+
   font-family: 'Cinzel', serif;
-  letter-spacing: 0.05em;
 }
 
-.combat-nft-item .nft-name {
-  font-size: 0.60rem; /* 📱 lisible */
-  font-weight: 600;
+/* ================= NFT NAME ================= */
 
-  max-width: 100%;
-  white-space: nowrap;
+.combat-nft-item .nft-name {
+  width: 100%;
+  
+  padding: 0 4px;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  line-height: 1.25;
+  letter-spacing: 0.06em;
+
+  color: rgba(255,255,255,.92);
+
+  text-align: center;
+
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 
-  color: #7dffb2;
-  opacity: 0.9;
+  text-shadow:
+    0 0 8px rgba(255,255,255,.08);
+}
+
+/* ================= CATEGORY ================= */
+
+.combat-nft-item .nft-category {
+  display: flex;
+
+  /* 🔥 centrage complet */
+  align-items: center;
+  justify-content: center;
+
+  /* 🔥 centre horizontalement dans la card */
+  margin: 10px auto 0;
+
+  width: fit-content;
+
+  padding: 5px 12px;
+
+  border-radius: 999px;
+
+  font-size: 0.54rem;
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(30, 60, 45, 0.95),
+      rgba(12, 24, 18, 0.95)
+    );
+
+  border: 1px solid rgba(125,255,178,.18);
+
+  color: #8fffc1;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.02),
+    0 4px 12px rgba(0,0,0,.28);
+}
+
+/* ================= COOLDOWN ================= */
+.already-used-label .time {
+  color: #ff3b3b;
+  font-weight: 900;
+}
+.already-used-label {
+  position: absolute;
+
+  top: 8px;
+  right: 8px;
+
+  z-index: 5;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: rgba(0,0,0,.78);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  color: #ff3b3b;
+
+  font-size: 0.62rem;
+  font-weight: 800;
+
+  letter-spacing: 0.04em;
+
+  backdrop-filter: blur(6px);
+
+  box-shadow:
+    0 0 14px rgba(0,0,0,.32);
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .combat-nft-list {
+    grid-template-columns:
+      repeat(auto-fill, minmax(145px, 1fr));
+
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .combat-nft-item {
+    height: 225px;
+    padding: 7px;
+  }
+
+  /* 🔥 dimensions vidéo/image inchangées */
+  .combat-nft-item img,
+  .combat-nft-item video {
+    height: 150px;
+  }
+
+  .combat-nft-item .nft-name {
+    font-size: 0.64rem;
+  }
 }
 
 /* ================= HOVER ================= */
@@ -2388,8 +2714,8 @@ footer a:visited {
 
 /* ================= CARD SLOT ================= */
 .combat-card-slot {
-  width: 180px;      /* taille adaptée smartphone */
-  height: 260px;
+  width: 220px;      /* taille adaptée smartphone */
+  height: 300px;
 
   padding: 10px;
 
@@ -2415,8 +2741,8 @@ footer a:visited {
 /* ================= MEDIA SLOT ================= */
 .combat-card-slot img,
 .combat-card-slot video {
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
 
   border-radius: 10px;
@@ -2437,24 +2763,84 @@ footer a:visited {
 
 /* ================= BUTTON ================= */
 .combat-start-btn {
-  margin-top: 20px;
-  padding: 16px 26px; /* zone tactile plus large */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 540px; /* 🔥 beaucoup plus large */
+
+  margin: 24px auto 0;
+
+  padding: 20px 32px;
 
   font-family: 'Cinzel', serif;
-  font-size: 1.05rem; /* texte plus lisible sur mobile */
-  letter-spacing: 0.1em;
+  font-size: 1.08rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 
   cursor: pointer;
-  border-radius: 18px; /* plus doux visuellement */
 
-  color: #7dffb2;
-  background: rgba(0, 0, 0, 0.55);
-  border: 1.5px solid rgba(125, 255, 178, 0.6);
+  border-radius: 22px;
 
-  animation: combatPulse 3.2s infinite; /* animation un peu plus lente */
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  color: #ffffff;
 
-  min-height: 48px; /* recommandation accessibilité mobile */
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.04)
+    );
+
+  border: 1px solid rgba(255,255,255,0.16);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 16px 36px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.06);
+
+  animation: combatPulse 3.2s infinite;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+
+  min-height: 62px;
+}
+
+/* ✨ hover desktop */
+@media (hover: hover) and (pointer: fine) {
+
+  .combat-start-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+
+    border-color: rgba(255,255,255,0.28);
+
+    box-shadow:
+      0 0 24px rgba(255,255,255,.10),
+      0 0 50px rgba(255,255,255,.05),
+      0 20px 42px rgba(0,0,0,.65);
+  }
+}
+
+/* 📱 mobile */
+@media (max-width: 768px) {
+
+  .combat-start-btn {
+    max-width: 100%;
+
+    padding: 18px 24px;
+
+    font-size: 1rem;
+
+    min-height: 58px;
+  }
 }
 
 /* Désactivation du hover sur mobile */
@@ -2512,32 +2898,54 @@ footer a:visited {
   color: #ff5555;
 }
 
-/* ================= NFT DÉJÀ JOUÉ ================= */
 .combat-nft-item.used {
   pointer-events: none;
-  opacity: 0.45;
-  filter: grayscale(100%);
+  opacity: 0.6; /* un peu moins agressif */
+  filter: none; /* ❌ on enlève grayscale (source du gris sale) */
   position: relative;
 }
 
-/* LABEL "DÉJÀ JOUÉ" */
-.already-used-label {
-  position: absolute;
-  bottom: 6px;
-  left: 50%;
-  transform: translateX(-50%);
+/* ================= COOLDOWN LABEL ================= */
+.combat-nft-item {
+  position: relative;
+  overflow: hidden;
+}
 
-  padding: 4px 8px;
-  font-size: 0.6rem;
+.already-used-label {
+  position: absolute !important;
+
+  top: 50% !important;
+  left: 50% !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  z-index: 999;
+
+  padding: 3px 6px;
+
+  border-radius: 6px;
+
+  background: rgba(20, 0, 0, 0.88);
+  border: 1px solid rgba(255, 60, 60, 0.35);
+
+  color: #ff3b3b;
+
+  font-size: 0.8rem;
+  font-weight: 800;
 
   font-family: 'Cinzel', serif;
-  letter-spacing: 0.08em;
 
-  color: #7dffb2;
-  background: rgba(0, 0, 0, 0.75);
+  white-space: nowrap;
 
-  border-radius: 8px;
-  border: 1px solid rgba(125, 255, 178, 0.45);
+  text-align: center;
+
+  backdrop-filter: blur(4px);
+}
+
+/* 🔥 timer rouge renforcé */
+.already-used-label .time {
+  color: #ff3b3b;
+  font-weight: 900;
 }
 
 /* ================= EXTRA SMALL ================= */
@@ -2555,41 +2963,80 @@ footer a:visited {
 /* ================= OVERLAY ================= */
 .combat-overlay {
   position: fixed;
-  inset: 0;
 
-  background: radial-gradient(
-    circle at center,
-    rgba(255,255,255,0.05),
-    rgba(0,0,0,0.94)
-  );
+  /* 🔥 ne prend plus tout l'écran */
+  top: 50%;
+  left: 50%;
 
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  transform: translate(-50%, -50%);
+
+  width: min(82vw, 520px);
+  min-height: 140px;
+
+  padding: 28px 34px;
+
+  border-radius: 28px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.06),
+      rgba(0,0,0,0.88)
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 40px rgba(0,0,0,0.55),
+    0 0 80px rgba(0,0,0,0.35);
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   z-index: 9999;
+
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.35s ease;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+
+  /* 🔥 apparition plus clean */
+  scale: 0.92;
 }
 
 .combat-overlay.active {
   opacity: 1;
   pointer-events: all;
+
+  transform: translate(-50%, -50%) scale(1);
 }
 
 /* ================= TEXTE BASE ================= */
 .combat-overlay-text {
+  position: relative;
+
   font-family: 'Cinzel', serif;
-  font-size: clamp(22px, 6vw, 62px);
-  letter-spacing: 0.18em;
+
+  /* ✅ taille plus maîtrisée */
+  font-size: clamp(64px, 8vw, 64px);
+
+  /* 🔥 réduit fortement la hauteur */
+  line-height: 1;
+
+  letter-spacing: 0.10em;
+
   text-transform: uppercase;
   text-align: center;
 
-  color: #e6c97a; /* or viking */
+  color: #e6c97a;
+
   opacity: 0;
 
   transform-style: preserve-3d;
@@ -2598,12 +3045,19 @@ footer a:visited {
   text-shadow:
     0 0 6px rgba(230,201,122,0.25),
     0 0 18px rgba(180,140,60,0.15);
+
+  word-break: keep-all;
+
+  /* 🔥 empêche le texte de prendre trop de place */
+  white-space: nowrap;
 }
 
 /* ================= SUSPENSE ================= */
 .combat-overlay-text.pending-3d {
   opacity: 1;
-  animation: fateGlow 2.8s ease-in-out infinite;
+
+  animation:
+    fateGlow 2.8s ease-in-out infinite;
 
   text-shadow:
     0 0 8px rgba(230,201,122,0.35),
@@ -2616,94 +3070,57 @@ footer a:visited {
     transform: scale(0.98);
     filter: brightness(0.85);
   }
+
   50% {
     transform: scale(1.02);
     filter: brightness(1.15);
   }
+
   100% {
     transform: scale(0.98);
     filter: brightness(0.85);
   }
 }
 
-/* ================= VICTORY ================= */
-/* ================= VICTORY ================= */
+/* ================= RESULT STATES ================= */
+.combat-overlay-text {
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
 .combat-overlay-text.win {
   opacity: 1;
-  color: #9cffc8; /* vert clair noble */
+  color: #9cffc8;
 
   text-shadow:
     0 0 6px rgba(156,255,200,0.35),
     0 0 18px rgba(90,180,140,0.22);
 
-  animation: victoryAscension 2.1s cubic-bezier(.2,.7,.2,1) forwards;
-  transform-origin: center;
+  animation:
+    stateRise 2.4s cubic-bezier(.2,.7,.2,1) forwards;
 }
 
-/* Halo noble subtil */
 .combat-overlay-text.win::after {
   content: "";
+
   position: absolute;
-  inset: -25%;
-  background: radial-gradient(
-    circle,
-    rgba(180,255,220,0.18),
-    transparent 85%
-  );
+  inset: -20%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(180,255,220,0.18),
+      transparent 80%
+    );
+
   opacity: 0;
-  animation: victoryAura 2.1s ease forwards;
+
+  animation:
+    stateGlow 2.2s ease forwards;
+
   pointer-events: none;
 }
 
-@keyframes victoryAura {
-  0%   { opacity: 0; }
-  35%  { opacity: 0.35; }
-  70%  { opacity: 0.18; }
-  100% { opacity: 0; }
-}
-
-/* ================= ANIMATION ================= */
-@keyframes victoryAscension {
-  /* arrivée calme */
-  0% {
-    opacity: 0;
-    transform:
-      translateY(28px)
-      scale(0.92)
-      rotateX(10deg);
-    filter: brightness(0.9);
-  }
-
-  /* élévation */
-  35% {
-    opacity: 1;
-    transform:
-      translateY(-8px)
-      scale(1.06)
-      rotateX(-3deg);
-    filter: brightness(1.15);
-  }
-
-  /* stabilisation noble */
-  70% {
-    transform:
-      translateY(0)
-      scale(1)
-      rotateX(0deg);
-    filter: brightness(1.05);
-  }
-
-  /* tenue majestueuse */
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    filter: brightness(1);
-  }
-}
-
-
-
-/* ================= DEFEAT ================= */
 .combat-overlay-text.lose {
   opacity: 1;
   color: #ff6a6a;
@@ -2712,75 +3129,256 @@ footer a:visited {
     0 0 6px rgba(255,90,90,0.35),
     0 0 18px rgba(160,40,40,0.25);
 
-  animation: defeatFracture 2.2s cubic-bezier(.3,.1,.2,1) forwards;
-  transform-origin: center;
+  animation:
+    stateFall 2.2s cubic-bezier(.3,.1,.2,1) forwards;
 }
 
-/* ✂️ Ligne de fracture subtile */
 .combat-overlay-text.lose::after {
   content: "";
+
   position: absolute;
-  inset: -10%;
-  background: linear-gradient(
-    120deg,
-    transparent 45%,
-    rgba(255,255,255,0.15) 50%,
-    transparent 55%
-  );
+  inset: -20%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 45%,
+      rgba(255,255,255,0.12) 50%,
+      transparent 55%
+    );
+
   opacity: 0;
-  animation: fractureFlash 2.2s ease forwards;
+
+  animation:
+    stateFlash 2.2s ease forwards;
+
   pointer-events: none;
 }
 
-@keyframes fractureFlash {
-  0%   { opacity: 0; }
-  25%  { opacity: 0.25; }
-  40%  { opacity: 0; }
+.combat-overlay-text.draw {
+  opacity: 1;
+  color: #7ad7ff;
+
+  text-shadow:
+    0 0 6px rgba(90,200,255,0.35),
+    0 0 18px rgba(40,120,160,0.25);
+
+  animation:
+    stateBalance 2.2s cubic-bezier(.25,.6,.25,1) forwards;
+}
+
+.combat-overlay-text.draw::after {
+  content: "";
+
+  position: absolute;
+  inset: -20%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(120,220,255,0.15),
+      transparent 85%
+    );
+
+  opacity: 0;
+
+  animation:
+    stateGlow 2.2s ease forwards;
+
+  pointer-events: none;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes stateRise {
+  0% {
+    opacity: 0;
+    transform: translateY(25px) scale(0.92);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translateY(-6px) scale(1.05);
+  }
+
+  70% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes stateFall {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(0) scale(1.05);
+  }
+
+  70% {
+    transform: translateY(10px) scale(0.96);
+  }
+
+  100% {
+    transform: translateY(20px) scale(0.9);
+  }
+}
+
+@keyframes stateBalance {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.98);
+  }
+}
+
+@keyframes stateGlow {
+  0% { opacity: 0; }
+  30% { opacity: 0.3; }
+  60% { opacity: 0.15; }
   100% { opacity: 0; }
 }
 
-/* ================= ANIMATION ================= */
-@keyframes defeatFracture {
-  /* apparition lourde */
-  0% {
-    opacity: 0;
-    transform: scale(0.94);
-    filter: brightness(1.15);
+@keyframes stateFlash {
+  0% { opacity: 0; }
+  25% { opacity: 0.2; }
+  50% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ================= SCORE XP ================= */
+
+.combat-score-wrapper {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
+
+  animation:
+    combatScoreAppear .45s ease;
+}
+
+.combat-score-side {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+
+  min-width:120px;
+}
+
+.combat-score-label {
+  font-size:.82rem;
+
+  letter-spacing:.14em;
+  text-transform:uppercase;
+
+  opacity:.7;
+
+  font-family:'Cinzel', serif;
+}
+
+.combat-score-value {
+  font-size:clamp(34px, 5vw, 64px);
+
+  font-weight:900;
+
+  line-height:1;
+
+  font-family:'Cinzel', serif;
+
+  animation:
+    xpPulse 1.2s ease-in-out infinite;
+}
+
+.combat-score-side.player .combat-score-value {
+  color:#9cffc8;
+
+  text-shadow:
+    0 0 12px rgba(120,255,180,.45),
+    0 0 28px rgba(80,200,140,.22);
+}
+
+.combat-score-side.enemy .combat-score-value {
+  color:#ff8c8c;
+
+  text-shadow:
+    0 0 12px rgba(255,90,90,.45),
+    0 0 28px rgba(180,40,40,.22);
+}
+
+.combat-score-vs {
+  font-size:1.6rem;
+
+  opacity:.8;
+
+  animation:
+    vsSpin 2.4s linear infinite;
+}
+
+.combat-score-show {
+  opacity:1 !important;
+}
+
+@keyframes combatScoreAppear {
+
+  from {
+    opacity:0;
+    transform:scale(.92);
   }
 
-  /* impact */
-  22% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-
-  /* instabilité / fracture */
-  38% {
-    transform: translateX(-10px) rotateZ(-1.5deg);
-  }
-
-  48% {
-    transform: translateX(10px) rotateZ(1.5deg);
-  }
-
-  58% {
-    transform: translateX(-6px) rotateZ(-0.8deg);
-  }
-
-  /* gravité qui tire vers le bas */
-  75% {
-    transform: translateY(14px) scale(0.96);
-    filter: brightness(0.9);
-  }
-
-  /* écrasement final */
-  100% {
-    opacity: 1;
-    transform: translateY(28px) scale(0.88);
-    filter: brightness(0.75);
+  to {
+    opacity:1;
+    transform:scale(1);
   }
 }
 
+@keyframes xpPulse {
+
+  0% {
+    transform:scale(1);
+    filter:brightness(.9);
+  }
+
+  50% {
+    transform:scale(1.08);
+    filter:brightness(1.15);
+  }
+
+  100% {
+    transform:scale(1);
+    filter:brightness(.9);
+  }
+}
+
+@keyframes vsSpin {
+
+  0% {
+    transform:rotate(0deg);
+  }
+
+  100% {
+    transform:rotate(360deg);
+  }
+}
 
 
 /* ================= FIN COMBAT ================= */
@@ -3412,9 +4010,14 @@ footer a:visited {
   font-family: 'Cinzel', serif;
 }
 
+.cooldown-time {
+  color: #ff3b3b;
+  font-weight: 900;
+}
+
 .combat-msg.cooldown {
   display: block;
-  color: #ffd27d;
+  color: #ff3b3b;
   background: rgba(120, 90, 0, 0.35);
   border: 1px solid rgba(255, 200, 80, 0.6);
 
@@ -3452,7 +4055,7 @@ footer a:visited {
   width: fit-content;
 
   font-family: 'Cinzel', serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 
@@ -3536,7 +4139,7 @@ footer a:visited {
 }
 
 </style>
-  <script type="module" crossorigin src="./assets/index-b4c82c6d.js"></script>
+  <script type="module" crossorigin src="./assets/index-040ac598.js"></script>
 </head>
 
 <body>
@@ -3569,7 +4172,6 @@ footer a:visited {
 
 <main>
 <div>
-<br><br><br>
 <section class="about" id="aboutSection">
   <h2 class="magic-text runic">ᚠᚢᚦᚨ - ABOUT - ᚨᚦᚢᚠ</h2>
 
@@ -3587,7 +4189,7 @@ footer a:visited {
   <div class="odins-row" id="odinsRow"></div>
 </section>
 
-<div class="wallet-balances"></div> 
+<div class="wallet-balances" style="display:none;"></div> 
  
 <div class="wallet-box">
 
@@ -3665,7 +4267,7 @@ footer a:visited {
 </div>
 </div>
 
-<div class="main-tabs" id="mainTabs">
+<div class="main-tabs" id="mainTabs" style="display:none;">
   <button class="main-tab active" data-main-tab="collection">
     🧩 Odin'sDeck
   </button>
@@ -3677,7 +4279,6 @@ footer a:visited {
     ⚔️ Battle
   </button>
 </div>
-<br>
 
 <div id="mainTabContents">
 
@@ -3685,9 +4286,8 @@ footer a:visited {
   <div class="main-tab-content active" data-main-content="collection">
 
     <!-- SECTION ODINS -->
-    <div class="nft-section" id="nftSectionOdins">
+    <div class="nft-section" id="nftSectionOdins" style="display:none;">
       <h2 class="section-title-white-connect">Odins'Deck NFT(s)</h2>
-<br><br>
       <div class="odins-recap">
         <div class="odins-count">
           Total NFT(s) : <span id="odinsCount">0</span>
@@ -3700,20 +4300,19 @@ footer a:visited {
     </div>
 
     <!-- 🏆 TOP HOLDERS -->
-    <div class="nft-section" id="topHoldersDeck">
+    <div class="nft-section" id="topHoldersDeck" style="display:none;">
       <h2 class="section-title-white-connect">🏆 Top Holders</h2>
-	  <br><br>
       <div class="top-holders-list" id="topHoldersList"></div>
     </div>
     
     <!-- OTHER NFT -->
-    <div class="nft-section" id="nftSectionOthers">
+    <div class="nft-section" id="nftSectionOthers" style="display:none;">
       <h2 class="section-title-white-connect">MultiversX NFT(s)</h2>
-      <br><br>
       <input
         type="text"
         id="otherNftSearch"
         class="nft-search"
+        style="display:none;"
         placeholder="Search NFT (name or nonce)…"
       />
 
@@ -3758,7 +4357,7 @@ footer a:visited {
         <!-- NFTs injectés en JS -->
       </div>
     </section>
-
+</br>
 	<div class="combat-counter-wrapper">
 	  <div id="combatCounter" class="viking-chip">
 		⚔️ 0 / 7
@@ -3769,7 +4368,7 @@ footer a:visited {
     <section
       id="combatArena"
       class="combat-arena combat-step"
-      style="display: none;"
+      
     >
       <div class="combat-cards">
         <div
@@ -3786,12 +4385,12 @@ footer a:visited {
           aria-label="Enemy Odin"
         ></div>
       </div>
-<br>
       <button
         id="startCombatBtn"
         class="combat-start-btn"
         type="button"
         disabled
+        style="margin-top: 18px;"
       >
         ⚔️ Start Battle
       </button>
@@ -3804,21 +4403,22 @@ footer a:visited {
     </section>
 <div id="combatMessage" class="combat-msg"></div>
 
-<br><br><br>
     <!-- ===== COMBAT STATS / LEADERBOARD ===== -->
-    <section id="combatStats" class="combat-stats">
+    <section id="combatStats" class="combat-stats" style="margin-top: 48px;">
       <h3>🏆 Battle Stats / Leaderboard</h3>
 
       <div class="combat-stats-table-wrapper">
         <table>
           <thead>
             <tr>
-              <th scope="col">Rank</th>
-              <th scope="col">ERD</th>
-              <th scope="col">Wins</th>
-              <th scope="col">Losses</th>
-              <th scope="col">Rewards $TSK</th>
-            </tr>
+			  <th scope="col">🏆 Rank</th>
+			  <th scope="col">⚡ ERD</th>
+			  <th scope="col">✅ Wins</th>
+			  <th scope="col">💀 Losses</th>
+			  <th scope="col">🌀 Draws</th>
+			  <th scope="col">⚖️ WinRate</th>
+			  <th scope="col">💰 Rewards $TSK</th>
+			</tr>
           </thead>
           <tbody id="combatStatsBody">
             <!-- Injecté en JS -->
@@ -3884,6 +4484,52 @@ footer a:visited {
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <!-- Firebase Firestore -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+<!-- ===== PATCH GLOBAL : fonctions manquantes détectées ===== -->
+<script>
+  /* shortAddress : utilisée dans le leaderboard mais non définie dans main.js */
+  if (typeof window.shortAddress === "undefined") {
+    window.shortAddress = function(addr) {
+      if (!addr || addr.length < 14) return addr || "—";
+      return addr.slice(0, 6) + "…" + addr.slice(-6);
+    };
+  }
+
+  /* createNftCard : utilisée dans renderOtherNftsGrouped mais non définie */
+  if (typeof window.createNftCard === "undefined") {
+    window.createNftCard = function(nft) {
+      const card = document.createElement("div");
+      card.className = "nft-card";
+
+      const isVideo = nft.image && /\.(mp4|webm|ogg)$/i.test(nft.image);
+      let media;
+      if (isVideo) {
+        media = document.createElement("video");
+        media.src = nft.image;
+        media.loop = true;
+        media.muted = true;
+        media.playsInline = true;
+        media.preload = "metadata";
+      } else {
+        media = document.createElement("img");
+        media.src = nft.image || "";
+        media.loading = "lazy";
+        media.decoding = "async";
+      }
+
+      const name = document.createElement("div");
+      name.className = "nft-name";
+      name.textContent = nft.name || nft.identifier || "—";
+
+      const nonce = document.createElement("div");
+      nonce.className = "nft-nonce";
+      nonce.textContent = nft.nonce !== undefined ? `nonce ${nft.nonce}` : "";
+
+      card.append(media, name, nonce);
+      return card;
+    };
+  }
+</script>
 
 <div id="combatOverlay" class="combat-overlay">
   <div id="combatOverlayText" class="combat-overlay-text"></div>
