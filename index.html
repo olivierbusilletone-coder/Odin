@@ -4138,8 +4138,41 @@ footer a:visited {
   z-index: 20;
 }
 
+#challengeCountdown {
+
+  font-family: 'Cinzel', serif;
+
+  font-size: 1.8rem;
+
+  text-align: center;
+
+  color: #ffd700;
+
+  margin-top: 12px;
+
+  line-height: 1.4;
+}
+
+.challenge-time {
+
+  display: inline-block;
+
+  margin-top: 6px;
+
+  font-size: 1.8rem;
+
+  font-weight: 900;
+
+  color: #ffd700;
+
+  letter-spacing: 0.1em;
+
+  text-shadow:
+    0 0 10px rgba(255,180,50,.35);
+}
+
 </style>
-  <script type="module" crossorigin src="./assets/index-040ac598.js"></script>
+  <script type="module" crossorigin src="./assets/index-4a51a79f.js"></script>
 </head>
 
 <body>
@@ -4348,22 +4381,44 @@ footer a:visited {
 
 	</div>
 
+	 <!-- ===== ÉTAPE 1 : SÉLECTION ===== -->
+	<section id="combatSelect" class="combat-step">
+      <br />
+	  <!-- ================= CHALLENGE TIMER ================= -->
+	  <div
+		id="challengeCountdown"
+		class="challenge-countdown"
+	  ></div>
 
-    <!-- ===== ÉTAPE 1 : SÉLECTION ===== -->
-    <section id="combatSelect" class="combat-step">
-      <p class="combat-hint">Select your Odin</p>
+		<br /><br />
+	  <p class="combat-hint">
+		Select your Odin
+	  </p>
+	  
+	  <!-- ================= NFT LIST ================= -->
+	  <div
+		id="combatNftList"
+		class="combat-nft-list"
+	  >
+		<!-- NFTs injectés en JS -->
+	  </div>
 
-      <div id="combatNftList" class="combat-nft-list">
-        <!-- NFTs injectés en JS -->
-      </div>
-    </section>
-</br>
+	</section>
+	
+	<br />
+
+	<!-- ================= COMBAT COUNTER ================= -->
 	<div class="combat-counter-wrapper">
-	  <div id="combatCounter" class="viking-chip">
+
+	  <div
+		id="combatCounter"
+		class="viking-chip"
+	  >
 		⚔️ 0 / 7
 	  </div>
+
 	</div>
-	
+		
     <!-- ===== ÉTAPE 2 : ARÈNE ===== -->
     <section
       id="combatArena"
