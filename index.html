@@ -2,16 +2,40 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- ── SEO ── -->
+  <title>ODINVERSE — Viking NFT Arena on MultiversX</title>
+  <meta name="description" content="Odinverse — collection de 377 NFTs Viking animés sur MultiversX. Arène PvP, rewards $TSK, staking et tournois. Rejoins la bataille des Immortels.">
+  <meta name="theme-color" content="#04080a">
+  <meta name="robots" content="index, follow">
+
+  <!-- ── Open Graph (partage Discord / Telegram / Facebook) ── -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ODINVERSE — Viking NFT Arena on MultiversX">
+  <meta property="og:description" content="377 NFTs Viking animés · Arène PvP · Rewards $TSK. Rejoins la bataille des Immortels.">
+  <meta property="og:image" content="./images/logo3.png">
+  <meta property="og:site_name" content="Odinverse">
+
+  <!-- ── Twitter / X Card ── -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ODINVERSE — Viking NFT Arena on MultiversX">
+  <meta name="twitter:description" content="377 NFTs Viking animés · Arène PvP · Rewards $TSK.">
+  <meta name="twitter:image" content="./images/logo3.png">
+  <meta name="twitter:site" content="@Triskel_MvX">
+
+  <!-- ── Preconnect performance ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.multiversx.com">
+  <link rel="preconnect" href="https://media.multiversx.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
 
   <!-- FAVICON -->
   <link rel="icon" href="data:image/png;base64,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">
   <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
   <link rel="apple-touch-icon" href="data:image/png;base64,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">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
-
-
-<title>ODINVERSE — Viking MultiversX</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 /* ================= RESET ================= */
@@ -57,6 +81,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* Safe-area pour encoches iPhone / Android */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 /* Grain texture subtil */
@@ -171,7 +200,7 @@ header::after {
 }
 
 .header-logo {
-  height: 48px;
+  height: 68px;
   display: block; /* évite l’alignement inline */ 
   opacity: 0.6; /* 🔥 ajuste entre 0.4 et 0.8 */
 }
@@ -190,80 +219,143 @@ header span {
 }
 
 .header-bottom-logo img {
-  margin-top: 20px;
+  margin-top: 40px;
   height: 96px;
   opacity: 0.85; /* légèrement plus visible */
   filter: drop-shadow(0 0 12px rgba(224, 180, 76, 0.2));
 }
 
-@media (max-width: 400px) {
-
-  header {
-    padding: 8px 6px;
-  }
-
-  .header-title {
-    gap: 10px;                 /* 🔽 moins d’espace entre logo / texte */
-    letter-spacing: 10px;      /* 🔥 CRUCIAL sur mobile */
-  }
-
-  header span {
-    font-size: clamp(1.1rem, 6vw, 1.4rem);
-    letter-spacing: 0.18em;    /* remplace le letter-spacing énorme */
-  }
-
-  .header-logo {
-    height: 32px;              /* 🔽 logos plus petits */
-    opacity: 0.55;
-  }
-
-  .header-subtitle {
-    margin-top: 6px;
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
-  }
-
-  .header-bottom-logo img {
-    margin-top: 10px;
-    height: 64px;              /* 🔽 logo bas plus discret */
-    opacity: 0.75;
-  }
+/* ── Header responsive ── */
+@media (max-width: 768px) {
+  header { padding: 16px 12px 14px; }
+  .header-title-row { gap: 10px; }
+  .header-title { letter-spacing: clamp(6px, 2.5vw, 14px); gap: 8px; }
+  .header-title-text { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+  header span { font-size: clamp(1rem, 4.5vw, 1rem); }
+  .header-logo { height: 36px; opacity: .55; }
+  .header-subtitle { margin-top: 5px; font-size: .68rem; letter-spacing: .16em; }
+  .section-title-white { font-size: .62rem; letter-spacing: .18em; margin-top: 5px; }
+  .header-bottom-logo img { margin-top: 12px; height: 58px; opacity: .80; }
+}
+@media (max-width: 480px) {
+  header { padding: 12px 10px 10px; }
+  .header-title { letter-spacing: clamp(4px, 2vw, 10px); }
+  .header-title-text { font-size: clamp(1rem, 6vw, 1.3rem); }
+  .header-logo { height: 26px; opacity: .50; }
+  .section-title-white { font-size: .56rem; letter-spacing: .14em; }
+  .header-bottom-logo img { margin-top: 10px; height: 46px; }
+}
+@media (max-width: 360px) {
+  .header-title-text { font-size: 1rem; letter-spacing: 4px; }
+  .header-logo { height: 22px; }
+  .header-bottom-logo img { height: 38px; margin-top: 8px; }
 }
 
 /* ================= MAIN ================= */
 main {
   width: 100%;
   max-width: 1600px;
-  padding: 16px;
+  padding: 0 24px 48px;
+  margin: 0 auto;
   flex: 1;
 }
 
 /* ================= ABOUT ================= */
 .about {
-  /* 🎨 background conservé */
+  padding: 40px 24px;
+  max-width: 100%;
+  margin: 80px auto;
+
+  text-align: center;
+
+  color: #d8ffe8;
+
+  font-family: 'Cinzel', serif;
+
+  position: relative;
+
   background: linear-gradient(
-    135deg,
-    rgba(20, 40, 30, 0.85),
-    rgba(10, 20, 15, 0.95)
+    145deg,
+    rgba(18, 38, 28, 0.55),
+    rgba(10, 20, 15, 0.85)
   );
+
+  border: 1px solid rgba(92, 255, 157, 0.12);
+
+  border-radius: 26px;
+
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(92, 255, 157, 0.08),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(18px);
+}
+
+/* ================= TITLE RUNIC ================= */
+.about h2 {
+  font-size: 2rem;
+  letter-spacing: 0.25em;
 
   color: #7dffb2;
 
-  border-radius: 16px;
-  padding: 24px 28px;
-  margin-top: 36px;
-  margin-bottom: 16px;
+  text-shadow:
+    0 0 18px rgba(92, 255, 157, 0.25),
+    0 0 40px rgba(92, 255, 157, 0.08);
 
-  border: 1px solid rgba(224, 180, 76, 0.12);
-  box-shadow:
-    inset 0 0 0 1px rgba(92, 255, 157, 0.1),
-    0 8px 32px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
 
-  font-size: 1rem;
-  line-height: 1.7;
+/* ================= TEXT LORE ================= */
+.about p {
+  font-size: 1.05rem;
+  line-height: 1.8;
 
-  /* perf */
-  contain: layout paint;
+  color: rgba(220, 255, 235, 0.78);
+
+  letter-spacing: 0.09em;
+
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ================= RUNIC STYLE CLASS ================= */
+.magic-text.runic {
+  font-family: 'Cinzel', serif;
+}
+
+/* ================= OPTIONAL DECOR RUNES ================= */
+.about::before {
+ 
+  position: absolute;
+
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 0.9rem;
+  letter-spacing: 0.9em;
+
+  color: rgba(92, 255, 157, 0.25);
+
+  text-shadow: 0 0 12px rgba(92, 255, 157, 0.2);
+}
+
+.about::after {
+  content: "";
+  position: absolute;
+
+  inset: 0;
+
+  border-radius: 26px;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(92, 255, 157, 0.08),
+    transparent 60%
+  );
+
+  pointer-events: none;
 }
 
 /* 📱 MOBILE */
@@ -449,6 +541,24 @@ main {
   display: none;
 }
 
+/* ── Dans le top-hud : balances compactes inline ── */
+.top-hud .wallet-balances {
+  position: static;
+  flex-shrink: 0;
+  padding: 10px 18px;
+  border-radius: 14px;
+  font-size: .88rem;
+  gap: 14px;
+  box-shadow:
+    inset 0 0 0 1px rgba(92,255,157,.24),
+    0 6px 20px rgba(0,0,0,.55),
+    0 0 16px rgba(92,255,157,.14);
+}
+.top-hud .wallet-balances .balance-line {
+  padding: 6px 12px;
+  font-size: .80rem;
+}
+
 /* ================= LIGNES INTERNES ================= */
 .wallet-balances .balance-line {
   position: relative;
@@ -519,7 +629,7 @@ html, body {
 
 .nft-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 16px;
 
   padding: 16px;
@@ -534,8 +644,7 @@ html, body {
 
   border-radius: 18px;
 
-  /* 2 lignes visibles réelles */
-  max-height: calc(2 * 170px + 16px);
+  max-height: calc(3 * 200px + 32px);
   overflow-y: auto;
 
   backdrop-filter: blur(12px);
@@ -543,22 +652,20 @@ html, body {
 }
 
 
-/* 🔒 TAILLE FIXE POUR TOUTES LES CARTES */
+/* Carte NFT — hauteur fluide */
 .nft-card {
   width: 100%;
-  height: 210px;
+  height: auto;
+  min-height: 180px;
   contain: content;
   will-change: transform;
   background: rgba(0, 0, 0, 0.45);
   border-radius: 14px;
-
-  padding: 10px;
-
+  padding: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* 🔥 clé */
+  justify-content: space-between;
   align-items: center;
-
   box-sizing: border-box;
 }
 
@@ -577,16 +684,16 @@ html, body {
   letter-spacing: 0.06em;
 }
 
-/* 🔒 MEDIA IDENTIQUE */
+/* Media NFT — aspect-ratio conservé */
 .nft-card img,
 .nft-card video {
   width: 100%;
-  height: 160px; /* 🔧 légèrement réduit */
-
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   border-radius: 10px;
-
   background: #000;
+  display: block;
 }
 
 /* 🔒 TEXTE RÉSERVÉ */
@@ -639,109 +746,194 @@ html, body {
 
 
 /* ================= MODAL ================= */
+/* ═══════════════════════════════════════════════════
+   NFT MODAL — Premium redesign
+═══════════════════════════════════════════════════ */
 .nft-modal {
   position: fixed;
   inset: 0;
-  color: #7dffb2;
-
-  background: linear-gradient(
-    135deg,
-    rgba(20, 40, 30, 0.85),
-    rgba(10, 20, 15, 0.95)
-  );
   display: none;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
-  overflow-y: auto;          /* ✅ scroll modal */
   padding: 20px;
-    /* 🪓 POLICE VIKING */
+  overflow-y: auto;
   font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
+
+  /* Backdrop sombre avec blur */
+  background: rgba(2, 6, 4, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .nft-modal-content {
-  width: 90%;
-  max-width: 420px;
-  color: #7dffb2;
-
-  background: linear-gradient(
-    135deg,
-    rgba(20, 40, 30, 0.85),
-    rgba(10, 20, 15, 0.95)
-  );
-  padding: 20px;
-  border-radius: 16px;
-  border: 1px solid var(--border-strong);
-  max-height: calc(100vh - 40px);
-  overflow-y: auto;          /* ✅ scroll interne */
   position: relative;
-    /* 🪓 POLICE VIKING */
+  width: 90%;
+  max-width: 460px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
   font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
+
+  /* Fond glassmorphism */
+  background: linear-gradient(160deg, rgba(10, 24, 17, 0.97), rgba(4, 10, 7, 0.99));
+  border-radius: 24px;
+  padding: 0;
+
+  /* Bordure + glow */
+  border: 1px solid rgba(92, 255, 160, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(92, 255, 160, 0.06),
+    0 32px 80px rgba(0, 0, 0, 0.80),
+    0 0 40px rgba(92, 255, 160, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  animation: modalIn .28s cubic-bezier(.22, 1, .36, 1) both;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(.94) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0);    }
 }
 
-/* MODAL MEDIA */
+/* ── Scrollbar interne ── */
+.nft-modal-content::-webkit-scrollbar { width: 5px; }
+.nft-modal-content::-webkit-scrollbar-track { background: transparent; }
+.nft-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(92, 255, 160, 0.30);
+  border-radius: 999px;
+}
+
+/* ── Accent line haut ── */
+.nft-modal-content::before {
+  content: "";
+  position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(92,255,160,.60), transparent);
+  border-radius: 0 0 4px 4px;
+}
+
+/* ── Media (image / video) ── */
 .modal-image,
 .nft-modal video {
   width: 100%;
-  max-height: 300px;
+  aspect-ratio: 1 / 1;
+  max-height: 340px;
   object-fit: contain;
-  border-radius: 12px;
-    /* 🪓 POLICE VIKING */
-  font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
+  object-position: center;
+  border-radius: 22px 22px 0 0;
+  background: #000;
+  display: block;
 }
 
-/* ================= ATTRIBUTES ================= */
+/* ── Body padding ── */
+.nft-modal-body {
+  padding: 18px 20px 6px;
+}
+
+/* ── Titre ── */
+.nft-modal-content h3 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(.92rem, 2vw, 1.15rem);
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(92,255,160,.20);
+  margin: 16px 20px 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(92,255,160,.08);
+}
+
+/* ── Attributes ── */
 .nft-attributes {
+  margin: 12px 20px 0;
   border-radius: 14px;
-  margin-top: 14px;
-  max-height: 220px;
+  overflow: hidden;
+  border: 1px solid rgba(92, 255, 160, 0.10);
+  max-height: 260px;
   overflow-y: auto;
-  font-size: 0.9rem;
-    /* 🪓 POLICE VIKING */
   font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
+  font-size: .84rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(92,255,160,.28) transparent;
+}
+.nft-attributes::-webkit-scrollbar { width: 4px; }
+.nft-attributes::-webkit-scrollbar-thumb {
+  background: rgba(92,255,160,.28); border-radius: 999px;
 }
 
-/* traits blancs entre lignes */
 .attr {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 8px 10px;
-  color: #7dffb2; 
-  background: linear-gradient( 135deg, rgba(20, 40, 30, 0.85), 
-  rgba(10, 20, 15, 0.95) );
-  margin: 0;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-    /* 🪓 POLICE VIKING */
+  padding: 9px 14px;
   font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
+  font-size: .72rem;
+  letter-spacing: .06em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background .14s;
 }
+.attr:hover { background: rgba(92, 255, 160, 0.04); }
+.attr:last-child { border-bottom: none; }
 
-.attr:last-child {
-  border-bottom: none;
+/* Trait type (gauche) */
+.attr-type {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: .66rem;
+  letter-spacing: .10em;
+  text-transform: uppercase;
 }
-
-/* ================= CLOSE BUTTON ================= */
-.close-modal {
-  margin-top: 16px;
-  width: 100%;
-  padding: 12px;
-
-  border-radius: 10px;
+/* Trait value (droite) */
+.attr-value {
+  color: rgba(92, 255, 160, 0.90);
   font-weight: 700;
+  letter-spacing: .06em;
+  text-align: right;
+}
+/* Rarity badge (si présent) */
+.attr-rarity {
+  font-size: .56rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(92, 255, 160, 0.08);
+  border: 1px solid rgba(92, 255, 160, 0.16);
+  color: rgba(92, 255, 160, 0.70);
+  margin-left: 8px;
+  white-space: nowrap;
+}
 
-  color: #7dffb2; 
-  background: linear-gradient( 135deg, rgba(20, 40, 30, 0.85), 
-  rgba(10, 20, 15, 0.95) );
-
-  border: none;
+/* ── Close button ── */
+.close-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 16px 20px 20px;
+  width: calc(100% - 40px);
+  padding: 13px;
+  border-radius: 12px;
+  font-family: 'Cinzel', serif;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
   cursor: pointer;
 
-  transition: background 0.2s ease, transform 0.2s ease;
-    /* 🪓 POLICE VIKING */
+  color: rgba(92, 255, 160, 0.80);
+  background: rgba(92, 255, 160, 0.06);
+  border: 1px solid rgba(92, 255, 160, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+
+  transition: all .18s cubic-bezier(.22, 1, .36, 1);
+}
+.close-modal:hover {
+  color: #fff;
+  background: rgba(92, 255, 160, 0.12);
+  border-color: rgba(92, 255, 160, 0.38);
+  transform: translateY(-1px);
+  box-shadow: 0 0 14px rgba(92, 255, 160, 0.14);
+}
+
+/* ── transition: background 0.2s ease, transform 0.2s ease; kept for compat ── */
+/* 🪓 POLICE VIKING
   font-family: 'Cinzel', serif;
   letter-spacing: 0.06em;
 }
@@ -1046,9 +1238,8 @@ footer a:visited {
 .odins-item {
   width: 220px;
   height: 220px;
-  border-radius: 10px;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  border-radius: 14px;
+  margin: 0;
   overflow: hidden;               /* 🔥 coupe proprement */
   display: flex;
   align-items: center;            /* 🔥 centre le média */
@@ -1155,7 +1346,7 @@ footer a:visited {
   display: inline-block;
 
   font-family: 'Cinzel', serif;
-  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  font-size: clamp(3rem, 5vw, 1.8rem);
 
   letter-spacing: 0.65em;
   padding-left: 0.225em;
@@ -1387,156 +1578,137 @@ footer a:visited {
   }
 }
 
-/* ================= BOUTONS CENTRAL 3 ================= */
+/* ═══════════════════════════════════
+   ACTION CARDS — 3 colonnes
+═══════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   ACTION CARDS — même visuel que les sf-card (footer)
+═══════════════════════════════════════════════════ */
 .post-connect-actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
-  margin: 60px auto;
-  max-width: 1000px;
-  /* ✅ CENTRAGE */
-  justify-content: center;   /* centre la grille */
-  justify-items: center;     /* centre chaque bouton */
-  
-    /* 🪓 POLICE VIKING */
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);  /* 3 colonnes fluides */
+  gap: clamp(8px, 2vw, 14px);
+  margin: 22px auto 18px;
+  max-width: 900px;
+  width: 100%;
   font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
+}
+@media (max-width: 600px) {
+  .post-connect-actions {
+    grid-template-columns: 1fr;  /* 1 colonne sur mobile */
+    gap: 10px;
+    margin: 14px 0;
+  }
 }
 
+/* ── Base card — clone de .sf-card ── */
 .action-card {
-  display: flex;
   width: 100%;
-  max-width: 260px;
+  height: auto;
+  min-height: clamp(100px, 18vw, 180px);
+  display: flex;
   flex-direction: column;
-  justify-content: center;   /* centrage vertical */
-  align-items: center;       /* centrage horizontal */
-  text-align: center;
-  position: relative;
-  padding: 26px;
-  border-radius: 18px;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(6px, 1.5vw, 10px);
+  padding: clamp(16px, 3vw, 24px) clamp(12px, 2vw, 16px);
+  border-radius: clamp(14px, 2vw, 18px);
   text-decoration: none;
   color: #fff;
-  background: linear-gradient(
-    135deg,
-    rgba(40,40,40,0.9),
-    rgba(15,15,15,0.9)
-  );
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.05),
-    0 20px 40px rgba(0,0,0,0.6);
-  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
   overflow: hidden;
-}
-.card-value {
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin-bottom: 6px;
-  line-height: 1;
-}
+  cursor: pointer;
 
-.card-label {
-  font-size: 0.95rem;
-  opacity: 0.8;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  transition: transform .20s cubic-bezier(.22,1,.36,1), box-shadow .20s;
+  font-family: 'Cinzel', serif;
 }
-
-
 .action-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.12),
-    transparent
-  );
-  opacity: 0;
-  transition: opacity .3s ease;
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(145deg, transparent 30%, rgba(255,255,255,.09) 70%, transparent);
+  opacity: 0; transition: opacity .20s;
+}
+.action-card:hover { transform: translateY(-6px) scale(1.02); }
+.action-card:hover::before { opacity: 1; }
+
+/* ── Icon box — clone de .sf-card-icon ── */
+.card-icon {
+  width: clamp(36px, 8vw, 52px);
+  height: clamp(36px, 8vw, 52px);
+  border-radius: clamp(10px, 2vw, 14px);
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(1.1rem, 3.5vw, 1.55rem); flex-shrink: 0;
+  /* background set per-card below */
 }
 
-.action-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.1),
-    0 30px 60px rgba(0,0,0,0.8);
-}
-
-.action-card:hover::before {
-  opacity: 1;
-}
-
-/* Texte */
+/* ── Name — clone de .sf-card-name ── */
 .card-value {
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(.68rem, 2vw, .82rem); font-weight: 700;
+  letter-spacing: .10em; text-transform: uppercase; color: #fff;
 }
 
+/* ── Sublabel — clone de .sf-card-desc ── */
 .card-label {
-  font-size: 0.9rem;
-  opacity: 0.75;
-  letter-spacing: 0.04em;
+  font-family: 'Cinzel', serif;
+  font-size: .60rem; letter-spacing: .04em;
+  color: rgba(255,255,255,.45); text-align: center; line-height: 1.5;
+}
+.card-desc {
+  font-family: 'Cinzel', serif;
+  font-size: .56rem; letter-spacing: .04em;
+  color: rgba(255,255,255,.30); text-align: center; line-height: 1.4;
 }
 
-/* Variantes couleurs */
+/* ── Arrow — clone de .sf-card-arrow ── */
+.card-arrow {
+  font-size: .65rem; color: rgba(255,255,255,.28);
+  transition: color .18s, transform .18s;
+}
+.action-card:hover .card-arrow { color: rgba(255,255,255,.70); transform: translateX(3px); }
+
+/* ── MINT (rose/rouge — même palette que sf-card.twitter) ── */
 .action-card.mint {
-  background: linear-gradient(135deg, #401020, #120608);
-  color: #ff5c8a;
+  background: linear-gradient(145deg, #38091a, #180408);
+  border: 1px solid rgba(255,107,157,.20);
+  box-shadow: 0 8px 28px rgba(0,0,0,.55);
+}
+.action-card.mint .card-icon { background: rgba(255,107,157,.16); }
+.action-card.mint:hover {
+  box-shadow: 0 0 0 1px rgba(255,107,157,.40), 0 0 26px rgba(255,107,157,.18), 0 14px 36px rgba(0,0,0,.65);
 }
 
+/* ── TOKEN (vert — même palette que sf-card.mvx) ── */
 .action-card.token {
-  background: linear-gradient(135deg, #0f2a1b, #08140e);
-  color: #5cff9d;
+  background: linear-gradient(145deg, #0b2416, #050e09);
+  border: 1px solid rgba(92,255,160,.18);
+  box-shadow: 0 8px 28px rgba(0,0,0,.50);
+}
+.action-card.token .card-icon { background: rgba(92,255,160,.12); }
+.action-card.token:hover {
+  box-shadow: 0 0 0 1px rgba(92,255,160,.40), 0 0 26px rgba(92,255,160,.16), 0 14px 36px rgba(0,0,0,.60);
 }
 
+/* ── MAP (or — palette unique) ── */
 .action-card.map {
-  background: linear-gradient(135deg, #2a2410, #141006);
-  color: #ffd86a;
+  background: linear-gradient(145deg, #261e05, #0f0c02);
+  border: 1px solid rgba(232,200,74,.18);
+  box-shadow: 0 8px 28px rgba(0,0,0,.50);
 }
-
-/* ================= RESPONSIVE SMARTPHONE ================= */
-@media (max-width: 480px) {
-  
-  /* Container des boutons */
-  .post-connect-actions {
-    grid-template-columns: 1fr; /* une seule colonne */
-    gap: 16px;                  /* espacement réduit */
-    margin: 40px 16px;          /* marge plus petite */
-  }
-
-  /* Carte action */
-  .action-card {
-    max-width: 100%;            /* prend toute la largeur */
-    padding: 20px;              /* padding réduit */
-    border-radius: 14px;        /* coins légèrement plus petits */
-  }
-
-  /* Texte des cartes */
-  .card-value {
-    font-size: 1.8rem;          /* texte un peu plus petit */
-  }
-
-  .card-label {
-    font-size: 0.8rem;          /* texte plus petit */
-    letter-spacing: 0.03em;
-  }
-  
-  /* Hover sur mobile souvent inutile, mais on peut ajouter un léger effet tactile */
-  .action-card:active {
-    transform: translateY(-2px) scale(1.01);
-    box-shadow:
-      0 0 0 1px rgba(255,255,255,0.05),
-      0 15px 30px rgba(0,0,0,0.6);
-  }
+.action-card.map .card-icon { background: rgba(232,200,74,.12); }
+.action-card.map:hover {
+  box-shadow: 0 0 0 1px rgba(232,200,74,.40), 0 0 26px rgba(232,200,74,.16), 0 14px 36px rgba(0,0,0,.60);
 }
 
 /* ================= WALLET BOX (GLASS CARD) ================= */
 .wallet-box {
-  max-width: 640px;
-  margin: 48px auto;
-  padding: 36px 32px;
+  width: 420px;
+  min-width: 420px;
+  max-width: 420px;
+
+  flex-shrink: 0;
+  margin: 0;
+  padding: 16px 24px;
   border-radius: 28px;
 
   background:
@@ -2040,220 +2212,84 @@ footer a:visited {
 }
 
 /* ================= ONGLET BOUTONS (WHITE GLASS TABS) ================= */
-
+/* ═══════════════════════════════════════════════════
+   MAIN TABS — single authoritative block
+   width: 100% of main (960px max), centré
+═══════════════════════════════════════════════════ */
 .main-tabs {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
-  gap: 22px;
-  margin: 28px 0 38px;
-
+  gap: 14px;
+  width: 100%;          /* prend toute la largeur de main */
+  max-width: 100%;      /* pas de limite artificielle */
+  margin: 22px 0 24px;
+  padding: 0;
   font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
 }
-
-/* ================= TAB BASE ================= */
 
 .main-tab {
   position: relative;
-
-  min-width: 220px;
-  padding: 18px 42px;
-
+  flex: 1 1 200px;      /* grandit pour remplir, base 200px */
+  max-width: 320px;     /* ne dépasse pas 320px par tab */
+  min-width: 180px;
+  padding: 16px 24px;
   border-radius: 999px;
-
   font-family: 'Cinzel', serif;
-  font-size: 1.08rem;
-  font-weight: 800;
-
-  letter-spacing: 0.12em;
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .12em;
   text-transform: uppercase;
-
   cursor: pointer;
   user-select: none;
-
-  color: rgba(255,255,255,0.92);
-
-  border: 1px solid rgba(255,255,255,0.16);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.06) 0%,
-      rgba(255,255,255,0.02) 100%
-    );
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.08),
-    0 12px 34px rgba(0,0,0,0.62),
-    0 0 24px rgba(255,255,255,0.05);
-
-  transition:
-    transform .22s ease,
-    box-shadow .22s ease,
-    border-color .22s ease,
-    background .22s ease,
-    color .22s ease;
+  color: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.14);
+  background: linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 8px 24px rgba(0,0,0,.50);
+  transition: all .18s cubic-bezier(.22,1,.36,1);
+  overflow: hidden;
 }
 
-/* ================= SOFT GLOW ================= */
-
-.main-tab::after {
+/* Shimmer on hover */
+.main-tab::before {
   content: "";
-
-  position: absolute;
-  inset: -1px;
-
+  position: absolute; inset: 0;
   border-radius: inherit;
-
-  box-shadow:
-    0 0 18px rgba(255,255,255,0.08);
-
-  opacity: 0.9;
+  background: linear-gradient(145deg, transparent 30%, rgba(255,255,255,.09) 70%, transparent);
+  opacity: 0; transition: opacity .18s;
   pointer-events: none;
 }
-
-/* ================= HOVER ================= */
+.main-tab:hover::before { opacity: 1; }
 
 .main-tab:hover {
-  transform: translateY(-2px) scale(1.03);
-
-  color: #ffffff;
-
-  border-color: rgba(255,255,255,0.32);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.10) 0%,
-      rgba(255,255,255,0.04) 100%
-    );
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.14),
-    0 16px 40px rgba(0,0,0,0.72),
-    0 0 28px rgba(255,255,255,0.10);
-}
-
-/* ================= ACTIVE ================= */
-
-.main-tab.active {
-  color: #ffffff;
-
-  border-color: rgba(255,255,255,0.38);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.14) 0%,
-      rgba(255,255,255,0.06) 100%
-    );
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.18),
-    0 18px 42px rgba(0,0,0,0.78),
-    0 0 34px rgba(255,255,255,0.14);
-}
-
-/* ================= MOBILE ================= */
-
-@media (max-width: 768px) {
-
-  .main-tabs {
-    gap: 14px;
-  }
-
-  .main-tab {
-    width: 100%;
-    max-width: 320px;
-
-    padding: 18px 24px;
-
-    font-size: 0.98rem;
-  }
-}
-
-/* ===== HOVER ===== */
-.main-tab:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow:
-    inset 0 0 0 1px rgba(125,255,178,.45),
-    0 20px 46px rgba(0,0,0,.85),
-    0 0 34px rgba(125,255,178,.35);
-}
-
-/* ===== ACTIF ===== */
-.main-tab.active {
-  background: linear-gradient(135deg, #2e5c44, #142b21);
-  color: #ffffff;
-
-  box-shadow:
-    0 0 36px rgba(125,255,178,.65),
-    0 0 0 2px rgba(125,255,178,.6);
-}
-
-/* ================= COMBAT (ROUGE) ================= */
-
-.main-tab.combat {
-  border-color: rgba(255, 90, 90, 0.55);
-  color: #ff8a8a;
-
-  background: linear-gradient(
-    135deg,
-    rgba(80, 15, 15, 0.9),
-    rgba(30, 5, 5, 0.98)
-  );
-
-  box-shadow:
-    inset 0 0 0 1px rgba(255,90,90,.35),
-    0 12px 34px rgba(0,0,0,.7),
-    0 0 28px rgba(255,90,90,.25);
-	
-	  /* 🪓 POLICE VIKING */
-  font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
-}
-
-/* hover combat */
-.main-tab.combat:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow:
-    0 0 40px rgba(255,90,90,.55),
-    0 22px 50px rgba(0,0,0,.9);
-	
-	  /* 🪓 POLICE VIKING */
-  font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
-}
-
-/* actif combat */
-.main-tab.combat.active {
+  transform: translateY(-2px);
   color: #fff;
-  box-shadow:
-    0 0 48px rgba(255,70,70,.75),
-    0 0 0 2px rgba(255,90,90,.7);
-	
-	  /* 🪓 POLICE VIKING */
-  font-family: 'Cinzel', serif;
-  letter-spacing: 0.06em;
+  border-color: rgba(255,255,255,.28);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 12px 32px rgba(0,0,0,.60);
 }
 
-/* ================= MOBILE ================= */
+.main-tab.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(92,255,160,.18), rgba(92,255,160,.06));
+  border-color: rgba(92,255,160,.42);
+  box-shadow: 0 0 24px rgba(92,255,160,.28), 0 0 0 1px rgba(92,255,160,.38);
+}
 
-@media (max-width: 768px) {
-  .main-tabs {
-    gap: 12px;
-  }
+/* Combat variant */
+/* .main-tab.combat — même visuel que les autres tabs */
 
+/* Mobile */
+@media (max-width: 580px) {
+  .main-tabs { gap: 10px; }
   .main-tab {
-    padding: 12px 22px;
-    font-size: 0.9rem;
-    letter-spacing: 0.06em;
+    flex: 1 1 140px;
+    min-width: 130px;
+    max-width: 100%;
+    padding: 13px 16px;
+    font-size: .78rem;
+    letter-spacing: .08em;
   }
 }
 
@@ -2392,7 +2428,7 @@ footer a:visited {
   display: grid;
 
   /* 🔥 layout plus harmonieux */
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 
   gap: 10px;
   padding: 12px;
@@ -2406,8 +2442,7 @@ footer a:visited {
 
   border-radius: 18px;
 
-  max-height: calc(2 * 240px + 10px);
-
+  max-height: calc(2 * 220px + 20px);
   overflow-y: auto;
 
   backdrop-filter: blur(10px);
@@ -2431,10 +2466,9 @@ footer a:visited {
 
 .combat-nft-item {
   position: relative;
-
-  width: 100%;
-  height: 240px;
-
+  width: 90%;
+  height: auto;
+  min-height: 200px;
   padding: 8px;
 
   background:
@@ -2504,19 +2538,13 @@ footer a:visited {
 .combat-nft-item img,
 .combat-nft-item video {
   width: 100%;
-
-  /* 🔥 dimensions conservées */
-  height: 170px;
-
+  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   object-position: center;
-
   border-radius: 12px;
-
   background: #000;
-
   display: block;
-
   flex-shrink: 0;
 }
 
@@ -2962,60 +2990,24 @@ footer a:visited {
 
 /* ================= OVERLAY ================= */
 .combat-overlay {
+  /* Full-screen backdrop — JS injects same via #combatOverlay */
   position: fixed;
-
-  /* 🔥 ne prend plus tout l'écran */
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  width: min(82vw, 520px);
-  min-height: 140px;
-
-  padding: 28px 34px;
-
-  border-radius: 28px;
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(255,255,255,0.06),
-      rgba(0,0,0,0.88)
-    );
-
-  border:
-    1px solid rgba(255,255,255,0.08);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  box-shadow:
-    0 0 40px rgba(0,0,0,0.55),
-    0 0 80px rgba(0,0,0,0.35);
+  inset: 0;
+  z-index: 9998;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  z-index: 9999;
-
-  opacity: 0;
+  background: rgba(0,0,0,.0);    /* transparent — JS overlay controls bg */
   pointer-events: none;
-
-  transition:
-    opacity 0.35s ease,
-    transform 0.35s ease;
-
-  /* 🔥 apparition plus clean */
-  scale: 0.92;
+  opacity: 0;
+  transition: opacity .38s ease;
 }
 
 .combat-overlay.active {
   opacity: 1;
   pointer-events: all;
-
-  transform: translate(-50%, -50%) scale(1);
 }
 
 /* ================= TEXTE BASE ================= */
@@ -3387,7 +3379,7 @@ footer a:visited {
   margin: 24px auto 0;
   padding: 14px 12px;
 
-  max-width: 760px;
+  max-width: 1280px;
   width: 100%;
 
   background: rgba(0, 0, 0, 0.55);
@@ -3760,14 +3752,15 @@ footer a:visited {
 
   /* -------- COMBAT VIEW (VS) -------- */
 
-  .combat-cards {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.combat-cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 18px 0 12px;
 
-    gap: 16px;
-    margin: 18px 0 12px;
-  }
+  position: relative;
+}
 
   .combat-card-slot {
     width: 128px;
@@ -3986,22 +3979,29 @@ footer a:visited {
 
 .combat-msg {
   display: none;
-  margin-top: 8px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 0.7rem;
+
+  position: relative;
+  z-index: 10;
+
+  margin: 0 auto;
+
+  padding: 10px 18px;
+  border-radius: 8px;
+
+  font-size: 0.75rem;
   font-weight: 700;
   text-align: center;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  animation: fadeIn 0.25s ease-out;
+
+  animation: fadeInCombat 0.25s ease-out;
 }
 
 /* ⛔ LIMITE 7 NFT */
 .combat-msg.limit {
   display: block;
   color: #ffb3b3;
-  background: rgba(120, 0, 0, 0.35);
+  background: rgba(120, 0, 0, 0.85);
   border: 1px solid rgba(255, 80, 80, 0.6);
 }
 
@@ -4038,9 +4038,16 @@ footer a:visited {
   font-family: 'Cinzel', serif;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-3px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes fadeInCombat {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -55%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 /* Compteur combat */
@@ -4171,8 +4178,1967 @@ footer a:visited {
     0 0 10px rgba(255,180,50,.35);
 }
 
+/* ================= HEADER NAV VIKING ================= */
+
+.header-centera {
+  display: flex;
+  justify-content: center; /* 🔥 centre horizontalement */
+  width: 100%;
+  margin-bottom: 28px; /* 🔥 espace sous la nav */
+}
+
+/* ================= TOP BAR ================= */
+.top-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 20px 30px;
+  gap: 24px;
+
+  box-sizing: border-box;
+}
+
+/* ================= NAV ================= */
+.header-nav {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 62px;
+
+  height: 64px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20,40,30,.65),
+    rgba(10,20,15,.85)
+  );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92,255,157,.18),
+    0 0 18px rgba(92,255,157,.12);
+
+  backdrop-filter: blur(10px);
+}
+
+/* ================= NAV LINKS ================= */
+/* nav links — block 1 (overridden by block 2 below) */
+
+/* ================= CONNECT BUTTON IN HEADER ================= */
+.nav-connect {
+  padding: 14px 20px;
+  border-radius: 16px;
+
+  font-size: 0.9rem;
+
+  background: linear-gradient(
+    135deg,
+    rgba(20, 40, 30, 0.85),
+    rgba(10, 20, 15, 0.95)
+  );
+
+  color: #7dffb2;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(92, 255, 157, 0.25),
+    0 0 18px rgba(92, 255, 157, 0.2);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: 'Cinzel', serif;
+}
+
+.nav-connect:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 0 1px rgba(92, 255, 157, 0.45),
+    0 0 28px rgba(92, 255, 157, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.wallet-trigger {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.wallet-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: 420px;
+
+  padding: 20px;
+  border-radius: 24px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(18,38,28,.90),
+    rgba(8,18,13,.95)
+  );
+
+  backdrop-filter: blur(24px);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.6),
+    0 0 30px rgba(92,255,157,.10);
+
+  z-index: 1000;
+
+  animation: walletAppear .25s ease;
+}
+
+@keyframes walletAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.section {
+  padding: 80px 20px;
+  color: #d8ffe8;
+  font-family: 'Cinzel', serif;
+  position: relative;
+}
+
+/* ================= HEADER ================= */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 18px;
+}
+
+.section-num {
+  font-size: 2.2rem;
+  font-weight: 700;
+
+  color: #f5d36b;
+
+  text-shadow:
+    0 0 6px rgba(255, 215, 120, 0.6),
+    0 0 18px rgba(255, 215, 120, 0.4),
+    0 0 32px rgba(255, 200, 80, 0.25);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
+  color: #7dffb2;
+
+  text-shadow: 0 0 20px rgba(92, 255, 157, 0.15);
+}
+
+.section-title small {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 6px;
+
+  color: rgba(200, 255, 220, 0.6);
+  letter-spacing: 0.05em;
+}
+
+/* ================= RUNES DIVIDER ================= */
+.rune-divider {
+  text-align: center;
+  margin: 30px 0;
+
+  font-size: 1.2rem;
+  letter-spacing: 0.4em;
+
+  color: rgba(125, 255, 178, 0.6);
+
+  text-shadow:
+    0 0 10px rgba(92, 255, 157, 0.25),
+    0 0 25px rgba(92, 255, 157, 0.1);
+}
+
+/* ================= GRID ================= */
+.utility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+
+  margin-top: 20px;
+}
+
+/* ================= CARD ================= */
+.utility-card {
+  position: relative;
+
+  padding: 22px;
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(18, 38, 28, 0.65),
+    rgba(10, 20, 15, 0.9)
+  );
+
+  border: 1px solid rgba(92, 255, 157, 0.12);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(14px);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* hover viking glow */
+.utility-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(92, 255, 157, 0.15);
+}
+
+/* ================= ICON ================= */
+.utility-icon {
+  font-size: 1.6rem;
+  display: inline-block;
+  margin-bottom: 10px;
+
+  filter: drop-shadow(0 0 8px rgba(92, 255, 157, 0.25));
+}
+
+/* ================= TITLE ================= */
+.utility-card h4 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+
+  color: #7dffb2;
+  letter-spacing: 0.06em;
+}
+
+/* ================= TEXT ================= */
+.utility-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+
+  color: rgba(220, 255, 235, 0.75);
+}
+
+/* ================= TAG ================= */
+.utility-tag {
+  display: inline-block;
+
+  margin-top: 14px;
+  padding: 6px 10px;
+
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+
+  border-radius: 12px;
+
+  background: rgba(92, 255, 157, 0.08);
+  border: 1px solid rgba(92, 255, 157, 0.2);
+
+  color: #7dffb2;
+
+  box-shadow: 0 0 12px rgba(92, 255, 157, 0.08);
+}
+
+/* ================= FADE IN (OPTIONAL ANIMATION CLASS) ================= */
+.fade-in {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   ODINVERSE — Collection Layout (inspired by a_2)
+   + Social Footer (inspired by b_2)
+═══════════════════════════════════════════════════ */
+
+/* ──────────────────────────────────────────────────
+   COLLECTION WRAPPER
+────────────────────────────────────────────────── */
+.odin-collection-wrap {
+  margin-top: 28px;
+}
+
+/* ──────────────────────────────────────────────────
+   COLLECTION HEADER — Hero band (like a_2 top area)
+────────────────────────────────────────────────── */
+.odin-coll-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 28px 28px 24px;
+  background: linear-gradient(135deg, rgba(8,22,15,.96), rgba(4,10,7,.99));
+  border: 1px solid rgba(92,255,160,.12);
+  border-radius: 20px 20px 0 0;
+  border-bottom: 1px solid rgba(92,255,160,.07);
+  position: relative;
+  overflow: hidden;
+}
+/* Subtle top accent line */
+.odin-coll-header::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(92,255,160,.55) 30%, rgba(92,255,160,.85) 50%, rgba(92,255,160,.55) 70%, transparent);
+}
+/* Corner rune decoration */
+.odin-coll-header::after {
+  content: "ᚱᚢᚾᛖ";
+  position: absolute; top: 14px; right: 20px;
+  font-family: 'Cinzel', serif; font-size: .55rem; letter-spacing: .3em;
+  color: rgba(92,255,160,.18); pointer-events: none;
+}
+
+/* Left side: title block */
+.odin-coll-left {
+  flex: 1; min-width: 220px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.odin-coll-eyebrow {
+  font-family: 'Cinzel', serif; font-size: .58rem; letter-spacing: .24em;
+  text-transform: uppercase; color: rgba(92,255,160,.60);
+}
+.odin-coll-title {
+  font-family: 'Cinzel', serif; font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 900; letter-spacing: .10em; color: #fff; line-height: 1.1;
+}
+.odin-coll-title span {
+  color: #5cffa0;
+  text-shadow: 0 0 12px rgba(92,255,160,.50), 0 0 28px rgba(92,255,160,.22);
+}
+.odin-coll-desc {
+  font-size: .84rem; line-height: 1.65;
+  color: rgba(240,244,240,.60); font-family: 'Cinzel', serif;
+  max-width: 420px; letter-spacing: .02em;
+}
+.odin-coll-meta {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 4px;
+}
+.odin-supply-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 999px;
+  font-family: 'Cinzel', serif; font-size: .62rem; font-weight: 700; letter-spacing: .12em;
+  color: rgba(240,244,240,.75);
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+}
+.odin-supply-chip strong { color: #fff; font-size: .72rem; }
+.odin-cta-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 11px 22px; border-radius: 999px;
+  font-family: 'Cinzel', serif; font-size: .72rem; font-weight: 800; letter-spacing: .10em;
+  text-transform: uppercase; text-decoration: none; cursor: pointer;
+  background: linear-gradient(135deg, #18e884, #0af2c0); color: #001a0a;
+  box-shadow: 0 0 22px rgba(24,232,132,.42), 0 4px 16px rgba(0,0,0,.30);
+  transition: all .18s cubic-bezier(.22,1,.36,1);
+  border: none; outline: none;
+}
+.odin-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 0 34px rgba(24,232,132,.62), 0 6px 22px rgba(0,0,0,.40); }
+.odin-cta-btn svg { flex-shrink: 0; }
+
+/* Right side: 3×3 grid preview (like a_2 right panel) */
+/* ═══════════════════════════════════════════════════
+   ODIN-COLL-RIGHT — Preview 3×3 premium
+═══════════════════════════════════════════════════ */
+.odin-coll-right {
+  flex-shrink: 0;
+  width: clamp(500px, 65%, 780px);
+  position: relative;
+}
+
+/* Glow ambiant derrière la grille */
+.odin-coll-right::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%,
+    rgba(92,255,160,.10) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.odin-preview-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);     /* 3 col × 2 lignes */
+  gap: 20px;
+  padding: 20px;
+  background: rgba(0,0,0,.30);
+  border-radius: 16px;
+  border: 1px solid rgba(92,255,160,.10);
+  box-shadow:
+    inset 0 0 0 1px rgba(92,255,160,.06),
+    0 16px 40px rgba(0,0,0,.55),
+    0 0 0 1px rgba(92,255,160,.04);
+}
+
+.odin-preview-cell {
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0,0,0,.60);
+  border: 1px solid rgba(92,255,160,.08);
+  position: relative;
+  cursor: pointer;
+  transition: all .22s cubic-bezier(.22,1,.36,1);
+}
+.odin-preview-cell:hover {
+  border-color: rgba(92,255,160,.55);
+  transform: scale(1.06);
+  z-index: 2;
+  box-shadow:
+    0 0 0 1px rgba(92,255,160,.40),
+    0 0 16px rgba(92,255,160,.25),
+    0 8px 20px rgba(0,0,0,.60);
+}
+.odin-preview-cell.active-cell {
+  border-color: rgba(92,255,160,.90);
+  box-shadow:
+    0 0 0 2px rgba(92,255,160,.50),
+    0 0 22px rgba(92,255,160,.35);
+  transform: scale(1.04);
+  z-index: 3;
+}
+.odin-preview-cell img,
+.odin-preview-cell video {
+  width: 100%; height: 100%;
+  object-fit: contain;       /* NFT entier visible, pas coupé */
+  object-position: center;
+  display: block;
+  transition: transform .22s ease, filter .22s ease;
+}
+.odin-preview-cell:hover img,
+.odin-preview-cell:hover video {
+  filter: brightness(1.10);
+}
+/* Overlay gradient + nom au hover */
+.odin-preview-cell::after {
+  content: attr(data-name);
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 18px 5px 5px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.82));
+  font-family: 'Cinzel', serif; font-size: .42rem; font-weight: 700;
+  letter-spacing: .06em; text-align: center; color: rgba(255,255,255,.80);
+  text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
+  opacity: 0; transition: opacity .18s;
+}
+.odin-preview-cell:hover::after { opacity: 1; }
+
+.odin-preview-cell .preview-sold-out {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.55);
+  font-family: 'Cinzel', serif; font-size: .52rem; font-weight: 800;
+  letter-spacing: .10em; color: rgba(255,255,255,.35); text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .odin-coll-right { width: 100%; }
+  .odin-coll-header {
+    flex-direction: column !important;
+    padding: 18px 16px;
+  }
+  .odin-coll-right::before { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════
+   ODIN-TABS-BAR — Category filter pills
+═══════════════════════════════════════════════════ */
+.odin-tabs-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(6,14,10,.97), rgba(3,8,6,.99));
+  border-top: 1px solid rgba(92,255,160,.06);
+  border-bottom: 1px solid rgba(92,255,160,.06);
+  flex-wrap: wrap;
+}
+.odin-tabs-bar::-webkit-scrollbar { display: none; }
+
+/* Pill — remplace les thumbs illisibles */
+.odin-tab-thumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  font-family: 'Cinzel', serif;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(92,255,160,.58);
+  background: rgba(92,255,160,.05);
+  border: 1px solid rgba(92,255,160,.14);
+  transition: all .18s cubic-bezier(.22,1,.36,1);
+  position: relative;
+  overflow: hidden;
+  /* width/height override */
+  width: auto !important;
+}
+/* Shimmer */
+.odin-tab-thumb::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(92,255,160,.10), transparent);
+  opacity: 0; transition: opacity .18s;
+}
+.odin-tab-thumb:hover {
+  color: #fff;
+  background: rgba(92,255,160,.10);
+  border-color: rgba(92,255,160,.30);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,.40), 0 0 12px rgba(92,255,160,.12);
+}
+.odin-tab-thumb:hover::before { opacity: 1; }
+.odin-tab-thumb.active {
+  color: #001a0a;
+  background: linear-gradient(135deg, #5cffa0, #28d870);
+  border-color: transparent;
+  box-shadow: 0 0 16px rgba(92,255,160,.38), 0 4px 14px rgba(0,0,0,.40);
+  font-weight: 800;
+}
+/* Compteur badge */
+.odin-tab-thumb .tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px; height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  font-size: .56rem;
+  font-weight: 900;
+  background: rgba(0,0,0,.22);
+  color: inherit;
+  font-family: 'Cinzel', serif;
+}
+.odin-tab-thumb.active .tab-count {
+  background: rgba(0,26,10,.25);
+}
+/* Masquer l'image thumb (on garde la pill) */
+.odin-tab-thumb img,
+.odin-tab-thumb video {
+  display: none;
+}
+.odin-tab-thumb .tab-cat {
+  position: static;
+  background: none;
+  padding: 0;
+  font-size: .65rem;
+  color: inherit;
+  letter-spacing: .10em;
+  font-weight: 700;
+}
+
+/* ──────────────────────────────────────────────────
+   BODY PANEL — attrs accordion + grid
+────────────────────────────────────────────────── */
+.odin-body-panel {
+  background: linear-gradient(180deg, rgba(6,16,11,.94), rgba(3,8,6,.99));
+  border: 1px solid rgba(92,255,160,.07);
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+}
+
+/* Rewards accordion */
+.odin-rewards-toggle {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,.04);
+  transition: background .18s;
+  position: relative;
+}
+.odin-rewards-toggle:hover {
+  background: linear-gradient(135deg, rgba(92,255,160,.04), transparent);
+}
+.odin-rewards-toggle-left {
+  display: flex; align-items: center; gap: 12px;
+}
+.odin-rewards-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  background: rgba(92,255,160,.10);
+  border: 1px solid rgba(92,255,160,.22);
+  box-shadow: 0 0 10px rgba(92,255,160,.10);
+}
+.odin-rewards-label {
+  font-family: 'Cinzel', serif; font-size: .68rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; color: rgba(92,255,160,.75);
+}
+.odin-rewards-sub {
+  font-family: 'Cinzel', serif; font-size: .56rem;
+  color: rgba(255,255,255,.38); letter-spacing: .08em; margin-top: 2px;
+}
+/* Chevron animé */
+.odin-rewards-arrow {
+  display: flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: rgba(92,255,160,.07);
+  border: 1px solid rgba(92,255,160,.16);
+  color: rgba(92,255,160,.60);
+  font-size: .55rem;
+  transition: transform .25s ease, background .18s, color .18s;
+  flex-shrink: 0;
+}
+.odin-rewards-toggle:hover .odin-rewards-arrow {
+  background: rgba(92,255,160,.12);
+  color: rgba(92,255,160,.90);
+}
+.odin-rewards-arrow.open {
+  transform: rotate(180deg);
+  background: rgba(92,255,160,.15);
+  color: #5cffa0;
+}
+.odin-rewards-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .45s cubic-bezier(.22,1,.36,1);
+  border-bottom: 1px solid rgba(92,255,160,.05);
+}
+.odin-rewards-body.open {
+  max-height: 680px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(92,255,160,.35) transparent;
+}
+.odin-rewards-body.open::-webkit-scrollbar { width: 5px; }
+.odin-rewards-body.open::-webkit-scrollbar-thumb {
+  background: rgba(92,255,160,.35);
+  border-radius: 999px;
+}
+
+/* attr-row premium inside rewards body */
+.odin-rewards-body .attr-row {
+  margin: 14px 18px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(12,26,18,.70), rgba(5,12,8,.90));
+  border: 1px solid rgba(92,255,160,.10);
+  box-shadow: 0 4px 16px rgba(0,0,0,.30), inset 0 1px 0 rgba(92,255,160,.04);
+  position: relative;
+  overflow: hidden;
+}
+.odin-rewards-body .attr-row::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg,
+    transparent, rgba(92,255,160,.28) 30%,
+    rgba(92,255,160,.45) 50%,
+    rgba(92,255,160,.28) 70%, transparent);
+}
+.odin-rewards-body .attr-row strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  margin-bottom: 12px;
+  font-family: 'Cinzel', serif;
+  font-size: .80rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(92,255,160,.18);
+}
+.odin-rewards-body .attr-row strong::before {
+  content: "";
+  width: 3px; height: 14px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #5cffa0, rgba(92,255,160,.30));
+  flex-shrink: 0;
+}
+.odin-rewards-body .attr-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  margin: 2px 3px;
+  font-family: 'Cinzel', serif;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  background: rgba(92,255,160,.07);
+  border: 1px solid rgba(92,255,160,.14);
+  color: rgba(140,255,190,.90);
+  transition: all .15s;
+  cursor: default;
+}
+.odin-rewards-body .attr-row span:hover {
+  background: rgba(92,255,160,.12);
+  border-color: rgba(92,255,160,.28);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Total earnings row — spécial */
+.odin-rewards-body .attr-row[style*="font-size:1rem"] {
+  background: linear-gradient(145deg, rgba(16,38,26,.85), rgba(6,14,10,.96));
+  border-color: rgba(92,255,160,.22);
+  box-shadow:
+    0 4px 20px rgba(0,0,0,.40),
+    0 0 28px rgba(92,255,160,.06),
+    inset 0 1px 0 rgba(92,255,160,.06);
+}
+
+/* NFT Grid body */
+.odin-grid-wrap {
+  padding: 16px 18px 20px;
+}
+/* Reuse existing .nft-list / .nft-card */
+
+/* ──────────────────────────────────────────────────
+   MULTIVERSX + TOP-HOLDERS sections (same panel style)
+────────────────────────────────────────────────── */
+.other-coll-wrap {
+  margin-top: 20px;
+}
+.other-coll-header {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px;
+  padding: 16px 22px;
+  background: linear-gradient(135deg, rgba(12,20,16,.96), rgba(5,10,7,.99));
+  border: 1px solid rgba(232,200,74,.10);
+  border-radius: 16px 16px 0 0;
+  border-bottom: 1px solid rgba(232,200,74,.06);
+  position: relative; overflow: hidden;
+}
+.other-coll-header::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(232,200,74,.45) 30%, rgba(232,200,74,.70) 50%, rgba(232,200,74,.45) 70%, transparent);
+}
+.other-coll-heading-left { display: flex; align-items: center; gap: 12px; }
+.other-coll-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  background: rgba(232,200,74,.10); border: 1px solid rgba(232,200,74,.20);
+}
+.other-coll-title {
+  font-family: 'Cinzel', serif; font-size: clamp(.88rem, 2vw, 1.05rem);
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff;
+}
+.other-coll-sub {
+  font-family: 'Cinzel', serif; font-size: .54rem; letter-spacing: .12em;
+  color: rgba(232,200,74,.55); margin-top: 2px;
+}
+.other-coll-badge {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 13px; border-radius: 999px;
+  font-family: 'Cinzel', serif; font-size: .58rem; font-weight: 700; letter-spacing: .12em;
+  background: rgba(232,200,74,.07); border: 1px solid rgba(232,200,74,.20);
+  color: #e8c84a; white-space: nowrap;
+}
+/* search inside other section */
+.other-search-wrap {
+  display: flex; align-items: center; gap: 8px;
+  margin: 0 18px;
+  padding: 9px 14px; border-radius: 10px;
+  background: rgba(0,0,0,.28); border: 1px solid rgba(232,200,74,.08);
+  border-top: none;
+}
+.other-search-wrap svg { flex-shrink: 0; opacity: .35; color: #e8c84a; }
+#otherNftSearch {
+  flex: 1; background: transparent; border: none; outline: none;
+  font-family: 'Cinzel', serif; font-size: .80rem; letter-spacing: .04em;
+  color: #e8c84a;
+}
+#otherNftSearch::placeholder { color: rgba(232,200,74,.28); }
+.other-body-panel {
+  background: linear-gradient(180deg, rgba(8,16,12,.94), rgba(3,8,6,.99));
+  border: 1px solid rgba(232,200,74,.07); border-top: none;
+  border-radius: 0 0 16px 16px; padding: 14px 18px 18px;
+}
+
+/* holders inside same wrapper */
+.holders-coll-header {
+  background: linear-gradient(135deg, rgba(14,18,10,.96), rgba(5,8,4,.99));
+  border-color: rgba(255,215,0,.12);
+}
+.holders-coll-header::before {
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,.45) 30%, rgba(255,215,0,.65) 50%, rgba(212,175,55,.45) 70%, transparent);
+}
+
+/* ──────────────────────────────────────────────────
+   SOCIAL FOOTER (inspired by b_2)
+────────────────────────────────────────────────── */
+.social-footer {
+  width: 100%;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(8,50,30,.55) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(4,8,10,.0) 0%, rgba(4,8,10,.95) 30%, #03060a 100%);
+  padding: 52px 20px 0;
+  position: relative; overflow: hidden;
+}
+/* Ambient glow top */
+.social-footer::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(92,255,160,.22) 30%, rgba(92,255,160,.45) 50%, rgba(92,255,160,.22) 70%, transparent);
+}
+
+/* Title area */
+.sf-head {
+  text-align: center; margin-bottom: 36px;
+}
+.sf-eyebrow {
+  font-family: 'Cinzel', serif; font-size: .60rem; letter-spacing: .36em;
+  text-transform: uppercase; color: rgba(92,255,160,.55); margin-bottom: 8px;
+}
+.sf-title {
+  font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 900; letter-spacing: .08em; color: #fff;
+}
+.sf-title .hl { color: #5cffa0; text-shadow: 0 0 16px rgba(92,255,160,.50); }
+.sf-sub {
+  margin-top: 10px; font-family: 'Cinzel', serif;
+  font-size: .78rem; color: rgba(240,244,240,.45); letter-spacing: .04em;
+  line-height: 1.6; max-width: 480px; margin-left: auto; margin-right: auto;
+}
+
+/* Social cards grid */
+.sf-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sf-card {
+  width: 290px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+  padding: 24px 16px 20px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #fff;
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  transition: transform .20s cubic-bezier(.22,1,.36,1), box-shadow .20s;
+}
+@media (max-width: 900px) {
+  .sf-cards {
+    grid-template-columns: repeat(2, 190px);
+  }
+}
+
+@media (max-width: 420px) {
+  .sf-cards {
+    grid-template-columns: repeat(2, 150px);
+    gap: 10px;
+  }
+}
+
+.sf-card::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  background: linear-gradient(145deg, transparent 30%, rgba(255,255,255,.09) 70%, transparent);
+  opacity: 0; transition: opacity .20s;
+}
+.sf-card:hover { transform: translateY(-6px) scale(1.02); }
+.sf-card:hover::before { opacity: 1; }
+
+/* X / Twitter */
+.sf-card.twitter {
+  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 8px 28px rgba(0,0,0,.55);
+}
+.sf-card.twitter:hover { box-shadow: 0 0 0 1px rgba(255,255,255,.22), 0 14px 36px rgba(0,0,0,.65); }
+/* Telegram */
+.sf-card.telegram {
+  background: linear-gradient(145deg, #103b54, #071e2c);
+  border: 1px solid rgba(36,161,222,.22);
+  box-shadow: 0 8px 28px rgba(0,0,0,.50);
+}
+.sf-card.telegram:hover { box-shadow: 0 0 0 1px rgba(36,161,222,.45), 0 0 28px rgba(36,161,222,.18), 0 14px 36px rgba(0,0,0,.60); }
+/* Discord */
+.sf-card.discord {
+  background: linear-gradient(145deg, #1c1f52, #0e1035);
+  border: 1px solid rgba(88,101,242,.22);
+  box-shadow: 0 8px 28px rgba(0,0,0,.50);
+}
+.sf-card.discord:hover { box-shadow: 0 0 0 1px rgba(88,101,242,.45), 0 0 28px rgba(88,101,242,.18), 0 14px 36px rgba(0,0,0,.60); }
+/* MultiversX */
+.sf-card.mvx {
+  background: linear-gradient(145deg, #0e1e14, #061009);
+  border: 1px solid rgba(92,255,160,.16);
+  box-shadow: 0 8px 28px rgba(0,0,0,.50);
+}
+.sf-card.mvx:hover { box-shadow: 0 0 0 1px rgba(92,255,160,.40), 0 0 28px rgba(92,255,160,.16), 0 14px 36px rgba(0,0,0,.60); }
+
+.sf-card-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; flex-shrink: 0;
+}
+.sf-card.twitter  .sf-card-icon { background: rgba(255,255,255,.10); }
+.sf-card.telegram .sf-card-icon { background: rgba(36,161,222,.18); }
+.sf-card.discord  .sf-card-icon { background: rgba(88,101,242,.18); }
+.sf-card.mvx      .sf-card-icon { background: rgba(92,255,160,.12); }
+
+.sf-card-name {
+  font-family: 'Cinzel', serif; font-size: .82rem; font-weight: 700;
+  letter-spacing: .10em; text-transform: uppercase; color: #fff;
+}
+.sf-card-desc {
+  font-family: 'Cinzel', serif; font-size: .60rem; letter-spacing: .04em;
+  color: rgba(255,255,255,.45); text-align: center; line-height: 1.5;
+}
+.sf-card-arrow {
+  font-size: .65rem; color: rgba(255,255,255,.28);
+  transition: color .18s, transform .18s;
+}
+.sf-card:hover .sf-card-arrow { color: rgba(255,255,255,.70); transform: translateX(3px); }
+
+/* Bottom legal strip */
+.sf-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 44px; padding: 20px;
+  border-top: 1px solid rgba(255,255,255,.06);
+
+  gap: 10px; max-width: 900px; margin-left: auto; margin-right: auto;
+}
+.sf-copy {
+
+  font-family: 'Cinzel', serif; font-size: .62rem; letter-spacing: .08em;
+  color: rgba(255,255,255,.30);
+}
+.sf-links {
+  display: flex; gap: 16px; flex-wrap: wrap;
+}
+.sf-links a {
+  font-family: 'Cinzel', serif; font-size: .60rem; letter-spacing: .08em;
+  color: rgba(232,200,74,.60); text-decoration: none; transition: color .15s;
+}
+.sf-links a:hover { color: #f5e070; }
+
+
+
+/* ═══════════════════════════════════════════════════════
+   ODINVERSE — Harmonisation v6
+   HUD Navbar · Section System · Spacing · Web3 Visual
+═══════════════════════════════════════════════════════ */
+
+/* ── Global spacing tokens ── */
+:root {
+  --section-gap: 32px;    /* espace entre sections */
+  --section-pad: 22px;    /* padding interne */
+  --card-radius: 18px;
+  --panel-radius: 20px;
+}
+
+/* ══════════════════════════════════════════
+   TOP HUD — Navbar glassmorphism Web3
+══════════════════════════════════════════ */
+.top-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1600px;          /* aligne sur main */
+  margin: 0 auto;
+  padding: 14px 0 20px;
+  gap: 16px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+}
+
+/* ── NAV BAR ── */
+.header-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 44px;
+  height: 58px;
+  border-radius: 999px;
+  background: rgba(8,20,14,.85);
+  border: 1px solid rgba(92,255,160,.14);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    0 4px 20px rgba(0,0,0,.45),
+    0 0 0 1px rgba(92,255,160,.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 0 28px;
+}
+
+/* ── nav links — premium ── */
+.header-nav a {
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-weight: 800;
+  font-size: 1rem;                        /* plus grand, lisible */
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(92,255,160,.78);
+  position: relative;
+  padding: 4px 0;
+  transition: color .18s ease, text-shadow .18s ease, transform .18s ease;
+}
+.header-nav a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  text-shadow:
+    0 0 10px rgba(92,255,160,.70),
+    0 0 24px rgba(92,255,160,.35);
+}
+/* Active indicator — point sous le lien */
+.header-nav a.active {
+  color: #fff;
+  text-shadow: 0 0 12px rgba(92,255,160,.65);
+}
+.header-nav a.active::before {
+  content: "";
+  position: absolute; bottom: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #5cffa0;
+  box-shadow: 0 0 8px rgba(92,255,160,.80);
+}
+/* Underline glow au hover */
+.header-nav a::after {
+  content: "";
+  position: absolute; left: 0; bottom: -6px;
+  width: 0%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(92,255,160,.80), transparent);
+  box-shadow: 0 0 8px rgba(92,255,160,.50);
+  transition: width .24s ease;
+}
+.header-nav a:hover::after { width: 100%; }
+
+/* ── WALLET TRIGGER ── */
+.wallet-trigger {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Connect / Disconnect buttons in HUD */
+.wallet-trigger > .wallet-btn.tsk-style {
+  padding: 10px 20px;
+  font-size: .72rem;
+  border-radius: 999px;
+  height: 48px;
+  letter-spacing: .10em;
+  white-space: nowrap;
+}
+.wallet-trigger > .wallet-btn.secondary {
+  padding: 10px 18px;
+  font-size: .70rem;
+  border-radius: 999px;
+  height: 48px;
+  letter-spacing: .08em;
+}
+
+/* ── WALLET PANEL flottant ── */
+.wallet-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: min(380px, calc(100vw - 32px));
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 22px;
+  background: linear-gradient(145deg, rgba(10,24,17,.96), rgba(4,10,7,.99));
+  border: 1px solid rgba(92,255,160,.16);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow:
+    0 24px 56px rgba(0,0,0,.70),
+    0 0 0 1px rgba(92,255,160,.08),
+    0 0 32px rgba(92,255,160,.06);
+  z-index: 1000;
+  animation: walletAppear .22s cubic-bezier(.22,1,.36,1);
+}
+.wallet-panel .wallet-btn {
+  padding: 12px 18px;
+  font-size: .78rem;
+  border-radius: 14px;
+}
+
+/* ── WALLET BALANCES in HUD ── */
+.wallet-balances {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 999;
+}
+
+/* ══════════════════════════════════════════
+   SECTION SYSTEM — numérotée, harmonisée
+══════════════════════════════════════════ */
+.section {
+  padding: var(--section-pad) 0;
+  margin-bottom: var(--section-gap);
+  color: #d8ffe8;
+  font-family: 'Cinzel', serif;
+  position: relative;
+  width: 100%;
+}
+.section + .section,
+.section + .odin-collection-wrap,
+.section + .other-coll-wrap,
+.odin-collection-wrap + .other-coll-wrap {
+  margin-top: 0;  /* gap géré par margin-bottom */
+}
+
+/* Section header: numéro + titre */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(92,255,160,.08);
+}
+.section-num {
+  font-family: 'Cinzel', serif;
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .22em;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,215,0,.24);
+  color: rgba(255,215,0,.55);
+  background: rgba(255,215,0,.05);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(.95rem, 2.5vw, 1.25rem);
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.section-title small {
+  display: block;
+  font-size: .58rem;
+  margin-top: 3px;
+  color: rgba(92,255,160,.55);
+  letter-spacing: .14em;
+  font-weight: 400;
+}
+
+/* Rune divider */
+.rune-divider {
+  text-align: center;
+  margin: 20px 0;
+  font-size: .88rem;
+  letter-spacing: .4em;
+  color: rgba(125,255,178,.35);
+}
+
+/* ── Utility grid ── */
+.utility-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+.utility-card {
+  padding: 20px;
+  border-radius: var(--card-radius);
+  background: linear-gradient(145deg, rgba(14,28,20,.88), rgba(6,14,10,.97));
+  border: 1px solid rgba(92,255,160,.09);
+  box-shadow: 0 8px 28px rgba(0,0,0,.45), inset 0 1px 0 rgba(92,255,160,.04);
+  transition: transform .18s, box-shadow .18s;
+}
+.utility-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(0,0,0,.55), 0 0 18px rgba(92,255,160,.10);
+  border-color: rgba(92,255,160,.18);
+}
+.utility-icon {
+  font-size: 1.4rem;
+  display: inline-block;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 7px rgba(92,255,160,.25));
+}
+.utility-card h4 {
+  font-size: .88rem;
+  margin-bottom: 8px;
+  color: #7dffb2;
+  letter-spacing: .07em;
+  font-family: 'Cinzel', serif;
+}
+.utility-card p {
+  font-size: .78rem;
+  line-height: 1.6;
+  color: rgba(210,255,230,.62);
+  font-family: 'Cinzel', serif;
+}
+.utility-tag {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 12px;
+  padding: 4px 10px;
+  font-size: .58rem;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  background: rgba(92,255,160,.07);
+  border: 1px solid rgba(92,255,160,.18);
+  color: rgba(92,255,160,.80);
+  font-family: 'Cinzel', serif;
+}
+
+/* ══════════════════════════════════════════
+   TOP HOLDERS — section-header style
+══════════════════════════════════════════ */
+.other-coll-wrap {
+  margin-top: var(--section-gap);
+  border-radius: var(--panel-radius);
+  overflow: hidden;
+  border: 1px solid rgba(92,255,160,.09);
+  box-shadow: 0 8px 32px rgba(0,0,0,.40), inset 0 1px 0 rgba(92,255,160,.04);
+}
+.other-coll-wrap.holders-wrap {
+  border-color: rgba(232,200,74,.12);
+  box-shadow: 0 8px 32px rgba(0,0,0,.40), inset 0 1px 0 rgba(232,200,74,.06);
+}
+.other-coll-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(8,20,14,.97), rgba(4,10,7,.99));
+  border-bottom: 1px solid rgba(92,255,160,.07);
+  position: relative;
+  overflow: hidden;
+}
+/* Top accent line */
+.other-coll-header::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(92,255,160,.45) 30%, rgba(92,255,160,.70) 50%, rgba(92,255,160,.45) 70%, transparent);
+}
+/* Holders variant */
+.other-coll-wrap.holders-wrap .other-coll-header::before {
+  background: linear-gradient(90deg, transparent, rgba(232,200,74,.40) 30%, rgba(232,200,74,.65) 50%, rgba(232,200,74,.40) 70%, transparent);
+}
+.other-coll-wrap.holders-wrap .other-coll-header {
+  border-bottom-color: rgba(232,200,74,.07);
+}
+
+/* Section-header inside other-coll-header */
+.other-coll-section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.other-coll-section-num {
+  font-family: 'Cinzel', serif;
+  font-size: .60rem;
+  font-weight: 900;
+  letter-spacing: .22em;
+  padding: 4px 9px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,215,0,.22);
+  color: rgba(255,215,0,.50);
+  background: rgba(255,215,0,.05);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.other-coll-wrap.holders-wrap .other-coll-section-num {
+  border-color: rgba(232,200,74,.30);
+  color: rgba(232,200,74,.65);
+  background: rgba(232,200,74,.06);
+}
+.other-coll-heading-left { display: flex; align-items: center; gap: 12px; }
+.other-coll-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  background: rgba(92,255,160,.09); border: 1px solid rgba(92,255,160,.18);
+}
+.other-coll-wrap.holders-wrap .other-coll-icon {
+  background: rgba(232,200,74,.09); border-color: rgba(232,200,74,.20);
+}
+.other-coll-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(.84rem,2vw,1rem);
+  font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #fff;
+}
+.other-coll-sub {
+  font-family: 'Cinzel', serif;
+  font-size: .54rem; letter-spacing: .12em;
+  color: rgba(92,255,160,.52); margin-top: 2px;
+}
+.other-coll-wrap.holders-wrap .other-coll-sub { color: rgba(232,200,74,.52); }
+.other-coll-badge {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 13px; border-radius: 999px;
+  font-family: 'Cinzel', serif; font-size: .57rem; font-weight: 700; letter-spacing: .12em;
+  background: rgba(92,255,160,.07); border: 1px solid rgba(92,255,160,.18); color: #5cffa0;
+}
+.other-coll-wrap.holders-wrap .other-coll-badge {
+  background: rgba(232,200,74,.07); border-color: rgba(232,200,74,.18); color: #e8c84a;
+}
+.other-body-panel {
+  background: linear-gradient(180deg, rgba(6,14,10,.94), rgba(3,8,6,.99));
+  border: none;
+  padding: 16px 18px 20px;
+}
+/* Search */
+.other-search-wrap {
+  display: flex; align-items: center; gap: 8px;
+  margin: 0;
+  padding: 10px 16px;
+  background: rgba(0,0,0,.28);
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.other-search-wrap svg { flex-shrink: 0; opacity: .35; }
+#otherNftSearch {
+  flex: 1; background: transparent; border: none; outline: none;
+  font-family: 'Cinzel', serif; font-size: .80rem; letter-spacing: .04em;
+  color: #e8c84a;
+}
+#otherNftSearch::placeholder { color: rgba(232,200,74,.28); }
+
+/* Top holder rows */
+.top-holders { padding: 0; margin: 0; background: transparent; border: none; }
+.top-holders h2 { display: none; }
+.top-holders-list {
+  display: flex; flex-wrap: wrap; gap: 9px;
+  padding: 0;
+}
+.top-holder-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 999px;
+  font-size: .72rem; font-weight: 700;
+  background: linear-gradient(135deg, rgba(10,22,16,.90), rgba(4,10,7,.97));
+  color: #5cffa0;
+  box-shadow: inset 0 0 0 1px rgba(92,255,160,.20), 0 0 9px rgba(92,255,160,.08);
+  white-space: nowrap; transition: all .18s;
+  font-family: 'Cinzel', serif; letter-spacing: .06em;
+}
+.top-holder-row:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: inset 0 0 0 1px rgba(92,255,160,.45), 0 0 18px rgba(92,255,160,.24);
+}
+.top-holder-row:nth-child(1) { background: linear-gradient(135deg,#b8942a,#5c460d); color:#fff; box-shadow: 0 0 22px rgba(212,175,55,.38); }
+.top-holder-row:nth-child(2) { background: linear-gradient(135deg,#9a9a9a,#484848); color:#fff; }
+.top-holder-row:nth-child(3) { background: linear-gradient(135deg,#b06828,#4e2a0c); color:#fff; }
+.top-holder-row .rank { font-weight: 900; color: #fff; }
+.top-holder-row .count { font-weight: 900; color: #fff; }
+.top-holder-row .address {
+  max-width: 120px; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; opacity: .85;
+  font-size: .68rem;
+  background: none; box-shadow: none; border: none; padding: 0;
+}
+
+/* ══════════════════════════════════════════
+   ODIN COLLECTION — harmonised
+══════════════════════════════════════════ */
+.odin-collection-wrap {
+  margin-top: var(--section-gap);
+  border-radius: var(--panel-radius);
+  overflow: hidden;
+  border: 1px solid rgba(92,255,160,.10);
+  box-shadow: 0 8px 36px rgba(0,0,0,.45), inset 0 1px 0 rgba(92,255,160,.04);
+}
+.odin-coll-header {
+  display: flex; align-items: flex-start; gap: 28px; flex-wrap: wrap;
+  padding: 22px 22px 18px;
+  background: linear-gradient(135deg, rgba(8,20,14,.97), rgba(4,10,7,.99));
+  border-bottom: 1px solid rgba(92,255,160,.07);
+  position: relative; overflow: hidden;
+}
+.odin-coll-header::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(92,255,160,.52) 30%, rgba(92,255,160,.80) 50%, rgba(92,255,160,.52) 70%, transparent);
+}
+.odin-coll-header::after {
+  content: "ᚱᚢᚾᛖ"; position: absolute; top: 12px; right: 18px;
+  font-family: 'Cinzel', serif; font-size: .50rem; letter-spacing: .3em;
+  color: rgba(92,255,160,.14); pointer-events: none;
+}
+.odin-coll-left { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 9px; }
+.odin-coll-eyebrow {
+  font-family: 'Cinzel', serif; font-size: .55rem; letter-spacing: .22em;
+  text-transform: uppercase; color: rgba(92,255,160,.55);
+}
+.odin-coll-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.2rem,2.8vw,1.7rem);
+  font-weight: 900; letter-spacing: .10em; color: #fff; line-height: 1.1;
+}
+.odin-coll-title span { color: #5cffa0; text-shadow: 0 0 12px rgba(92,255,160,.48); }
+.odin-coll-desc {
+  font-size: .80rem; line-height: 1.62;
+  color: rgba(220,255,235,.55); font-family: 'Cinzel', serif;
+  max-width: 400px; letter-spacing: .02em;
+}
+.odin-coll-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.odin-supply-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 13px; border-radius: 999px;
+  font-family: 'Cinzel', serif; font-size: .60rem; font-weight: 700; letter-spacing: .12em;
+  color: rgba(240,244,240,.72);
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.11);
+}
+.odin-supply-chip strong { color: #fff; font-size: .70rem; }
+.odin-cta-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 18px; border-radius: 999px;
+  font-family: 'Cinzel', serif; font-size: .68rem; font-weight: 800; letter-spacing: .10em;
+  text-transform: uppercase; text-decoration: none; cursor: pointer;
+  background: linear-gradient(135deg, #18e884, #0af2c0); color: #001a0a;
+  box-shadow: 0 0 20px rgba(24,232,132,.38);
+  transition: all .18s; border: none; outline: none;
+}
+.odin-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(24,232,132,.55); }
+.odin-coll-right { flex-shrink: 0; width: clamp(300px, 55%, 580px); }
+.odin-preview-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+}
+.odin-preview-cell {
+  aspect-ratio: 1/1; border-radius: 9px; overflow: hidden;
+  background: rgba(0,0,0,.55); border: 1px solid rgba(92,255,160,.08);
+  position: relative; cursor: pointer; transition: all .18s;
+}
+.odin-preview-cell:hover { border-color: rgba(92,255,160,.42); transform: scale(1.05); z-index:1; }
+.odin-preview-cell.active-cell { border-color: rgba(92,255,160,.78); box-shadow: 0 0 0 2px rgba(92,255,160,.38); }
+.odin-preview-cell img, .odin-preview-cell video { width:100%; height:100%; object-fit:contain; object-position:center; }
+.odin-preview-cell .preview-sold-out {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.52); font-family:'Cinzel',serif; font-size:.48rem;
+  font-weight:800; letter-spacing:.10em; color:rgba(255,255,255,.35); text-transform:uppercase;
+}
+@media(max-width:580px) { .odin-coll-right { width:100%; } .odin-coll-header { padding:18px 16px; } }
+
+/* Tabs strip */
+.odin-tabs-bar {
+  display:flex; align-items:center; gap:0;
+  overflow-x:auto; scrollbar-width:none;
+  background: linear-gradient(135deg,rgba(6,14,10,.99),rgba(3,8,6,.99));
+  border-bottom:1px solid rgba(92,255,160,.06);
+  padding:0 14px;
+}
+.odin-tabs-bar::-webkit-scrollbar{display:none;}
+.odin-tab-thumb {
+  flex-shrink:0; width:50px; height:50px; margin:7px 3px;
+  border-radius:9px; overflow:hidden; cursor:pointer;
+  border:2px solid transparent; transition:all .16s; position:relative;
+}
+.odin-tab-thumb:hover { border-color:rgba(92,255,160,.36); transform:translateY(-2px); }
+.odin-tab-thumb.active { border-color:#5cffa0; box-shadow:0 0 0 1px rgba(92,255,160,.48),0 4px 10px rgba(92,255,160,.18); }
+.odin-tab-thumb img,.odin-tab-thumb video{width:100%;height:100%;object-fit:cover;}
+.odin-tab-thumb .tab-cat{position:absolute;bottom:1px;left:0;right:0;font-family:'Cinzel',serif;font-size:.32rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-align:center;color:rgba(255,255,255,.72);background:rgba(0,0,0,.52);padding:1px 0;}
+
+/* Body panel */
+.odin-body-panel {
+  background:linear-gradient(180deg,rgba(6,14,10,.95),rgba(3,8,6,.99));
+}
+.odin-rewards-toggle {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:12px 18px; cursor:pointer;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  transition:background .15s;
+}
+.odin-rewards-toggle:hover{background:rgba(92,255,160,.03);}
+.odin-rewards-toggle-left{display:flex;align-items:center;gap:10px;}
+.odin-rewards-icon{width:26px;height:26px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.85rem;background:rgba(92,255,160,.09);border:1px solid rgba(92,255,160,.18);}
+.odin-rewards-label{font-family:'Cinzel',serif;font-size:.60rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(92,255,160,.65);}
+.odin-rewards-sub{font-family:'Cinzel',serif;font-size:.52rem;color:rgba(255,255,255,.32);letter-spacing:.08em;margin-top:1px;}
+.odin-rewards-arrow{font-size:.48rem;color:rgba(92,255,160,.42);transition:transform .22s ease;}
+.odin-rewards-arrow.open{transform:rotate(180deg);}
+.odin-rewards-body{max-height:0;overflow:hidden;transition:max-height .38s ease;border-bottom:1px solid rgba(255,255,255,.04);}
+.odin-rewards-body.open{max-height:540px;overflow-y:auto;}
+.odin-grid-wrap{padding:14px 16px 18px;}
+
+/* ══════════════════════════════════════════
+   MAIN tabs harmonised
+══════════════════════════════════════════ */
+
+
+/* ── Spacing corrections ── */
+.odin-collection-wrap{margin-top:var(--section-gap);}
+.other-coll-wrap{margin-top:var(--section-gap);}
+#postConnectActions{margin:22px auto 28px;}
+.odins-stats-band{margin:20px 0 10px;}
+.about{margin:22px auto;}
+
+/* Mobile responsive for HUD */
+@media(max-width:640px){
+  .top-hud{flex-direction:column;gap:10px;padding:10px 0 16px;}
+  .header-nav{width:100%;gap:20px;font-size:.65rem;height:42px;padding:0 16px;}
+  .wallet-trigger{width:100%;display:flex;justify-content:center;}
+  .wallet-trigger>.wallet-btn.tsk-style{width:100%;max-width:320px;}
+  .wallet-panel{position:fixed;top:auto;bottom:0;left:0;right:0;width:100%;border-radius:22px 22px 0 0;animation:walletSlideUp .25s ease;}
+  .wallet-balances{position:static;width:100%;margin-top:8px;}
+}
+@keyframes walletSlideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+@media(max-width:480px){
+  .header-nav{gap:14px;padding:0 12px;}
+  .header-nav a{font-size:.62rem;}
+  .section-num{font-size:.56rem;padding:4px 7px;}
+  .utility-grid{grid-template-columns:1fr;}
+  .other-coll-header,.odin-coll-header{padding:14px 14px;}
+  .top-holders-list{gap:7px;}
+  .top-holder-row{padding:7px 11px;font-size:.66rem;}
+}
+
+
+/* ═══════════════════════════════════════════════
+   COMBAT WRAP — même visuel que other-coll-wrap
+═══════════════════════════════════════════════ */
+
+/* Accentuation verte pour combat (variante de holders) */
+.combat-wrap {
+  border-color: rgba(92,255,160,.14) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.42),
+              inset 0 1px 0 rgba(92,255,160,.06) !important;
+  width: 100%;
+  margin-top: var(--section-gap, 32px);
+}
+.combat-wrap .other-coll-header {
+  border-bottom-color: rgba(92,255,160,.08) !important;
+}
+.combat-wrap .other-coll-header::before {
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(92,255,160,.42) 30%,
+    rgba(92,255,160,.68) 50%,
+    rgba(92,255,160,.42) 70%,
+    transparent) !important;
+}
+.combat-wrap .other-coll-section-num {
+  font-size: 1rem;
+  border-color: rgba(92,255,160,.25);
+  color: rgba(92,255,160,.75);
+  background: rgba(92,255,160,.06);
+  padding: 6px 10px;
+}
+.combat-wrap .other-coll-icon {
+  background: rgba(92,255,160,.09);
+  border-color: rgba(92,255,160,.20);
+}
+
+/* chips row : countdown + counter + rules côte à côte */
+.arena-chips-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.arena-chips-row .challenge-countdown {
+  font-size: .88rem;
+  margin: 0;
+  color: var(--c-gold, #e8c84a);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+.arena-chips-row .viking-chip {
+  margin: 0;
+  font-size: .82rem;
+  padding: 4px 13px;
+}
+.arena-chips-row .arena-rules-btn {
+  position: static;
+  transform: none;
+  height: auto;
+  padding: 5px 13px;
+  font-size: .60rem;
+}
+.arena-chips-row .arena-rules-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Combat body */
+.combat-body {
+  padding: 18px 18px 22px;
+}
+
+/* Step header */
+.combat-step-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(92,255,160,.07);
+}
+.combat-step-num {
+  font-family: 'Cinzel', serif;
+  font-size: .60rem;
+  font-weight: 900;
+  letter-spacing: .22em;
+  padding: 4px 9px;
+  border-radius: 6px;
+  border: 1px solid rgba(92,255,160,.22);
+  color: rgba(92,255,160,.60);
+  background: rgba(92,255,160,.05);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.combat-step-head .combat-hint {
+  margin-bottom: 0;
+}
+
+/* Divider entre étapes */
+.combat-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  opacity: .28;
+}
+.combat-divider::before,
+.combat-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(92,255,160,.48), transparent);
+}
+.combat-divider span {
+  font-family: 'Cinzel', serif;
+  font-size: .85rem;
+  color: #5cffa0;
+  letter-spacing: .2em;
+}
+
+/* combat-arena inside new layout — remove old nft-section padding */
+.combat-wrap .combat-arena {
+  margin-top: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+@media (max-width: 580px) {
+  .arena-chips-row { gap: 7px; }
+  .arena-chips-row .challenge-countdown { font-size: .78rem; }
+  .arena-chips-row .viking-chip { font-size: .72rem; padding: 3px 10px; }
+  .combat-body { padding: 14px 13px 18px; }
+}
+
+/* ── Tab icon sizing ── */
+.main-tab .tab-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.main-tab .tab-label {
+  font-size: .78rem;
+  letter-spacing: .3em;
+  opacity: .90;
+
+  align-items: center;
+}
+
+/* ── Tab content containers : pleine largeur identique ── */
+.main-tab-content {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════
+   TABS — Redesign complet Web3 card-style
+═══════════════════════════════════════════════════ */
+
+/* Wrapper global tabs + contenu */
+.tabs-and-content {
+  width: 100%;
+  margin-top: 28px;
+}
+
+/* Label de section 03 */
+.tabs-section-head {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;          /* espace vertical entre label et boutons */
+}
+.tabs-section-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(92,255,160,.08);
+}
+
+/* Rangée de boutons — en dessous du label */
+.tabs-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  padding-top: 8px;   /* descend visuellement les boutons */
+}
+
+/* ── BOUTON TAB — large, visible, card-style ── */
+.main-tabs { display: none; }  /* legacy wrapper désactivé */
+
+.main-tab {
+  position: relative;
+  flex: 1;                       /* partage égal de la largeur */
+  max-width: 50%;                /* jamais plus de moitié */
+  min-height: 60px;              /* hauteur imposante */
+  padding: 20px 28px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;           /* icône + label côte à côte */
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  transition: all .20s cubic-bezier(.22,1,.36,1);
+
+  color: rgba(255,255,255,.60);
+  background: linear-gradient(145deg, rgba(14,28,20,.80), rgba(6,14,10,.95));
+  border: 1px solid rgba(92,255,160,.14);
+  box-shadow: 0 6px 24px rgba(0,0,0,.45),
+              inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* Shimmer hover */
+.main-tab::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg,
+    transparent 30%,
+    rgba(92,255,160,.08) 50%,
+    transparent 70%);
+  opacity: 0; transition: opacity .20s;
+  pointer-events: none;
+}
+.main-tab:hover { transform: translateY(-3px); }
+.main-tab:hover::before { opacity: 1; }
+.main-tab:hover {
+  color: #fff;
+  border-color: rgba(92,255,160,.30);
+  box-shadow: 0 12px 32px rgba(0,0,0,.55),
+              0 0 20px rgba(92,255,160,.12),
+              inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* ── ACTIVE ── */
+.main-tab.active {
+  color: #fff;
+  background: linear-gradient(145deg, rgba(16,40,28,.95), rgba(8,20,14,.99));
+  border-color: rgba(92,255,160,.50);
+  box-shadow: 0 0 28px rgba(92,255,160,.25),
+              0 0 0 1px rgba(92,255,160,.40),
+              0 8px 28px rgba(0,0,0,.55),
+              inset 0 1px 0 rgba(92,255,160,.08);
+}
+/* Accent line top on active */
+.main-tab.active::after {
+  content: "";
+  position: absolute; top: 0; left: 10%; right: 10%; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(92,255,160,.80), transparent);
+  border-radius: 0 0 4px 4px;
+}
+
+/* ── ICON ── */
+.tab-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(92,255,160,.30));
+  flex-shrink: 0;
+}
+.main-tab.active .tab-icon {
+  filter: drop-shadow(0 0 12px rgba(92,255,160,.60));
+}
+
+/* ── LABEL ── */
+.tab-label {
+  font-size: .88rem;
+  letter-spacing: .16em;
+  line-height: 1;
+}
+
+/* ── Battle tab — rouge ── */
+#combatTabBtn,
+.main-tab[data-main-tab="combat"] {
+  color: rgba(255,120,120,.75);
+  background: linear-gradient(145deg, rgba(40,8,8,.85), rgba(18,4,4,.96));
+  border-color: rgba(255,70,70,.22);
+}
+#combatTabBtn:hover,
+.main-tab[data-main-tab="combat"]:hover {
+  color: #fff;
+  border-color: rgba(255,70,70,.50);
+  box-shadow: 0 12px 32px rgba(0,0,0,.55),
+              0 0 20px rgba(255,70,70,.18);
+}
+#combatTabBtn.active,
+.main-tab[data-main-tab="combat"].active {
+  color: #fff;
+  background: linear-gradient(145deg, rgba(50,8,8,.95), rgba(22,4,4,.99));
+  border-color: rgba(255,70,70,.55);
+  box-shadow: 0 0 28px rgba(255,70,70,.30),
+              0 0 0 1px rgba(255,70,70,.45),
+              0 8px 28px rgba(0,0,0,.55);
+}
+#combatTabBtn.active::after,
+.main-tab[data-main-tab="combat"].active::after {
+  background: linear-gradient(90deg, transparent, rgba(255,70,70,.80), transparent);
+}
+#combatTabBtn .tab-icon,
+.main-tab[data-main-tab="combat"] .tab-icon {
+  filter: drop-shadow(0 0 8px rgba(255,70,70,.40));
+}
+
+/* Mobile */
+@media (max-width: 580px) {
+  .tabs-row { gap: 10px; }
+  .main-tab {
+    min-height: 64px;
+    padding: 14px 16px;
+    font-size: .82rem;
+    gap: 10px;
+    border-radius: 14px;
+  }
+  .tab-icon { font-size: 1.3rem; }
+  .tab-label { font-size: .72rem; letter-spacing: .10em; }
+}
+
+/* ── mainTabContents : pleine largeur ── */
+#mainTabContents {
+  width: 100%;
+}
+
+/* ── combat-wrap : même largeur que tout le reste ── */
+.combat-wrap {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;         /* reset toutes marges */
+  border: 1px solid rgba(92,255,160,.14) !important;
+  border-radius: var(--panel-radius, 20px) !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,.42),
+              inset 0 1px 0 rgba(92,255,160,.06) !important;
+}
+
+/* ── numbered-section — harmonise 04 et 05 avec 01/02/03 ── */
+.numbered-section {
+  padding: var(--section-pad, 22px) 0;
+  margin-bottom: var(--section-gap, 32px);
+  width: 100%;
+}
+.numbered-section > .section-header {
+  margin-bottom: 18px;
+}
+
+
+/* ── Challenge lock banner ── */
+.challenge-lock-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 28px 20px;
+  background: linear-gradient(145deg, rgba(8,18,13,.96), rgba(4,10,7,.99));
+  border-bottom: 1px solid rgba(92,255,160,.06);
+  text-align: center;
+  font-family: 'Cinzel', serif;
+}
+.clb-icon {
+  font-size: 2.4rem;
+  filter: grayscale(.4);
+  opacity: .75;
+}
+.clb-title {
+  font-size: clamp(.95rem, 2.5vw, 1.25rem);
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(232,200,74,.85);
+  text-shadow: 0 0 14px rgba(232,200,74,.28);
+}
+.clb-sub {
+  font-size: .70rem;
+  letter-spacing: .10em;
+  color: rgba(255,255,255,.38);
+  max-width: 400px;
+}
+
+/* ── arena-disabled étend aussi combatSelect ── */
+#combatSelect.arena-disabled {
+  opacity: .45;
+  pointer-events: none;
+  filter: grayscale(.5) blur(1px);
+  user-select: none;
+}
+
 </style>
-  <script type="module" crossorigin src="./assets/index-baaa30f7.js"></script>
+  <script type="module" crossorigin src="./assets/index-699d553b.js"></script>
 </head>
 
 <body>
@@ -4201,277 +6167,390 @@ footer a:visited {
   <div class="header-bottom-logo">
     <img src="./assets/logo3-2fe7f22f.png" alt="Centered Logo">
   </div>
+
+
 </header>
 
 <main>
-<div>
-<section class="about" id="aboutSection">
-  <h2 class="magic-text runic">ᚠᚢᚦᚨ - ABOUT - ᚨᚦᚢᚠ</h2>
 
+<!-- ══════════════════════════════════
+     TOP HUD — Navigation + Wallet
+══════════════════════════════════ -->
+<div class="top-hud">
+
+  <!-- ── NAVIGATION ── -->
+  <nav class="header-nav">
+    <a href="#aboutSection">About</a>
+    <a href="#postConnectActions">NFT</a>
+    <a href="#postConnectActions">$TSK</a>
+    <a href="#postConnectActions">Acces Mint</a>
+  </nav>
+
+  <!-- ── BALANCES (entre nav et bouton) ── -->
+  <div class="wallet-balances" style="display:none;"></div>
+
+  <!-- ── WALLET TRIGGER ── -->
+  <div class="wallet-trigger">
+
+    <!-- Connect btn -->
+    <button id="connectBtn" class="wallet-btn tsk-style">
+      Connect Wallet
+    </button>
+
+    <!-- Disconnect btn -->
+    <button id="disconnectBtn" class="wallet-btn secondary" style="display:none;">
+      Disconnect
+    </button>
+
+    <!-- ── Dropdown panel ── -->
+    <div class="wallet-panel" id="walletChoices" style="display:none;">
+
+      <button id="walletBackBtn" class="wallet-btn secondary">← Back</button>
+
+      <button id="connectExtension" class="wallet-btn choice desktop-only">
+        🖥️ MultiversX Extension
+      </button>
+      <button id="connectXPortal" class="wallet-btn choice">
+        📱 xPortal App
+      </button>
+      <button id="connectWalletConnect" class="wallet-btn choice">
+        🌐 MultiversX Web Wallet
+      </button>
+
+      <div class="wallet-status">
+        <div class="status" id="status">Not connected</div>
+        <div class="address" id="address">—</div>
+      </div>
+
+      <div class="qr-wrapper">
+        <div id="MyWalletConnectQRContainer" class="qr-chip"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-num">01</div>
+      <div>
+        <div class="section-title">ᚠᚢᚦᚨ - ABOUT - ᚨᚦᚢᚠ<small>About</small></div>
+      </div>
+    </div>
+</div>	
+
+  
 	 <p class="magic-text runic">
-	 <br />
 	  Dive into the mythical world of the digital realm with the Odin's Deck collection on MultiversX.<br />
 	  An exclusive animated collection of 377 NFTs across 15 categories. These digital artifacts offer you much more than just images: powers and rewards.<br />
 	  Your destiny now rests in your hands.
 	 </p>
-
-</section>
-
-  
-<section class="odins-preview" id="odinsPreview">
-  <div class="odins-row" id="odinsRow"></div>
-</section>
-
-<div class="wallet-balances" style="display:none;"></div> 
- 
-<div class="wallet-box">
-
-  <div class="wallet-actions primary-actions" id="walletMainActions">
 	
-  <button id="connectBtn" class="wallet-btn tsk-style">
-   Connect Wallet
-  </button>
+	<section class="odins-preview" id="odinsPreview">
+		<div class="odins-row" id="odinsRow"></div>
+	</section>
 
-  <button id="disconnectBtn" class="wallet-btn secondary" style="display:none;">
-    Disconnect
-  </button>
 
+
+<!-- SECTION 2 : UTILITÉ -->
+<div class="section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-num">02</div>
+      <div>
+        <div class="section-title">Usefulness of NFTs<small>Rewards system · TSK integration · Gaming</small></div>
+      </div>
+    </div>
+    <div class="utility-grid fade-in">
+      <div class="utility-card">
+        <span class="utility-icon">🎨</span>
+        <h4>NFT Staking → TSK Rewards</h4>
+        <p>Each staked Odin'sDeck generates TSK tokens daily. Cumulative holders get monthly loyalty bonuses.</p>
+        <span class="utility-tag">Active</span>
+      </div>
+
+      <div class="utility-card">
+        <span class="utility-icon">🎮</span>
+        <h4>Access to the Gaming Site</h4>
+        <p>Your NFT is your entry pass to the gaming site. Each NFT grants access to the Arena of the Immortals. The NFT's rarity determines its stats.</p>
+        <span class="utility-tag">ACCESS to the existing site</span>
+      </div>
+
+      <div class="utility-card">
+        <span class="utility-icon">🏆</span>
+        <h4>Tournaments & Rankings Holders</h4>
+        <p>Monthly competitions on the gaming site. Top players. Public leaderboard system on Telegram and X for community engagement.</p>
+        <span class="utility-tag">Monthly</span>
+      </div>
+
+      <div class="utility-card">
+        <span class="utility-icon">🎁</span>
+        <h4>Airdrops TSK</h4>
+        <p>Holders receive airdrops of TSK tokens and other tokens. Monthly wallet snapshots—the longer you hold, the more rewards you receive..</p>
+        <span class="utility-tag">Monthly</span>
+      </div>
+
+      <div class="utility-card">
+        <span class="utility-icon">🤝</span>
+        <h4>Partenariats & Collabs MultiversX</h4>
+        <p>Integration with MultiversX marketplaces (OOX, Xoxno). Partnership with other NFT projects in the ecosystem.</p>
+        <span class="utility-tag">Ongoing</span>
+      </div>
+    </div>
+  </div>
 </div>
 
-  <div class="wallet-actions" id="walletChoices" style="display:none;">
+<!-- ══════════════════════════════
+     NAV TABS + CONTENT WRAPPER
+══════════════════════════════ -->
+<div class="tabs-and-content">
 
-  <!-- 🔙 BACK -->
-  <button id="walletBackBtn" class="wallet-btn secondary">
-    ← Back
-  </button>
+  <!-- Section label 03 -->
+  <div class="tabs-section-head" id="mainTabs" style="display:none;">
+    <div class="tabs-section-label">
+      <span class="section-num">03</span>
+      <div>
+        <div class="section-title">Access<small>Mint · TSK · Gaming</small></div>
+      </div>
+    </div>
 
-  <button id="connectExtension" class="wallet-btn choice desktop-only">
-    MultiversX Extension
-  </button>
-
-  <button id="connectXPortal" class="wallet-btn choice">
-    xPortal App
-  </button>
-
-  <button id="connectWalletConnect" class="wallet-btn choice">
-    MultiversX Web Wallet
-  </button>
-
-</div>
-
-	
-  <div class="wallet-status">
-    <div class="status" id="status">Not connected</div>
-    <div class="address" id="address">—</div>
+    <div class="tabs-row">
+      <button class="main-tab active" data-main-tab="collection">
+        <span class="tab-icon">🧩</span>
+        <span class="tab-label">Odin's Deck</span>
+      </button>
+      <button class="main-tab"
+              data-main-tab="combat"
+              id="combatTabBtn"
+              style="display:none;">
+        <span class="tab-icon">⚔️</span>
+        <span class="tab-label">Battle</span>
+      </button>
+    </div>
   </div>
 
- <div class="qr-wrapper">
-  <div id="MyWalletConnectQRContainer" class="qr-chip"></div>
-</div>
-
-
-</div>
-
-<div class="post-connect-actions" id="postConnectActions" >
-
-  <a href="https://xoxno.com/collection/ODINSDECK-4e300a/drops"
-     target="_blank"
-     class="action-card mint">
-    <div class="card-value">Mint</div>
-    <div class="card-label">Odin'sDeck</div>
-	 <!-- Texte superposé -->
-    <div class="sold-out-stamp">SOLD OUT</div>
-  </a>
-
-  <a href="https://e-compass.io/token/TSK-4c0988"
-     target="_blank"
-     class="action-card token">
-    <div class="card-value">$TSK</div>
-    <div class="card-label">Token</div>
-  </a>
-
-  <a href="./images/odinsdeck-map.jpg"
-     target="_blank"
-     class="action-card map">
-    <div class="card-value">Map</div>
-    <div class="card-label">Odin'sDeck</div>
-  </a>
-
-</div>
-</div>
-
-<div class="main-tabs" id="mainTabs" style="display:none;">
-  <button class="main-tab active" data-main-tab="collection">
-    🧩 Odin'sDeck
-  </button>
- <!-- ⚔️ COMBAT (caché avant connexion) -->
-  <button class="main-tab combat"
-          data-main-tab="combat"
-          id="combatTabBtn"
-          style="display:none;">
-    ⚔️ Battle
-  </button>
-</div>
-
-<div id="mainTabContents">
+  <div id="mainTabContents">
 
   <!-- 🧩 COLLECTION -->
   <div class="main-tab-content active" data-main-content="collection">
 
-    <!-- SECTION ODINS -->
-    <div class="nft-section" id="nftSectionOdins" style="display:none;">
-      <h2 class="section-title-white-connect">Odins'Deck NFT(s)</h2>
-      <div class="odins-recap">
-        <div class="odins-count">
-          Total NFT(s) : <span id="odinsCount">0</span>
+    <!-- ═══════════════ ODIN'S DECK COLLECTION ═══════════════ -->
+    <div id="nftSectionOdins" class="odin-collection-wrap" style="display:none;">
+
+      <!-- ── HEADER : title + description + 3×3 grid preview ── -->
+      <div class="odin-coll-header">
+
+        <div class="odin-coll-left">
+          <div class="odin-coll-eyebrow">MultiversX · ODINSDECK-4e300a</div>
+
+          <h2 class="odin-coll-title">
+            Odin's <span>Deck</span>
+          </h2>
+
+          <p class="odin-coll-desc">
+            The original 377 heroes that rule the Odinverse — born from
+            the mythical realm of MultiversX. 15 categories of power, each
+            carrying unique traits, rewards, and PvP arena strength.
+          </p>
+
+          <div class="odin-coll-meta">
+            <span class="odin-supply-chip">
+              ⚔️ Supply <strong id="odinsCount">0</strong> NFTs
+            </span>
+            <a
+              href="https://oox.art/marketplace/collections/ODINSDECK-4e300a"
+              target="_blank"
+              class="odin-cta-btn"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              View on OOX ↗
+            </a>
+          </div>
         </div>
 
-        <div class="odins-attributes" id="odinsAttributesTable"></div>
+        <!-- 3×3 preview grid — populated by JS via odin-preview-grid -->
+        <div class="odin-coll-right">
+          <div class="odin-preview-grid" id="odinsPreviewGrid">
+            <!-- 9 cells injected by JS -->
+          </div>
+        </div>
+
       </div>
 
-      <div class="nft-list" id="odinsList"></div>
-    </div>
+      <!-- ── CATEGORY STRIP (thumbnail tabs) ── -->
+      <div class="odin-tabs-bar" id="odinTabsBar">
+        <!-- category thumbs injected by JS -->
+      </div>
 
-    <!-- 🏆 TOP HOLDERS -->
-    <div class="nft-section" id="topHoldersDeck" style="display:none;">
-      <h2 class="section-title-white-connect">🏆 Top Holders</h2>
-      <div class="top-holders-list" id="topHoldersList"></div>
-    </div>
-    
-    <!-- OTHER NFT -->
-    <div class="nft-section" id="nftSectionOthers" style="display:none;">
-      <h2 class="section-title-white-connect">MultiversX NFT(s)</h2>
-      <input
-        type="text"
-        id="otherNftSearch"
-        class="nft-search"
-        style="display:none;"
-        placeholder="Search NFT (name or nonce)…"
-      />
+      <!-- ── BODY : rewards accordion + NFT grid ── -->
+      <div class="odin-body-panel">
 
-      <div class="nft-list" id="otherNftsList"></div>
-    </div>
+        <!-- Rewards / attrs accordion -->
+        <div class="odin-rewards-toggle" id="odinsRewardsToggle">
+          <div class="odin-rewards-toggle-left">
+            <div class="odin-rewards-icon">💰</div>
+            <div>
+              <div class="odin-rewards-label">Traits · Earnings · Rewards</div>
+              <div class="odin-rewards-sub">Click to expand your trait breakdown</div>
+            </div>
+          </div>
+          <span class="odin-rewards-arrow" id="odinsRewardsArrow">▼</span>
+        </div>
+        <div class="odin-rewards-body" id="odinsRewardsBody">
+          <div class="odins-recap">
+            <div class="odins-count" style="display:none;">Total NFT(s) : <span>—</span></div>
+            <div class="odins-attributes" id="odinsAttributesTable"></div>
+          </div>
+        </div>
 
+        <!-- NFT grid -->
+        <div class="odin-grid-wrap">
+          <div class="nft-list" id="odinsList"></div>
+        </div>
+
+      </div>
+    </div>
+<br/>
+    <!-- ═══════════════ TOP HOLDERS ═══════════════ -->
+    <section id="topHoldersDeck" class="numbered-section" style="display:none;">
+      <div class="section-header">
+        <div class="section-num">04</div>
+        <div>
+          <div class="section-title">Top Holders<small>Odin's Deck leaderboard</small></div>
+        </div>
+      </div>
+      <div class="other-coll-wrap holders-wrap">
+      <div class="other-coll-header">
+       
+        <div class="other-coll-badge">Leaderboard</div>
+      </div>
+      <div class="other-body-panel">
+        <div class="top-holders-list" id="topHoldersList"></div>
+      </div>
+    </div><!-- /other-coll-wrap -->
+    </section><!-- /topHoldersDeck -->
+
+    <!-- ═══════════════ MULTIVERSX NFTs ═══════════════ -->
+    <section id="nftSectionOthers" class="numbered-section" style="display:none;">
+      <div class="section-header">
+        <div class="section-num">05</div>
+        <div>
+          <div class="section-title">MultiversX NFTs<small>All other NFTs in your wallet</small></div>
+        </div>
+      </div>
+      <div class="other-coll-wrap">
+      <div class="other-coll-header">
+        <div class="other-coll-badge">Wallet Holdings</div>
+      </div>
+
+      <!-- Search -->
+      <div class="other-search-wrap" id="otherSearchWrap" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" id="otherNftSearch" class="nft-search" placeholder="Search by name or nonce…" />
+      </div>
+
+      <div class="other-body-panel">
+        <div class="nft-list" id="otherNftsList"></div>
+      </div>
+    </div><!-- /other-coll-wrap -->
+    </section><!-- /nftSectionOthers -->
+
+  </div><!-- /collection tab -->
+
+  <!-- ═══════════════ ONGLET COMBAT ═══════════════ -->
+  <div
+    class="main-tab-content"
+    data-main-content="combat"
+    id="combatTabContent"
+    style="display: none;"
+  >
+  <div class="other-coll-wrap combat-wrap">
+	  
+    <!-- ══ HEADER ══ -->
+    <div class="other-coll-header">
+      <div class="other-coll-section-head">
+        <div class="other-coll-section-num">⚔️</div>
+        <div class="other-coll-heading-left">
+          <div class="other-coll-icon" style="font-size:1.1rem;">🛡️</div>
+          <div>
+            <div class="other-coll-title">Arena Of The Immortals</div>
+            <div class="other-coll-sub">PvP Combat · Odin's Deck</div>
+          </div>
+        </div>
+      </div>
+      <div class="arena-chips-row">
+
+        <div id="combatCounter" class="viking-chip">⚔️ 0 / 7</div>
+        <a href="./images/rules.html" target="_blank" class="arena-rules-btn" aria-label="Open Arena Rules">📜 Rules</a>
+      </div>
+	  
+    </div>
+        <div id="challengeCountdown" class="challenge-countdown"></div>
+    <div class="other-body-panel combat-body">
+
+      <!-- ═══ ÉTAPE 01 — SÉLECTION ═══ -->
+      <section id="combatSelect" class="combat-step">
+        <div class="combat-step-head">
+          <span class="combat-step-num">01</span>
+          <p class="combat-hint">Select your Odin</p>
+        </div>
+        <div id="combatNftList" class="combat-nft-list">
+          <!-- NFTs injectés en JS -->
+        </div>
+      </section>
+
+      <!-- ═══ DIVIDER ═══ -->
+      <div class="combat-divider"><span>ᚱ</span></div>
+
+      <!-- ═══ ÉTAPE 02 — ARÈNE ═══ -->
+<section id="combatArena" class="combat-arena combat-step">
+  <div class="combat-step-head">
+    <span class="combat-step-num">02</span>
+    <p class="combat-hint" style="margin-bottom:0;">The Battle</p>
   </div>
 
-<!-- ================= ONGLET COMBAT ================= -->
-<div
-  class="main-tab-content"
-  data-main-content="combat"
-  id="combatTabContent"
-  style="display: none;"
->
-  <div class="nft-section combat-section">
+<div class="combat-cards">
 
-    <!-- ===== ARENA HEADER ===== -->
-    <div class="arena-header">
+  <div id="playerCard" class="combat-card-slot"></div>
 
-	  <h2 class="section-title-white-connect arena-title">
-		🛡️ Arena Of The Immortals 🛡️
-	  </h2>
+  <div class="combat-vs">VS</div>
 
-	  <a
-		href="./images/rules.jpg"
-		target="_blank"
-		class="arena-rules-btn"
-		aria-label="Open Arena Rules"
-	  >
-		Rules
-	  </a>
+  <div id="enemyCard" class="combat-card-slot"></div>
 
-	</div>
+</div>
+  <button id="startCombatBtn" class="combat-start-btn" type="button" disabled>
+    ⚔️ Start Battle
+  </button>
 
-	 <!-- ===== ÉTAPE 1 : SÉLECTION ===== -->
-	<section id="combatSelect" class="combat-step">
-      <br />
-	  <!-- ================= CHALLENGE TIMER ================= -->
-	  <div
-		id="challengeCountdown"
-		class="challenge-countdown"
-	  ></div>
-
-		<br /><br />
-	  <p class="combat-hint">
-		Select your Odin
-	  </p>
-	  
-	  <!-- ================= NFT LIST ================= -->
-	  <div
-		id="combatNftList"
-		class="combat-nft-list"
-	  >
-		<!-- NFTs injectés en JS -->
-	  </div>
-
-	</section>
-	
-	<br />
-
-	<!-- ================= COMBAT COUNTER ================= -->
-	<div class="combat-counter-wrapper">
-
-	  <div
-		id="combatCounter"
-		class="viking-chip"
-	  >
-		⚔️ 0 / 7
-	  </div>
-
-	</div>
-		
-    <!-- ===== ÉTAPE 2 : ARÈNE ===== -->
-    <section
-      id="combatArena"
-      class="combat-arena combat-step"
-      
-    >
-      <div class="combat-cards">
-        <div
-          id="playerCard"
-          class="combat-card-slot"
-          aria-label="Player Odin"
-        ></div>
-
-        <div class="combat-vs" aria-hidden="true">VS</div>
-
-        <div
-          id="enemyCard"
-          class="combat-card-slot"
-          aria-label="Enemy Odin"
-        ></div>
-      </div>
-      <button
-        id="startCombatBtn"
-        class="combat-start-btn"
-        type="button"
-        disabled
-        style="margin-top: 18px;"
-      >
-        ⚔️ Start Battle
-      </button>
-
-      <div
-        id="combatResult"
-        class="combat-result"
-        aria-live="polite"
-      ></div>
-    </section>
+  <div id="combatResult" class="combat-result" aria-live="polite"></div>
+</section>
 <div id="combatMessage" class="combat-msg"></div>
-
     <!-- ===== COMBAT STATS / LEADERBOARD ===== -->
-    <section id="combatStats" class="combat-stats" style="margin-top: 48px;">
+	<br/><br/><br/>
+    <section id="combatStats" class="combat-stats" style="margin-top: 8px;">
       <h3>🏆 Battle Stats / Leaderboard</h3>
 
       <div class="combat-stats-table-wrapper">
         <table>
           <thead>
             <tr>
-			  <th scope="col">🏆 Rank</th>
+			 <th scope="col">🏆 Rank</th>
 			  <th scope="col">⚡ ERD</th>
 			  <th scope="col">✅ Wins</th>
 			  <th scope="col">💀 Losses</th>
 			  <th scope="col">🌀 Draws</th>
 			  <th scope="col">⚖️ WinRate</th>
+			  <th scope="col">💥 KO</th>
+			  <th scope="col">✨ Perfect</th>
+			  <th scope="col">🔥 Best Streak</th>
+			  <th scope="col">⭐ Total XP</th>
+			  <th scope="col">🎖️ Grade</th>
 			  <th scope="col">💰 Rewards $TSK</th>
 			</tr>
           </thead>
@@ -4482,23 +6561,138 @@ footer a:visited {
       </div>
     </section>
 
-  </div>
-</div>
+  </div><!-- /combat-wrap -->
+  </div><!-- /combatTabContent -->
 
-</div>
+</div><!-- /mainTabContents -->
 </main>
 
 <!-- MODAL -->
 <div class="nft-modal" id="nftModal">
   <div class="nft-modal-content">
-    <h3 id="modalTitle"></h3>
+
+    <!-- Media pleine largeur en haut -->
     <div id="modalMediaContainer">
       <img id="modalImage" class="modal-image">
     </div>
+
+    <!-- Titre -->
+    <h3 id="modalTitle"></h3>
+
+    <!-- Attributs -->
     <div class="nft-attributes" id="modalAttributes"></div>
-    <button class="close-modal secondary" id="closeModal">Close</button>
+
+    <!-- Close -->
+    <button class="close-modal" id="closeModal">✕ &nbsp;Close</button>
+
   </div>
 </div>
+
+<!-- ══════════════════════════════════
+     ACTION CARDS — Mint / $TSK / Map
+══════════════════════════════════ -->
+<div class="post-connect-actions" id="postConnectActions">
+
+  <!-- MINT -->
+  <a href="https://xoxno.com/collection/ODINSDECK-4e300a/drops"
+     target="_blank"
+     class="action-card mint">
+    <div class="card-icon">🎨</div>
+    <div class="card-value">Mint</div>
+    <div class="card-label">Odin's Deck<br>ODINSDECK-4e300a</div>
+    <span class="card-arrow">→</span>
+    <div class="sold-out-stamp">SOLD OUT</div>
+  </a>
+
+  <!-- $TSK TOKEN -->
+  <a href="https://e-compass.io/token/TSK-4c0988"
+     target="_blank"
+     class="action-card token">
+    <div class="card-icon">🪙</div>
+    <div class="card-value">$TSK</div>
+    <div class="card-label">Token<br>TSK-4c0988 · MultiversX</div>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <!-- MAP -->
+  <a href="./images/odinsdeck-map.jpg"
+     target="_blank"
+     class="action-card map">
+    <div class="card-icon">🗺️</div>
+    <div class="card-value">Map</div>
+    <div class="card-label">Odin's Deck<br>Universe overview</div>
+    <span class="card-arrow">→</span>
+  </a>
+
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SOCIAL FOOTER — Join the Community
+═══════════════════════════════════════════ -->
+<footer class="social-footer">
+
+  <!-- Title -->
+  <div class="sf-head">
+    <div class="sf-eyebrow">Odinverse Network</div>
+    <h2 class="sf-title">
+      Join <span class="hl">the Community</span>
+    </h2>
+    <p class="sf-sub">
+      Connect with fellow collectors, stay updated, and become part of
+      the Odinverse family on MultiversX.
+    </p>
+  </div>
+
+  <!-- Social cards -->
+  <div class="sf-cards">
+
+    <!-- X / Twitter -->
+    <a
+      href="https://x.com/Triskel_MvX"
+      target="_blank" rel="noopener noreferrer"
+      class="sf-card twitter"
+    >
+      <div class="sf-card-icon">
+        <!-- X logo SVG -->
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </div>
+      <div class="sf-card-name">X (Twitter)</div>
+      <div class="sf-card-desc">Follow us for updates &amp;<br>announcements</div>
+      <span class="sf-card-arrow">→</span>
+    </a>
+
+    <!-- Telegram -->
+    <a
+      href="https://t.me/TriskelMultiversX"
+      target="_blank" rel="noopener noreferrer"
+      class="sf-card telegram"
+    >
+      <div class="sf-card-icon">
+        <!-- Telegram SVG -->
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 6.77l-1.684 7.94c-.126.572-.46.71-.932.441l-2.578-1.9-1.244 1.197c-.138.138-.253.253-.52.253l.186-2.63 4.797-4.334c.209-.185-.045-.288-.323-.103L7.41 14.503l-2.524-.786c-.549-.172-.56-.549.114-.812l9.86-3.803c.457-.166.858.112.07.668z" fill="#24A1DE"/>
+        </svg>
+      </div>
+      <div class="sf-card-name">Telegram</div>
+      <div class="sf-card-desc">Chat with the community</div>
+      <span class="sf-card-arrow">→</span>
+    </a>
+
+    <!-- MultiversX -->
+    <a
+      href="https://oox.art/marketplace/collections/ODINSDECK-4e300a"
+      target="_blank" rel="noopener noreferrer"
+      class="sf-card mvx"
+    >
+      <div class="sf-card-icon">🧅</div>
+      <div class="sf-card-name">OOX</div>
+      <div class="sf-card-desc">Trade on MultiversX<br>marketplace</div>
+      <span class="sf-card-arrow">→</span>
+    </a>
+
+  </div>
 
 <section class="odins-stats-band">
   <div class="odins-stats-container">
@@ -4512,26 +6706,26 @@ footer a:visited {
     </div>
 
     <div class="odins-stat-card">
-  <div class="stat-value holders-count">…</div>
-  <div class="stat-label">
-    <span class="stat-icon">👥</span>
-    Holders
+		<div class="stat-value holders-count">…</div>
+			<div class="stat-label">
+			<span class="stat-icon">👥</span>
+			Holders
+	</div>
   </div>
-</div>
 
   </div>
 </section>
 
+  <!-- Bottom strip -->
+  <div class="sf-bottom">
+    <span class="sf-copy">© 2026 Odinverse · Built by Triskel · MultiversX</span>
+<!-- ==    <div class="sf-links">
+      <a href="https://x.com/Triskel_MvX" target="_blank" rel="noopener noreferrer">Built by Triskel</a>
+      <a href="https://t.me/TriskelMultiversX" target="_blank" rel="noopener noreferrer">Telegram</a>
+      <a href="./images/rules.html" target="_blank">Rules</a>
+    </div>== -->
+  </div>
 
-<footer>
-  © 2026 Odinverse — Built by
-  <a href="https://x.com/Triskel_MvX" target="_blank" rel="noopener noreferrer">
-    Triskel
-  </a>
-  •
-  <a href="https://t.me/TriskelMultiversX" target="_blank" rel="noopener noreferrer">
-    Telegram
-  </a>
 </footer>
 
 
@@ -4578,7 +6772,8 @@ footer a:visited {
 
       const nonce = document.createElement("div");
       nonce.className = "nft-nonce";
-      nonce.textContent = nft.nonce !== undefined ? `nonce ${nft.nonce}` : "";
+      // nft.nonce est déjà en décimal depuis l'API
+      nonce.textContent = nft.nonce != null ? nft.nonce : "";
 
       card.append(media, name, nonce);
       return card;
@@ -4591,5 +6786,158 @@ footer a:visited {
 </div>
 
 
+
+<script>
+/* ══════════════════════════════════════════════════
+   ODINVERSE — Collection UI Enhancements
+   • 3×3 preview grid
+   • Category thumbnail strip
+   • Rewards accordion
+══════════════════════════════════════════════════ */
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ── Rewards accordion ── */
+  const toggle = document.getElementById("odinsRewardsToggle");
+  const body   = document.getElementById("odinsRewardsBody");
+  const arrow  = document.getElementById("odinsRewardsArrow");
+  if (toggle && body) {
+    toggle.addEventListener("click", () => {
+      const open = body.classList.toggle("open");
+      if (arrow) arrow.classList.toggle("open", open);
+    });
+  }
+
+  /* ── Populate 3×3 preview grid + category strip ──
+     Triggered when odinsList is populated (MutationObserver)
+     or when nftSectionOdins becomes visible.
+  */
+  function buildCollectionUI(nfts) {
+    if (!nfts || !nfts.length) return;
+
+    /* 3×3 grid — chargement API publique aléatoire */
+    const grid = document.getElementById("odinsPreviewGrid");
+    if (grid && !grid.dataset.built) {
+      grid.dataset.built = "1";
+      loadGridPreview(grid);
+    }   /* fin if grid */
+
+
+  }
+
+  /* ── loadGridPreview — API publique MultiversX, 9 NFTs aléatoires ── */
+  async function loadGridPreview(grid) {
+    grid.innerHTML = "";
+
+    // 👁️ Observer pause/play pour les vidéos (performance mobile)
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        const el = entry.target;
+        if (el.tagName === "VIDEO") {
+          entry.isIntersecting ? el.play().catch(() => {}) : el.pause();
+        }
+      }),
+      { threshold: 0.2 }
+    );
+
+    let picked = [];
+
+    try {
+      const res = await fetch(
+        "https://api.multiversx.com/nfts?collection=ODINSDECK-4e300a&size=100"
+      );
+      if (res.ok) {
+        const data = await res.json();
+        picked = data
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 6);   /* 3×2 = 6 NFTs */
+      }
+    } catch (err) {
+      console.warn("Grid preview load error:", err);
+    }
+
+    // 6 slots : 3 colonnes × 2 lignes
+    for (let i = 0; i < 6; i++) {
+      const nft  = picked[i];
+      const cell = document.createElement("div");
+
+      if (nft) {
+        cell.className = "odin-preview-cell" + (i === 0 ? " active-cell" : "");
+        const media = nft.media?.[0];
+        const url   = media?.originalUrl || media?.url || nft.url || "";
+        if (nft.name) cell.dataset.name = nft.name;
+
+        let el;
+        if (media?.fileType?.startsWith("video") || /\.(mp4|webm|ogg)$/i.test(url)) {
+          el = document.createElement("video");
+          el.src = url;
+          el.autoplay = true; el.loop = true; el.muted = true;
+          el.playsInline = true; el.preload = "metadata";
+          el.disablePictureInPicture = true; el.controls = false;
+          observer.observe(el);
+        } else {
+          el = document.createElement("img");
+          el.src = url; el.loading = "lazy"; el.decoding = "async";
+          el.alt = nft.name || "";
+        }
+
+        cell.appendChild(el);
+
+        // Click → highlight
+        cell.addEventListener("click", () => {
+          grid.querySelectorAll(".odin-preview-cell")
+              .forEach(c2 => c2.classList.remove("active-cell"));
+          cell.classList.add("active-cell");
+        });
+
+      } else {
+        // Case vide
+        cell.className = "odin-preview-cell preview-empty";
+        const ph = document.createElement("div");
+        ph.className = "preview-sold-out";
+        ph.textContent = "—";
+        cell.appendChild(ph);
+      } 
+
+      grid.appendChild(cell);
+    }
+  }
+
+  /* Watch for playerNfts to be set by main.js */
+  const watchInterval = setInterval(() => {
+    if (window.playerNfts && window.playerNfts.length) {
+      clearInterval(watchInterval);
+      buildCollectionUI(window.playerNfts);
+    }
+  }, 400);
+
+  /* Also tag each nft-card with data-category when odinsList changes */
+  const odinsList = document.getElementById("odinsList");
+  if (odinsList) {
+    const mo = new MutationObserver(() => {
+      if (window.playerNfts) {
+        // Tag cards with their category from playerNfts
+        const cards = odinsList.querySelectorAll(".nft-card");
+        cards.forEach((card, i) => {
+          const nft = window.playerNfts[i];
+          if (nft) card.dataset.category = nft._displayTrait || "unknown";
+        });
+        buildCollectionUI(window.playerNfts);
+      }
+    });
+    mo.observe(odinsList, { childList: true });
+  }
+
+  /* ── otherSearchWrap visibility mirror ── */
+  const otherNftSearch = document.getElementById("otherNftSearch");
+  const otherSearchWrap = document.getElementById("otherSearchWrap");
+  if (otherNftSearch && otherSearchWrap) {
+    const mo2 = new MutationObserver(() => {
+      otherSearchWrap.style.display = otherNftSearch.style.display === "none" ? "none" : "flex";
+    });
+    mo2.observe(otherNftSearch, { attributes: true, attributeFilter: ["style"] });
+  }
+
+});
+</script>
 </body>
 </html>
