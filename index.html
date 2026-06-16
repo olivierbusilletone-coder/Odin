@@ -6138,7 +6138,7 @@ html {
 }
 
 </style>
-  <script type="module" crossorigin src="./assets/index-85544aa5.js"></script>
+  <script type="module" crossorigin src="./assets/index-2cda8e2f.js"></script>
 </head>
 
 <body>
@@ -6256,6 +6256,129 @@ html {
 
 
 
+
+<style>
+/* ═══════════════ RUNNER GAME STYLES ═══════════════ */
+.runner-wrap{
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.runner-hud{
+  display:flex;
+  gap:10px;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+.runner-hud-item{
+  flex:1 1 140px;
+  background: var(--bg-soft, rgba(0,0,0,0.4));
+  border: 1px solid var(--border-soft, rgba(255,255,255,0.08));
+  border-radius: 10px;
+  padding: 8px 14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+}
+.runner-hud-item.tsk-glow{
+  border-color: rgba(125,255,178,0.35);
+  box-shadow: 0 0 16px rgba(92,255,157,0.12);
+}
+.runner-hud-label{
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+.runner-hud-value{
+  font-family:'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight:700;
+  color:#fff;
+}
+
+.runner-canvas-frame{
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--border-strong, rgba(255,255,255,0.15));
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0a1610;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  aspect-ratio: 800 / 320;
+}
+#runnerCanvas{
+  display:block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.runner-overlay{
+  position:absolute;
+  inset:0;
+  background: rgba(4,8,10,0.78);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding: 20px;
+  backdrop-filter: blur(2px);
+}
+.runner-overlay.hidden{ display:none; }
+.runner-overlay-inner{ max-width: 420px; display:flex; flex-direction:column; gap:14px; align-items:center; }
+.runner-overlay-title{
+  font-family:'Cinzel', serif;
+  letter-spacing: 0.12em;
+  font-size: 1.4rem;
+  color:#fff;
+  text-shadow: 0 0 14px rgba(255,255,255,0.4);
+}
+.runner-overlay-text{
+  font-size: 0.85rem;
+  opacity:0.8;
+  line-height:1.5;
+}
+
+.runner-mobile-controls{
+  display:none;
+  gap:10px;
+}
+@media (max-width: 640px){
+  .runner-mobile-controls{ display:flex; }
+}
+.runner-btn-jump, .runner-btn-slide{ flex:1; }
+
+.runner-claim-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  border-top: 1px solid var(--border-soft, rgba(255,255,255,0.08));
+  padding-top: 14px;
+}
+.runner-claim-info{ display:flex; flex-direction:column; gap:2px; }
+.runner-claim-note{
+  font-size: 0.72rem;
+  opacity: 0.55;
+  line-height:1.4;
+}
+#runnerClaimBtn:disabled{
+  opacity:0.4;
+  cursor:not-allowed;
+  filter: grayscale(0.4);
+}
+</style>
+
+
 <!-- SECTION 2 : UTILITÉ -->
 <div class="section">
   <div class="container">
@@ -6331,6 +6454,8 @@ html {
         <span class="tab-label">Battle</span>
       </button>
     </div>
+
+
   </div>
 
   <div id="mainTabContents">
