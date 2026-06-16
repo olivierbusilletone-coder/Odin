@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODIN'S DECK — Grimoire de Collection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parch:    #1C1509;
+  --parch2:   #251C0C;
+  --parch3:   #2F2210;
+  --parch4:   #3A2A14;
+  --gold:     #C8A84A;
+  --gold2:    #E8C96A;
+  --gold-dim: #7A6228;
+  --blood:    #8B2020;
+  --blood2:   #C03030;
+  --ice:      #C0D0DC;
+  --snow:     #E8E0CC;
+  --mist:     #8A7A60;
+  --rune:     #A09070;
+  --ink:      #D0C098;
+  --shadow:   rgba(0,0,0,0.55);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--parch);
+  color: var(--ink);
+  font-family: 'IM Fell English', Georgia, serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 80% at 20% 10%, rgba(180,120,30,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 120% at 80% 90%, rgba(100,60,10,0.06) 0%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.015) 3px, rgba(0,0,0,0.015) 4px);
+}
+
+.rune-corner {
+  position: fixed; width: 80px; height: 80px;
+  opacity: 0.18; pointer-events: none; z-index: 1;
+  font-size: 48px; color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif; line-height: 1;
+}
+.rc-tl { top: 0; left: 0; }
+.rc-tr { top: 0; right: 0; transform: scaleX(-1); }
+
+.top-chrome {
+  position: sticky; top: 0; z-index: 100;
+  background: linear-gradient(180deg, rgba(20,14,5,0.98) 0%, rgba(20,14,5,0.92) 100%);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--gold-dim);
+  padding: 0 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+}
+
+.chrome-inner {
+  max-width: 960px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 6px;
+  padding: 8px 0;
+}
+
+.nav-tabs { display: flex; gap: 2px; }
+.nav-tab {
+  font-family: 'Cinzel', serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 14px;
+  border: 1px solid rgba(200,168,74,0.25);
+  background: transparent;
+  color: var(--mist);
+  cursor: pointer;
+  transition: all 0.22s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.nav-tab.active, .nav-tab:hover {
+  background: rgba(200,168,74,0.14);
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+.lang-toggle { display: flex; gap: 0; border: 1px solid var(--gold-dim); border-radius: 3px; overflow: hidden; }
+.lang-btn {
+  font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border: none; background: transparent;
+  color: var(--mist); cursor: pointer; transition: all 0.2s;
+  letter-spacing: 0.1em;
+}
+.lang-btn.active { background: var(--gold-dim); color: var(--parch); font-weight: 900; }
+
+.hero { text-align: center; padding: 56px 24px 36px; position: relative; z-index: 2; }
+.hero-knotwork { display: block; margin: 0 auto 18px; font-size: 42px; line-height: 1; opacity: 0.7; animation: breathe 4s ease-in-out infinite; }
+@keyframes breathe { 0%,100% { opacity: 0.65; transform: scale(1); } 50% { opacity: 0.85; transform: scale(1.04); } }
+.hero-eyebrow { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.35em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 14px; }
+.hero-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(28px, 6.5vw, 54px);
+  font-weight: 900; color: var(--gold); line-height: 1.05;
+  text-shadow: 0 0 60px rgba(200,168,74,0.25), 0 2px 0 rgba(0,0,0,0.8);
+  letter-spacing: 0.05em;
+}
+.hero-subtitle { font-family: 'IM Fell English', serif; font-style: italic; font-size: 15px; color: var(--rune); margin-top: 10px; letter-spacing: 0.04em; }
+.hero-scroll-label {
+  display: inline-block; margin-top: 20px;
+  font-family: 'Cinzel', serif; font-size: 11px;
+  letter-spacing: 0.2em; color: var(--parch);
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-dim));
+  padding: 5px 20px; clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+}
+
+.knot-divider { display: flex; align-items: center; gap: 12px; margin: 28px 0 22px; }
+.knot-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
+.knot-center { font-size: 22px; color: var(--gold-dim); opacity: 0.8; font-family: 'Cinzel', serif; }
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px 64px; position: relative; z-index: 2; }
+.s-block { margin-bottom: 36px; }
+.s-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.s-rune {
+  width: 38px; height: 38px; flex-shrink: 0;
+  border: 1px solid var(--gold-dim);
+  background: rgba(200,168,74,0.07);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.s-title { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 700; color: var(--gold); letter-spacing: 0.07em; text-transform: uppercase; }
+
+.panel {
+  background: linear-gradient(135deg, rgba(60,42,20,0.6) 0%, rgba(30,20,8,0.8) 100%);
+  border: 1px solid rgba(200,168,74,0.18);
+  border-radius: 2px; padding: 20px; position: relative;
+  box-shadow: inset 0 1px 0 rgba(200,168,74,0.08), 0 4px 20px rgba(0,0,0,0.4);
+}
+.panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
+
+.rtable { width: 100%; border-collapse: collapse; font-size: 12px; }
+.rtable th {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--mist); text-align: left; padding: 8px 10px 6px;
+  border-bottom: 1px solid rgba(200,168,74,0.2);
+}
+.rtable td {
+  padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-family: 'IM Fell English', serif; vertical-align: middle;
+}
+.rtable tr:last-child td { border-bottom: none; }
+.rtable tr:hover td { background: rgba(200,168,74,0.05); }
+
+.saga { display: flex; flex-direction: column; gap: 0; }
+.saga-step { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.saga-step:last-child { border-bottom: none; }
+.saga-num {
+  width: 30px; height: 30px; flex-shrink: 0;
+  border: 1px solid var(--gold-dim);
+  background: rgba(200,168,74,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel Decorative', serif; font-size: 12px; font-weight: 700; color: var(--gold);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.saga-body { flex: 1; }
+.saga-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--snow); margin-bottom: 4px; }
+.saga-desc { font-size: 13px; color: var(--rune); line-height: 1.65; font-style: italic; }
+
+.rune-formula {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(200,168,74,0.25);
+  border-left: 3px solid var(--gold-dim);
+  padding: 12px 16px; border-radius: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--gold2); line-height: 1.9;
+  margin-top: 10px;
+}
+
+.scroll-box {
+  background: rgba(180,120,30,0.07);
+  border: 1px solid rgba(200,168,74,0.2);
+  border-radius: 2px; padding: 12px 16px;
+  font-size: 13px; color: var(--ice);
+  line-height: 1.7; margin-top: 10px;
+  font-style: italic;
+}
+.scroll-box strong { color: var(--snow); font-style: normal; }
+
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+
+.hero-stat-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 24px; }
+.hero-stat {
+  background: rgba(30,20,8,0.7);
+  border: 1px solid rgba(200,168,74,0.25);
+  border-radius: 2px; padding: 14px 22px; text-align: center; min-width: 140px;
+}
+.hero-stat-val { font-family: 'Cinzel Decorative', serif; font-size: 22px; font-weight: 900; color: var(--gold); }
+.hero-stat-lbl { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.12em; color: var(--mist); margin-top: 4px; text-transform: uppercase; }
+
+.bonus-pill {
+  display: inline-block; margin-top: 4px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--gold2); background: rgba(200,168,74,0.1);
+  padding: 2px 8px; border-radius: 2px; border: 1px solid rgba(200,168,74,0.2);
+}
+
+.saga-tip {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: linear-gradient(90deg, rgba(200,168,74,0.05), transparent);
+  border: 1px solid rgba(200,168,74,0.12);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 2px; padding: 14px; margin-bottom: 10px;
+}
+.saga-tip-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.saga-tip-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--snow); margin-bottom: 4px; }
+.saga-tip-desc { font-size: 13px; color: var(--rune); line-height: 1.65; font-style: italic; }
+
+.reward-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(200,168,74,0.1); }
+.reward-row:last-child { border-bottom: none; }
+.reward-lbl { font-family: 'IM Fell English', serif; font-size: 13px; color: var(--rune); }
+.reward-val { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; }
+
+.seer-panel {
+  background: linear-gradient(135deg, rgba(200,168,74,0.07), rgba(140,80,180,0.07));
+  border: 1px solid rgba(200,168,74,0.35);
+  border-radius: 2px; padding: 20px;
+}
+.seer-stat-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(200,168,74,0.12); }
+.seer-stat-row:last-child { border-bottom: none; }
+.seer-stat-lbl { font-family: 'Cinzel', serif; font-size: 11px; color: var(--mist); }
+.seer-stat-val { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--gold); font-weight: 700; }
+
+.rule-stone {
+  background: rgba(139,32,32,0.08);
+  border: 1px solid rgba(139,32,32,0.25);
+  border-left: 3px solid var(--blood2);
+  border-radius: 2px; padding: 14px 16px; margin-bottom: 10px;
+  font-size: 13px; color: var(--ice); line-height: 1.65; font-style: italic;
+}
+.rule-stone strong { color: var(--snow); font-style: normal; }
+
+.page { display: none; }
+.page.active { display: block; }
+
+.page-footer {
+  text-align: center; padding: 28px 16px;
+  font-family: 'Cinzel', serif; font-size: 10px;
+  letter-spacing: 0.15em; color: var(--gold-dim);
+  border-top: 1px solid rgba(200,168,74,0.15);
+  position: relative; z-index: 2;
+}
+.page-footer a { color: var(--gold); text-decoration: none; }
+
+.hi-red  { color: #D06060; font-weight: 700; }
+.hi-grn  { color: #70C870; font-weight: 700; }
+.hi-gold { color: var(--gold); font-weight: 700; }
+.hi-ice  { color: var(--ice); font-weight: 700; }
+.hi-mist { color: var(--mist); }
+
+.ex-card {
+  background: rgba(30,20,8,0.7);
+  border: 1px solid rgba(200,168,74,0.15);
+  border-radius: 2px; padding: 16px;
+}
+
+@media (max-width: 520px) {
+  .nav-tab { font-size: 8.5px; padding: 7px 9px; }
+  .lang-btn { padding: 5px 10px; }
+  .hero-stat { min-width: 110px; padding: 10px 14px; }
+}
+</style>
+</head>
+<body>
+
+<div class="rune-corner rc-tl">᛭</div>
+<div class="rune-corner rc-tr">᛭</div>
+
+<!-- ══════════ TOP CHROME ══════════ -->
+<div class="top-chrome">
+  <div class="chrome-inner">
+    <nav class="nav-tabs">
+      <button class="nav-tab active" onclick="showPage(1)" data-i18n="nav1">I — LE DECK</button>
+      <button class="nav-tab" onclick="showPage(2)" data-i18n="nav2">II — RÉCOMPENSES</button>
+      <button class="nav-tab" onclick="showPage(3)" data-i18n="nav3">III — LOIS & SEER</button>
+    </nav>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 1 — LE DECK
+══════════════════════════════════════ -->
+<div class="page active" id="page1">
+
+  <div class="hero">
+    <span class="hero-knotwork">🐍</span>
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">⚡ Collection Triskel ⚡</div>
+    <div class="hero-title">ODIN'S DECK</div>
+    <div class="hero-subtitle" data-i18n="hero_sub">Grimoire de la Collection</div>
+    <div class="hero-scroll-label" data-i18n="part1_label">PARCHEMIN I — LE DECK</div>
+
+    <div class="hero-stat-row">
+      <div class="hero-stat"><div class="hero-stat-val">377</div><div class="hero-stat-lbl" data-i18n="stat_nft">NFT</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">1.17</div><div class="hero-stat-lbl" data-i18n="stat_mint">$EGLD — Prix Mint</div></div>
+      <div class="hero-stat"><div class="hero-stat-val">10</div><div class="hero-stat-lbl" data-i18n="stat_seer">Seers</div></div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- PRINCIPLE -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🐍</div>
+        <div class="s-title" data-i18n="s_principle">Le Trésor d'Odin</div>
+      </div>
+      <div class="panel">
+        <div class="saga">
+          <div class="saga-step">
+            <div class="saga-num">I</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="p1_t1">377 guerriers, 15 clans</div>
+              <div class="saga-desc" data-i18n="p1_d1">La collection ODIN'S DECK compte 377 NFT répartis en 15 catégories. Chacune verse une récompense mensuelle en $EGLD, directement dans ton wallet.</div>
+            </div>
+          </div>
+          <div class="saga-step">
+            <div class="saga-num">II</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="p1_t2">10 Seers cachés dans le deck</div>
+              <div class="saga-desc" data-i18n="p1_d2">10 NFT rares portent la bénédiction de Seer. Ils versent un bonus de 0,2 $EGLD chacun, en plus de leur récompense de catégorie.</div>
+            </div>
+          </div>
+          <div class="saga-step">
+            <div class="saga-num">III</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="p1_t3">Récompenses versées chaque mois</div>
+              <div class="saga-desc" data-i18n="p1_d3">Toutes les récompenses sont distribuées automatiquement, chaque mois, directement dans ton wallet — sans action de ta part.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- REWARDS TABLE -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">💰</div>
+        <div class="s-title" data-i18n="s_rewards_table">Tablettes du Trésor — Récompenses par Clan</div>
+      </div>
+      <div class="panel" style="padding:8px 0 0;">
+        <table class="rtable">
+          <thead>
+            <tr>
+              <th data-i18n="th_cat">CLAN</th>
+              <th data-i18n="th_monthly">RÉCOMPENSE / MOIS (par NFT)</th>
+              <th data-i18n="th_bonus7">*BONUS — 7 NFT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>💪 Strength</td><td>0.02 $EGLD</td><td class="hi-gold">0.005 $EGLD</td></tr>
+            <tr><td>🛡️ Resilience</td><td>0.01 $EGLD</td><td class="hi-gold">0.001 $EGLD</td></tr>
+            <tr><td>🌑 Darkness</td><td>0.01 $EGLD</td><td class="hi-gold">0.001 $EGLD</td></tr>
+            <tr><td>💡 Command</td><td>0.012 $EGLD</td><td class="hi-gold">0.002 $EGLD</td></tr>
+            <tr><td>🌿 Nature</td><td>0.013 $EGLD</td><td class="hi-gold">0.002 $EGLD</td></tr>
+            <tr><td>🏃 Agility</td><td>0.013 $EGLD</td><td class="hi-gold">0.002 $EGLD</td></tr>
+            <tr><td>⚙️ Technology</td><td>0.013 $EGLD</td><td class="hi-gold">0.002 $EGLD</td></tr>
+            <tr><td>✨ Magic</td><td>0.014 $EGLD</td><td class="hi-gold">0.003 $EGLD</td></tr>
+            <tr><td>👾 Monster</td><td>0.014 $EGLD</td><td class="hi-gold">0.003 $EGLD</td></tr>
+            <tr><td>💛 Light</td><td>0.014 $EGLD</td><td class="hi-gold">0.003 $EGLD</td></tr>
+            <tr><td>⚡ Chaos</td><td>0.017 $EGLD</td><td class="hi-gold">0.003 $EGLD</td></tr>
+            <tr><td>🧠 Knowledge</td><td>0.017 $EGLD</td><td class="hi-gold">0.004 $EGLD</td></tr>
+            <tr><td>👁️ Awareness</td><td>0.018 $EGLD</td><td class="hi-gold">0.005 $EGLD</td></tr>
+            <tr><td>🗡️ Stealth</td><td>0.018 $EGLD</td><td class="hi-gold">0.005 $EGLD</td></tr>
+            <tr><td>🌟 Craftsmanship</td><td>0.018 $EGLD</td><td class="hi-gold">0.005 $EGLD</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:10px 14px 12px; font-size:11px; color:var(--mist); font-style:italic;" data-i18n="rewards_note">*Bonus — 7 NFT : versé en plus si tu possèdes 7 NFT de la même catégorie</div>
+      </div>
+
+      <div class="scroll-box" style="margin-top:14px" data-i18n="rewards_ex">
+        <strong>Exemple :</strong> J'ai 7 NFT — 5 Strength : 5 × 0.02 — 1 Stealth : 1 × 0.018 — 1 Monster : 1 × 0.014<br>
+        Total = <strong>0.132 $EGLD / mois</strong>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">⚔️ &nbsp; © 2026 ODINVERSE &nbsp;—&nbsp; Built by Triskel &nbsp;·&nbsp; <a href="https://t.me/TriskelMultiversX">t.me/TriskelMultiversX</a> &nbsp; ⚔️</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 2 — RÉCOMPENSES
+══════════════════════════════════════ -->
+<div class="page" id="page2">
+
+  <div class="hero">
+    <span class="hero-knotwork">💰</span>
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">⚡ Collection Triskel ⚡</div>
+    <div class="hero-title">ODIN'S DECK</div>
+    <div class="hero-subtitle" data-i18n="hero_sub2">Le Trésor des Guerriers</div>
+    <div class="hero-scroll-label" data-i18n="part2_label">PARCHEMIN II — RÉCOMPENSES</div>
+  </div>
+
+  <div class="container">
+
+    <!-- EVERY MINT -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">⚒️</div>
+        <div class="s-title" data-i18n="s_mint">À Chaque Forge — Every Mint</div>
+      </div>
+      <div class="panel">
+        <div class="grid3">
+          <div class="ex-card" style="text-align:center">
+            <div style="font-family:'Cinzel Decorative',serif;font-size:24px;font-weight:900;color:var(--gold)">700</div>
+            <div style="font-family:'Cinzel',serif;font-size:11px;color:var(--mist);margin-top:4px;letter-spacing:0.08em" data-i18n="mint_tsk">$TSK offerts</div>
+          </div>
+          <div class="ex-card" style="text-align:center">
+            <div style="font-size:22px">📦</div>
+            <div style="font-family:'Cinzel',serif;font-size:11px;color:var(--mist);margin-top:6px;letter-spacing:0.04em" data-i18n="mint_airdrop">Airdrop mensuel de récompenses</div>
+          </div>
+          <div class="ex-card" style="text-align:center">
+            <div style="font-size:22px">🎁</div>
+            <div style="font-family:'Cinzel',serif;font-size:11px;color:var(--mist);margin-top:6px;letter-spacing:0.04em" data-i18n="mint_surprise">Surprise mensuelle</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- HOW REWARDS WORK -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">📜</div>
+        <div class="s-title" data-i18n="s_how">Comment les Récompenses sont Versées</div>
+      </div>
+      <div class="panel">
+        <div class="saga">
+          <div class="saga-step">
+            <div class="saga-num">I</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="h1_t">Une récompense par clan</div>
+              <div class="saga-desc" data-i18n="h1_d">Chaque NFT verse un montant fixe en $EGLD selon sa catégorie — de 0.01 $EGLD (Resilience, Darkness) à 0.018 $EGLD (Stealth, Craftsmanship, Awareness).</div>
+            </div>
+          </div>
+          <div class="saga-step">
+            <div class="saga-num">II</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="h2_t">Le bonus de série (7 NFT)</div>
+              <div class="saga-desc" data-i18n="h2_d">Posséder 7 NFT de la même catégorie déclenche un bonus mensuel supplémentaire, qui s'ajoute aux récompenses de base.</div>
+            </div>
+          </div>
+          <div class="saga-step">
+            <div class="saga-num">III</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="h3_t">Versement automatique</div>
+              <div class="saga-desc" data-i18n="h3_d">Toutes les récompenses arrivent directement dans ton wallet, chaque mois, sans réclamation manuelle.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALCULATION EXAMPLE -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🧮</div>
+        <div class="s-title" data-i18n="s_calc">Calcul du Butin — Exemple Détaillé</div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <div style="font-size:12px;color:var(--mist);font-style:italic;margin-bottom:12px" data-i18n="calc_intro">Un guerrier possède 7 NFT répartis ainsi :</div>
+          <div class="reward-row"><span class="reward-lbl">💪 5 × Strength</span><span class="reward-val hi-gold">5 × 0.02 = 0.10 $EGLD</span></div>
+          <div class="reward-row"><span class="reward-lbl">🗡️ 1 × Stealth</span><span class="reward-val hi-gold">1 × 0.018 = 0.018 $EGLD</span></div>
+          <div class="reward-row"><span class="reward-lbl">👾 1 × Monster</span><span class="reward-val hi-gold">1 × 0.014 = 0.014 $EGLD</span></div>
+          <div class="rune-formula" style="margin-top:14px" data-i18n="calc_total">Total = 0.10 + 0.018 + 0.014
+      = 0.132 $EGLD / mois</div>
+        </div>
+        <div class="panel">
+          <div style="font-size:12px;color:var(--mist);font-style:italic;margin-bottom:12px" data-i18n="calc_seer_intro">Avec un Seer en plus dans le wallet :</div>
+          <div class="reward-row"><span class="reward-lbl" data-i18n="calc_base_lbl">Récompenses de base</span><span class="reward-val hi-gold">0.132 $EGLD</span></div>
+          <div class="reward-row"><span class="reward-lbl" data-i18n="calc_seer_bonus_lbl">Bonus Seer (×1)</span><span class="reward-val hi-gold">+0.2 $EGLD</span></div>
+          <div class="rune-formula" style="margin-top:14px" data-i18n="calc_seer_total">Total = 0.132 + 0.2
+      = 0.332 $EGLD / mois</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">⚔️ &nbsp; © 2026 ODINVERSE &nbsp;—&nbsp; Built by Triskel &nbsp;·&nbsp; <a href="https://t.me/TriskelMultiversX">t.me/TriskelMultiversX</a> &nbsp; ⚔️</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 3 — LOIS & SEER
+══════════════════════════════════════ -->
+<div class="page" id="page3">
+
+  <div class="hero">
+    <span class="hero-knotwork">👁️</span>
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">⚡ Collection Triskel ⚡</div>
+    <div class="hero-title">ODIN'S DECK</div>
+    <div class="hero-subtitle" data-i18n="hero_sub3">Lois du Marché & Élus d'Odin</div>
+    <div class="hero-scroll-label" data-i18n="part3_label">PARCHEMIN III — LOIS & SEER</div>
+  </div>
+
+  <div class="container">
+
+    <!-- SALES RULES -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">⚖️</div>
+        <div class="s-title" data-i18n="s_rules">Lois du Marché — Vente & Échange</div>
+      </div>
+      <div class="rule-stone" data-i18n="rule1">
+        <strong>Vente uniquement sur le marché secondaire.</strong> Cette règle garantit que le projet perçoit ses royalties et assure la pérennité de l'écosystème.
+      </div>
+      <div class="rule-stone" data-i18n="rule2">
+        <strong>Échange P2P interdit.</strong> Aucun échange de gré à gré entre wallets ne sera autorisé.
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- SEER UTILITY -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">👁️</div>
+        <div class="s-title" data-i18n="s_seer">Élus d'Odin — Utilité des Seer</div>
+      </div>
+      <div class="grid2">
+        <div class="seer-panel">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.2em;color:var(--gold-dim);margin-bottom:14px" data-i18n="seer_count_lbl">RARETÉ</div>
+          <div style="display:flex;align-items:baseline;gap:10px">
+            <span style="font-family:'Cinzel Decorative',serif;font-size:32px;font-weight:900;color:var(--gold)">10</span>
+            <span style="font-family:'Cinzel',serif;font-size:13px;color:var(--rune)" data-i18n="seer_on_total">sur 377 NFT</span>
+          </div>
+          <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(200,168,74,0.2)">
+            <div class="seer-stat-row"><span class="seer-stat-lbl" data-i18n="seer_egld">💰 Récompense $EGLD / mois</span><span class="seer-stat-val">0.17 $EGLD</span></div>
+            <div class="seer-stat-row"><span class="seer-stat-lbl" data-i18n="seer_tsk">⭐ Récompense $TSK / mois</span><span class="seer-stat-val">7,000 $TSK</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold);margin-bottom:12px" data-i18n="seer_joker_title">Le Seer comme Joker</div>
+          <div class="saga-desc" data-i18n="seer_joker_d">
+            Si tu possèdes 6 NFT de la même catégorie, un Seer peut servir de joker pour compléter ta série de 7 et débloquer le bonus de clan correspondant.
+          </div>
+          <div style="margin-top:14px;padding:10px 14px;background:rgba(200,168,74,0.07);border:1px solid rgba(200,168,74,0.2);border-radius:2px;font-family:'Cinzel',serif;font-size:11px;color:var(--gold)" data-i18n="seer_note">
+            ⭐ Un Seer rapporte toujours sa propre récompense, qu'il serve de joker ou non.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- BONUS RULE -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">✨</div>
+        <div class="s-title" data-i18n="s_bonus">*Bonus de Série — 7 NFT du Même Clan</div>
+      </div>
+      <div class="panel">
+        <div class="saga-desc" data-i18n="bonus_desc">Posséder 7 NFT de la même catégorie déclenche un bonus mensuel supplémentaire, versé en plus des récompenses individuelles de chaque NFT.</div>
+        <div class="scroll-box" style="margin-top:12px" data-i18n="bonus_ex">
+          <strong>Exemple :</strong> 7 NFT Awareness → 7 × 0.018 = 0.126 $EGLD de base + bonus série 0.005 $EGLD = <strong>0.131 $EGLD / mois</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- STRATEGY -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🧠</div>
+        <div class="s-title" data-i18n="s_strat">Sagesse des Anciens — Stratégie de Collection</div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">🗡️</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip1_t">Vise les clans à forte récompense</div>
+          <div class="saga-tip-desc" data-i18n="tip1_d">Stealth, Craftsmanship et Awareness versent 0.018 $EGLD/mois — les plus rémunérateurs du deck.</div>
+        </div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">7️⃣</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip2_t">Complète une série de 7 pour le bonus</div>
+          <div class="saga-tip-desc" data-i18n="tip2_d">Le bonus de série récompense la fidélité à un clan. Un Seer peut combler le 7e NFT manquant.</div>
+        </div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">👁️</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip3_t">Un Seer est toujours un bon investissement</div>
+          <div class="saga-tip-desc" data-i18n="tip3_d">0.17 $EGLD + 7,000 $TSK par mois, sans condition. Rare (10 sur 377) et flexible comme joker.</div>
+        </div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">⚖️</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip4_t">Achète uniquement sur le marché secondaire</div>
+          <div class="saga-tip-desc" data-i18n="tip4_d">Aucune transaction P2P n'est reconnue par le projet — passe toujours par le marketplace officiel.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">⚔️ &nbsp; © 2026 ODINVERSE &nbsp;—&nbsp; Built by Triskel &nbsp;·&nbsp; <a href="https://t.me/TriskelMultiversX">t.me/TriskelMultiversX</a> &nbsp; ⚔️</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TRANSLATIONS
+══════════════════════════════════════ -->
+<script>
+const LANG = {
+  fr: {
+    nav1: "I — LE DECK", nav2: "II — RÉCOMPENSES", nav3: "III — LOIS & SEER",
+    hero_eyebrow: "⚡ Collection Triskel ⚡",
+    hero_sub: "Grimoire de la Collection",
+    hero_sub2: "Le Trésor des Guerriers",
+    hero_sub3: "Lois du Marché & Élus d'Odin",
+    part1_label: "PARCHEMIN I — LE DECK",
+    part2_label: "PARCHEMIN II — RÉCOMPENSES",
+    part3_label: "PARCHEMIN III — LOIS & SEER",
+    stat_nft: "NFT", stat_mint: "$EGLD — Prix Mint", stat_seer: "Seers",
+    s_principle: "Le Trésor d'Odin",
+    p1_t1: "377 guerriers, 15 clans",
+    p1_d1: "La collection ODIN'S DECK compte 377 NFT répartis en 15 catégories. Chacune verse une récompense mensuelle en $EGLD, directement dans ton wallet.",
+    p1_t2: "10 Seers cachés dans le deck",
+    p1_d2: "10 NFT rares portent la bénédiction de Seer. Ils versent un bonus de 0,2 $EGLD chacun, en plus de leur récompense de catégorie.",
+    p1_t3: "Récompenses versées chaque mois",
+    p1_d3: "Toutes les récompenses sont distribuées automatiquement, chaque mois, directement dans ton wallet — sans action de ta part.",
+    s_rewards_table: "Tablettes du Trésor — Récompenses par Clan",
+    th_cat: "CLAN", th_monthly: "RÉCOMPENSE / MOIS (par NFT)", th_bonus7: "*BONUS — 7 NFT",
+    rewards_note: "*Bonus — 7 NFT : versé en plus si tu possèdes 7 NFT de la même catégorie",
+    rewards_ex: '<strong>Exemple :</strong> J\'ai 7 NFT — 5 Strength : 5 × 0.02 — 1 Stealth : 1 × 0.018 — 1 Monster : 1 × 0.014<br>Total = <strong>0.132 $EGLD / mois</strong>',
+    s_mint: "À Chaque Forge — Every Mint",
+    mint_tsk: "$TSK offerts", mint_airdrop: "Airdrop mensuel de récompenses", mint_surprise: "Surprise mensuelle",
+    s_how: "Comment les Récompenses sont Versées",
+    h1_t: "Une récompense par clan",
+    h1_d: "Chaque NFT verse un montant fixe en $EGLD selon sa catégorie — de 0.01 $EGLD (Resilience, Darkness) à 0.018 $EGLD (Stealth, Craftsmanship, Awareness).",
+    h2_t: "Le bonus de série (7 NFT)",
+    h2_d: "Posséder 7 NFT de la même catégorie déclenche un bonus mensuel supplémentaire, qui s'ajoute aux récompenses de base.",
+    h3_t: "Versement automatique",
+    h3_d: "Toutes les récompenses arrivent directement dans ton wallet, chaque mois, sans réclamation manuelle.",
+    s_calc: "Calcul du Butin — Exemple Détaillé",
+    calc_intro: "Un guerrier possède 7 NFT répartis ainsi :",
+    calc_total: "Total = 0.10 + 0.018 + 0.014\n      = 0.132 $EGLD / mois",
+    calc_seer_intro: "Avec un Seer en plus dans le wallet :",
+    calc_base_lbl: "Récompenses de base",
+    calc_seer_bonus_lbl: "Bonus Seer (×1)",
+    calc_seer_total: "Total = 0.132 + 0.2\n      = 0.332 $EGLD / mois",
+    s_rules: "Lois du Marché — Vente & Échange",
+    rule1: "<strong>Vente uniquement sur le marché secondaire.</strong> Cette règle garantit que le projet perçoit ses royalties et assure la pérennité de l'écosystème.",
+    rule2: "<strong>Échange P2P interdit.</strong> Aucun échange de gré à gré entre wallets ne sera autorisé.",
+    s_seer: "Élus d'Odin — Utilité des Seer",
+    seer_count_lbl: "RARETÉ", seer_on_total: "sur 377 NFT",
+    seer_egld: "💰 Récompense $EGLD / mois", seer_tsk: "⭐ Récompense $TSK / mois",
+    seer_joker_title: "Le Seer comme Joker",
+    seer_joker_d: "Si tu possèdes 6 NFT de la même catégorie, un Seer peut servir de joker pour compléter ta série de 7 et débloquer le bonus de clan correspondant.",
+    seer_note: "⭐ Un Seer rapporte toujours sa propre récompense, qu'il serve de joker ou non.",
+    s_bonus: "*Bonus de Série — 7 NFT du Même Clan",
+    bonus_desc: "Posséder 7 NFT de la même catégorie déclenche un bonus mensuel supplémentaire, versé en plus des récompenses individuelles de chaque NFT.",
+    bonus_ex: '<strong>Exemple :</strong> 7 NFT Awareness → 7 × 0.018 = 0.126 $EGLD de base + bonus série 0.005 $EGLD = <strong>0.131 $EGLD / mois</strong>',
+    s_strat: "Sagesse des Anciens — Stratégie de Collection",
+    tip1_t: "Vise les clans à forte récompense",
+    tip1_d: "Stealth, Craftsmanship et Awareness versent 0.018 $EGLD/mois — les plus rémunérateurs du deck.",
+    tip2_t: "Complète une série de 7 pour le bonus",
+    tip2_d: "Le bonus de série récompense la fidélité à un clan. Un Seer peut combler le 7e NFT manquant.",
+    tip3_t: "Un Seer est toujours un bon investissement",
+    tip3_d: "0.17 $EGLD + 7,000 $TSK par mois, sans condition. Rare (10 sur 377) et flexible comme joker.",
+    tip4_t: "Achète uniquement sur le marché secondaire",
+    tip4_d: "Aucune transaction P2P n'est reconnue par le projet — passe toujours par le marketplace officiel.",
+  },
+  en: {
+    nav1: "I — THE DECK", nav2: "II — REWARDS", nav3: "III — RULES & SEERS",
+    hero_eyebrow: "⚡ Triskel Collection ⚡",
+    hero_sub: "Grimoire of the Collection",
+    hero_sub2: "The Warriors' Treasury",
+    hero_sub3: "Market Laws & Odin's Chosen",
+    part1_label: "SCROLL I — THE DECK",
+    part2_label: "SCROLL II — REWARDS",
+    part3_label: "SCROLL III — RULES & SEERS",
+    stat_nft: "NFT", stat_mint: "$EGLD — Mint Price", stat_seer: "Seers",
+    s_principle: "Odin's Treasury",
+    p1_t1: "377 warriors, 15 clans",
+    p1_d1: "The ODIN'S DECK collection counts 377 NFTs split across 15 categories. Each one pays a monthly reward in $EGLD, straight to your wallet.",
+    p1_t2: "10 Seers hidden within the deck",
+    p1_d2: "10 rare NFTs carry the Seer's blessing. They pay a bonus of 0.2 $EGLD each, on top of their category reward.",
+    p1_t3: "Rewards paid out every month",
+    p1_d3: "All rewards are distributed automatically, every month, straight to your wallet — no action required on your part.",
+    s_rewards_table: "Treasury Tablets — Rewards by Clan",
+    th_cat: "CLAN", th_monthly: "MONTHLY REWARD (per NFT)", th_bonus7: "*BONUS — 7 NFT",
+    rewards_note: "*Bonus — 7 NFT: paid in addition if you own 7 NFTs of the same category",
+    rewards_ex: '<strong>Example:</strong> I have 7 NFTs — 5 Strength: 5 × 0.02 — 1 Stealth: 1 × 0.018 — 1 Monster: 1 × 0.014<br>Total = <strong>0.132 $EGLD / month</strong>',
+    s_mint: "At Every Mint",
+    mint_tsk: "$TSK granted", mint_airdrop: "Monthly rewards airdrop", mint_surprise: "Monthly surprise",
+    s_how: "How Rewards Are Paid",
+    h1_t: "One reward per clan",
+    h1_d: "Each NFT pays a fixed $EGLD amount based on its category — from 0.01 $EGLD (Resilience, Darkness) to 0.018 $EGLD (Stealth, Craftsmanship, Awareness).",
+    h2_t: "The streak bonus (7 NFTs)",
+    h2_d: "Owning 7 NFTs of the same category triggers an additional monthly bonus, stacked on top of the base rewards.",
+    h3_t: "Automatic payout",
+    h3_d: "All rewards land directly in your wallet, every month, with no manual claim required.",
+    s_calc: "Calculating the Loot — Detailed Example",
+    calc_intro: "A warrior owns 7 NFTs split as follows:",
+    calc_total: "Total = 0.10 + 0.018 + 0.014\n      = 0.132 $EGLD / month",
+    calc_seer_intro: "With one Seer added to the wallet:",
+    calc_base_lbl: "Base rewards",
+    calc_seer_bonus_lbl: "Seer bonus (×1)",
+    calc_seer_total: "Total = 0.132 + 0.2\n      = 0.332 $EGLD / month",
+    s_rules: "Market Laws — Sales & Trading",
+    rule1: "<strong>Sales only on the secondary market.</strong> This rule ensures the project keeps earning royalties and secures the ecosystem's long-term success.",
+    rule2: "<strong>P2P trading is forbidden.</strong> No direct wallet-to-wallet trade will be permitted.",
+    s_seer: "Odin's Chosen — Seer Utility",
+    seer_count_lbl: "RARITY", seer_on_total: "out of 377 NFT",
+    seer_egld: "💰 $EGLD reward / month", seer_tsk: "⭐ $TSK reward / month",
+    seer_joker_title: "The Seer as a Joker",
+    seer_joker_d: "If you own 6 NFTs of the same category, a Seer can act as a joker to complete your set of 7 and unlock the matching clan bonus.",
+    seer_note: "⭐ A Seer always pays out its own reward, whether used as a joker or not.",
+    s_bonus: "*Streak Bonus — 7 NFTs of the Same Clan",
+    bonus_desc: "Owning 7 NFTs of the same category triggers an additional monthly bonus, paid on top of each NFT's individual reward.",
+    bonus_ex: '<strong>Example:</strong> 7 Awareness NFTs → 7 × 0.018 = 0.126 $EGLD base + 0.005 $EGLD streak bonus = <strong>0.131 $EGLD / month</strong>',
+    s_strat: "Wisdom of the Ancients — Collection Strategy",
+    tip1_t: "Aim for high-paying clans",
+    tip1_d: "Stealth, Craftsmanship, and Awareness pay 0.018 $EGLD/month — the best earners in the deck.",
+    tip2_t: "Complete a set of 7 for the bonus",
+    tip2_d: "The streak bonus rewards loyalty to a single clan. A Seer can fill the missing 7th NFT.",
+    tip3_t: "A Seer is always a sound investment",
+    tip3_d: "0.17 $EGLD + 7,000 $TSK per month, no conditions. Rare (10 out of 377) and flexible as a joker.",
+    tip4_t: "Only buy on the secondary market",
+    tip4_d: "No P2P transaction is recognized by the project — always go through the official marketplace.",
+  }
+};
+
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  const t = LANG[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+}
+
+function showPage(n) {
+  document.querySelectorAll('.page').forEach((p, i) => p.classList.toggle('active', i + 1 === n));
+  document.querySelectorAll('.nav-tab').forEach((b, i) => b.classList.toggle('active', i + 1 === n));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
