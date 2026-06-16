@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODINVERSE — Grimoire de Combat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --parch:    #1C1509;
+  --parch2:   #251C0C;
+  --parch3:   #2F2210;
+  --parch4:   #3A2A14;
+  --gold:     #C8A84A;
+  --gold2:    #E8C96A;
+  --gold-dim: #7A6228;
+  --blood:    #8B2020;
+  --blood2:   #C03030;
+  --ice:      #C0D0DC;
+  --snow:     #E8E0CC;
+  --mist:     #8A7A60;
+  --rune:     #A09070;
+  --ink:      #D0C098;
+  --shadow:   rgba(0,0,0,0.55);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--parch);
+  color: var(--ink);
+  font-family: 'IM Fell English', Georgia, serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── PARCHEMIN TEXTURE ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 80% at 20% 10%, rgba(180,120,30,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 120% at 80% 90%, rgba(100,60,10,0.06) 0%, transparent 60%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.015) 3px,
+      rgba(0,0,0,0.015) 4px
+    );
+}
+
+/* ── RUNE CORNER DECORATIONS ── */
+.rune-corner {
+  position: fixed; width: 80px; height: 80px;
+  opacity: 0.18; pointer-events: none; z-index: 1;
+  font-size: 48px; color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel', serif; line-height: 1;
+}
+.rc-tl { top: 0; left: 0; }
+.rc-tr { top: 0; right: 0; transform: scaleX(-1); }
+
+/* ── TOP CHROME ── */
+.top-chrome {
+  position: sticky; top: 0; z-index: 100;
+  background: linear-gradient(180deg, rgba(20,14,5,0.98) 0%, rgba(20,14,5,0.92) 100%);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--gold-dim);
+  padding: 0 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+}
+
+.chrome-inner {
+  max-width: 960px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 6px;
+  padding: 8px 0;
+}
+
+/* NAV TABS */
+.nav-tabs { display: flex; gap: 2px; }
+.nav-tab {
+  font-family: 'Cinzel', serif;
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 8px 14px;
+  border: 1px solid rgba(200,168,74,0.25);
+  background: transparent;
+  color: var(--mist);
+  cursor: pointer;
+  transition: all 0.22s;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.nav-tab.active, .nav-tab:hover {
+  background: rgba(200,168,74,0.14);
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+
+/* LANG TOGGLE */
+.lang-toggle {
+  display: flex; gap: 0; border: 1px solid var(--gold-dim); border-radius: 3px; overflow: hidden;
+}
+.lang-btn {
+  font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700;
+  padding: 6px 14px; border: none; background: transparent;
+  color: var(--mist); cursor: pointer; transition: all 0.2s;
+  letter-spacing: 0.1em;
+}
+.lang-btn.active {
+  background: var(--gold-dim); color: var(--parch); font-weight: 900;
+}
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 56px 24px 36px;
+  position: relative; z-index: 2;
+}
+
+.hero-knotwork {
+  display: block; margin: 0 auto 18px;
+  font-size: 42px; line-height: 1;
+  opacity: 0.7;
+  animation: breathe 4s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,100% { opacity: 0.65; transform: scale(1); }
+  50%      { opacity: 0.85; transform: scale(1.04); }
+}
+
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 10px; letter-spacing: 0.35em;
+  color: var(--gold-dim); text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(30px, 7vw, 58px);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1.05;
+  text-shadow:
+    0 0 60px rgba(200,168,74,0.25),
+    0 2px 0 rgba(0,0,0,0.8);
+  letter-spacing: 0.05em;
+}
+
+.hero-subtitle {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 15px; color: var(--rune);
+  margin-top: 10px; letter-spacing: 0.04em;
+}
+
+.hero-scroll-label {
+  display: inline-block; margin-top: 20px;
+  font-family: 'Cinzel', serif; font-size: 11px;
+  letter-spacing: 0.2em; color: var(--parch);
+  background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-dim));
+  padding: 5px 20px; clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+}
+
+/* ── KNOTWORK DIVIDER ── */
+.knot-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 28px 0 22px;
+}
+.knot-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+.knot-center {
+  font-size: 22px; color: var(--gold-dim); opacity: 0.8;
+  font-family: 'Cinzel', serif;
+}
+
+/* ── CONTAINER ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 20px 64px; position: relative; z-index: 2; }
+
+/* ── SECTION ── */
+.s-block { margin-bottom: 36px; }
+
+.s-head {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 18px;
+}
+.s-rune {
+  width: 38px; height: 38px; flex-shrink: 0;
+  border: 1px solid var(--gold-dim);
+  background: rgba(200,168,74,0.07);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.s-title {
+  font-family: 'Cinzel', serif;
+  font-size: 16px; font-weight: 700;
+  color: var(--gold); letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* ── STONE PANEL ── */
+.panel {
+  background:
+    linear-gradient(135deg, rgba(60,42,20,0.6) 0%, rgba(30,20,8,0.8) 100%);
+  border: 1px solid rgba(200,168,74,0.18);
+  border-radius: 2px;
+  padding: 20px;
+  position: relative;
+  box-shadow: inset 0 1px 0 rgba(200,168,74,0.08), 0 4px 20px rgba(0,0,0,0.4);
+}
+.panel::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+
+/* ── RUNIC TABLE ── */
+.rtable { width: 100%; border-collapse: collapse; font-size: 12px; }
+.rtable th {
+  font-family: 'Cinzel', serif;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--mist); text-align: left;
+  padding: 8px 10px 6px;
+  border-bottom: 1px solid rgba(200,168,74,0.2);
+}
+.rtable td {
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-family: 'IM Fell English', serif;
+  vertical-align: middle;
+}
+.rtable tr:last-child td { border-bottom: none; }
+.rtable tr:hover td { background: rgba(200,168,74,0.05); }
+
+/* ── SAGA STEPS (process) ── */
+.saga { display: flex; flex-direction: column; gap: 0; }
+.saga-step { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.saga-step:last-child { border-bottom: none; }
+.saga-num {
+  width: 30px; height: 30px; flex-shrink: 0;
+  border: 1px solid var(--gold-dim);
+  background: rgba(200,168,74,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel Decorative', serif; font-size: 12px; font-weight: 700; color: var(--gold);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.saga-body { flex: 1; }
+.saga-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--snow); margin-bottom: 4px; }
+.saga-desc { font-size: 13px; color: var(--rune); line-height: 1.65; font-style: italic; }
+
+/* ── RUNE FORMULA ── */
+.rune-formula {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(200,168,74,0.25);
+  border-left: 3px solid var(--gold-dim);
+  padding: 12px 16px; border-radius: 2px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--gold2); line-height: 1.9;
+  margin-top: 10px;
+}
+
+/* ── SAGA SCROLL (example box) ── */
+.scroll-box {
+  background: rgba(180,120,30,0.07);
+  border: 1px solid rgba(200,168,74,0.2);
+  border-radius: 2px; padding: 12px 16px;
+  font-size: 13px; color: var(--ice);
+  line-height: 1.7; margin-top: 10px;
+  font-style: italic;
+}
+.scroll-box strong { color: var(--snow); font-style: normal; }
+
+/* ── GRID HELPERS ── */
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+.grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+
+/* ── RESULT STONES ── */
+.result-stone {
+  background: linear-gradient(135deg, rgba(40,28,10,0.9), rgba(20,13,4,0.95));
+  border: 1px solid rgba(200,168,74,0.15);
+  border-radius: 2px; padding: 16px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.result-stone:hover { border-color: rgba(200,168,74,0.35); }
+.stone-icon { font-size: 26px; margin-bottom: 8px; }
+.stone-name { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; margin-bottom: 5px; }
+.stone-desc { font-size: 12px; color: var(--rune); line-height: 1.5; font-style: italic; }
+.stone-bonus { font-size: 11px; font-family: 'JetBrains Mono', monospace; margin-top: 7px; }
+
+/* ── GRADE RUNES ── */
+.grade-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.grade-row:last-child { border-bottom: none; }
+.grade-hex {
+  width: 38px; height: 38px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cinzel Decorative', serif; font-size: 13px; font-weight: 700;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.g-sp { background: rgba(255,215,0,0.2); color: #FFD700; border: none; }
+.g-s  { background: rgba(200,168,74,0.2); color: var(--gold); }
+.g-a  { background: rgba(80,160,80,0.2);  color: #70C070; }
+.g-b  { background: rgba(80,130,200,0.2); color: #80A8E0; }
+.g-c  { background: rgba(200,120,50,0.2); color: #D09050; }
+.g-d  { background: rgba(100,80,60,0.2);  color: #907060; }
+
+/* ── ADVANTAGE GRID ── */
+.adv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; }
+.adv-tile {
+  background: rgba(30,20,8,0.7);
+  border: 1px solid rgba(200,168,74,0.12);
+  border-radius: 2px; padding: 10px 12px; font-size: 12px;
+  transition: border-color 0.2s;
+}
+.adv-tile:hover { border-color: rgba(200,168,74,0.3); }
+.adv-type-name { font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700; color: var(--snow); margin-bottom: 6px; }
+.adv-line { display: flex; gap: 6px; align-items: center; margin-top: 3px; }
+.adv-lbl { font-size: 10px; color: var(--mist); width: 38px; font-family: 'Cinzel', serif; }
+.col-strong { color: #70C870; font-weight: 600; }
+.col-weak   { color: #C07070; font-weight: 600; }
+
+/* ── SEER CARD ── */
+.seer-panel {
+  background: linear-gradient(135deg, rgba(200,168,74,0.07), rgba(140,80,180,0.07));
+  border: 1px solid rgba(200,168,74,0.35);
+  border-radius: 2px; padding: 20px;
+}
+.seer-stat-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid rgba(200,168,74,0.12); }
+.seer-stat-row:last-child { border-bottom: none; }
+.seer-stat-lbl { font-family: 'Cinzel', serif; font-size: 11px; color: var(--mist); }
+.seer-stat-val { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--gold); font-weight: 700; }
+
+/* ── STREAK RUNES ── */
+.streak-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+.streak-stone {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: rgba(30,20,8,0.8); border: 1px solid rgba(200,168,74,0.15);
+  border-radius: 2px; padding: 12px 10px; min-width: 72px; flex: 1;
+}
+.streak-stone.lit { border-color: rgba(200,120,30,0.5); background: rgba(200,120,30,0.07); }
+.streak-glyph { font-size: 20px; }
+.streak-pct { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--gold); }
+.streak-lbl { font-size: 10px; color: var(--mist); text-align: center; font-style: italic; }
+
+/* ── XP ROWS ── */
+.xp-row { display: flex; align-items: center; justify-content: space-between; background: rgba(20,13,4,0.6); border: 1px solid rgba(200,168,74,0.1); border-radius: 2px; padding: 9px 14px; margin-bottom: 6px; }
+.xp-row:last-child { margin-bottom: 0; }
+.xp-lbl { font-size: 12px; color: var(--rune); font-style: italic; }
+.xp-val { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: var(--gold); }
+
+/* ── COOLDOWN SLOTS ── */
+.cd-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.cd-slot {
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center; font-size: 20px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.cd-used { background: rgba(139,32,32,0.25); border: 1px solid rgba(139,32,32,0.4); }
+.cd-free { background: rgba(70,130,70,0.2); border: 1px solid rgba(70,130,70,0.3); }
+
+/* ── SAGA TIPS ── */
+.saga-tip {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: linear-gradient(90deg, rgba(200,168,74,0.05), transparent);
+  border: 1px solid rgba(200,168,74,0.12);
+  border-left: 3px solid var(--gold-dim);
+  border-radius: 2px; padding: 14px;
+  margin-bottom: 10px;
+}
+.saga-tip-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.saga-tip-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--snow); margin-bottom: 4px; }
+.saga-tip-desc { font-size: 13px; color: var(--rune); line-height: 1.65; font-style: italic; }
+
+/* ── REWARD ROW ── */
+.reward-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(200,168,74,0.1); }
+.reward-row:last-child { border-bottom: none; }
+.reward-lbl { font-family: 'IM Fell English', serif; font-size: 13px; color: var(--rune); }
+.reward-val { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; }
+
+/* ── PILL TAGS ── */
+.pill { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 1px; font-size: 11px; font-weight: 700; font-family: 'Cinzel', serif; letter-spacing: 0.06em; }
+.pill-v { background: rgba(80,160,80,0.15); color: #80C080; border: 1px solid rgba(80,160,80,0.3); }
+.pill-d { background: rgba(150,150,100,0.15); color: #C0B880; border: 1px solid rgba(150,150,100,0.3); }
+.pill-l { background: rgba(160,60,60,0.15); color: #C08080; border: 1px solid rgba(160,60,60,0.3); }
+
+/* ── PAGE VISIBILITY ── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── FOOTER ── */
+.page-footer {
+  text-align: center; padding: 28px 16px;
+  font-family: 'Cinzel', serif; font-size: 10px;
+  letter-spacing: 0.15em; color: var(--gold-dim);
+  border-top: 1px solid rgba(200,168,74,0.15);
+  position: relative; z-index: 2;
+}
+.page-footer a { color: var(--gold); text-decoration: none; }
+
+/* ── NUMBERS COLOR HINTS ── */
+.hi-red  { color: #D06060; font-weight: 700; }
+.hi-grn  { color: #70C870; font-weight: 700; }
+.hi-gold { color: var(--gold); font-weight: 700; }
+.hi-ice  { color: var(--ice); font-weight: 700; }
+.hi-mist { color: var(--mist); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 520px) {
+  .nav-tab { font-size: 8.5px; padding: 7px 9px; }
+  .lang-btn { padding: 5px 10px; }
+  .streak-stone { min-width: 60px; }
+}
+</style>
+</head>
+<body>
+
+<div class="rune-corner rc-tl">᛭</div>
+<div class="rune-corner rc-tr">᛭</div>
+
+<!-- ══════════ TOP CHROME ══════════ -->
+<div class="top-chrome">
+  <div class="chrome-inner">
+    <nav class="nav-tabs">
+      <button class="nav-tab active" onclick="showPage(1)" data-i18n="nav1">I — RUNES DE BASE</button>
+      <button class="nav-tab" onclick="showPage(2)" data-i18n="nav2">II — L'ARÈNE</button>
+      <button class="nav-tab" onclick="showPage(3)" data-i18n="nav3">III — GLOIRE & OR</button>
+    </nav>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 1 — BASES & STATS
+══════════════════════════════════════ -->
+<div class="page active" id="page1">
+
+  <div class="hero">
+    <span class="hero-knotwork">⚔️</span>
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">⚡ Saison I — Arène des Immortels ⚡</div>
+    <div class="hero-title">ODINVERSE</div>
+    <div class="hero-subtitle" data-i18n="hero_sub">Grimoire des Lois du Combat</div>
+    <div class="hero-scroll-label" data-i18n="part1_label">PARCHEMIN I — RUNES DE BASE</div>
+  </div>
+
+  <div class="container">
+
+    <!-- PRINCIPLE -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">⚔️</div>
+        <div class="s-title" data-i18n="s_principle">Loi de l'Arène</div>
+      </div>
+      <div class="panel">
+        <div class="saga">
+          <div class="saga-step">
+            <div class="saga-num">I</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="p1_t1">Ton guerrier contre un ennemi du destin</div>
+              <div class="saga-desc" data-i18n="p1_d1">Chaque combat oppose ton NFT à un adversaire tiré au sort dans la collection ODINSDECK. Nul ne choisit son ennemi — Odin décide.</div>
+            </div>
+          </div>
+          <div class="saga-step">
+            <div class="saga-num">II</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="p1_t2">12 rounds — la durée d'une saga</div>
+              <div class="saga-desc" data-i18n="p1_d2">Les guerriers s'affrontent à tour de rôle, round après round, jusqu'à ce que l'un tombe à 0 HP — ou que les 12 rounds soient épuisés.</div>
+            </div>
+          </div>
+          <div class="saga-step">
+            <div class="saga-num">III</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="p1_t3">Victoire, Destin ou Brouillard</div>
+              <div class="saga-desc" data-i18n="p1_d3">KO = victoire par le sang. Sinon, celui avec le plus de HP gagne. Écart &lt; 10% HP → ÉGALITÉ (les Nornes ont jugé à armes égales).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- STATS TABLE -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">📜</div>
+        <div class="s-title" data-i18n="s_stats">Tablettes de Guerre — Statistiques</div>
+      </div>
+      <div class="panel" style="padding:8px 0 0;">
+        <table class="rtable">
+          <thead>
+            <tr>
+              <th data-i18n="th_cat">CLAN</th>
+              <th>HP</th>
+              <th>ATK</th>
+              <th>DEF</th>
+              <th>SPD</th>
+              <th>CRIT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>⚡ Chaos</td>      <td>95</td>  <td class="hi-red">26</td>  <td class="hi-red">5</td>   <td>18</td> <td class="hi-gold">25%</td></tr>
+            <tr><td>🗡️ Stealth</td>   <td>90</td>  <td>21</td>                 <td>8</td>                   <td class="hi-ice">22</td><td class="hi-gold">28%</td></tr>
+            <tr><td>✨ Magic</td>      <td>90</td>  <td class="hi-red">24</td>  <td class="hi-red">6</td>   <td>11</td> <td class="hi-gold">22%</td></tr>
+            <tr><td>👾 Monster</td>    <td class="hi-grn">130</td><td class="hi-red">25</td><td>9</td><td class="hi-red">6</td><td>10%</td></tr>
+            <tr><td>🛡️ Resilience</td><td class="hi-grn">140</td><td>14</td>   <td class="hi-grn">18</td>  <td>7</td>  <td>8%</td></tr>
+            <tr><td>💪 Strength</td>   <td>120</td> <td>22</td>                 <td>10</td>                  <td>8</td>  <td>12%</td></tr>
+            <tr><td>🌿 Nature</td>     <td>115</td> <td>15</td>                 <td>12</td>                  <td>13</td> <td>10%</td></tr>
+            <tr><td>🌟 Craftsmanship</td><td>120</td><td>18</td>               <td>16</td>                  <td>9</td>  <td>12%</td></tr>
+            <tr><td>💡 Command</td>    <td>110</td> <td>16</td>                 <td>14</td>                  <td>10</td> <td>14%</td></tr>
+            <tr><td>⚙️ Technology</td><td>105</td>  <td>17</td>                 <td>13</td>                  <td>12</td> <td>15%</td></tr>
+            <tr><td>🧠 Knowledge</td>  <td>105</td> <td>19</td>                 <td>11</td>                  <td>10</td> <td>18%</td></tr>
+            <tr><td>🌑 Darkness</td>   <td>100</td> <td>20</td>                 <td>8</td>                   <td>14</td> <td>18%</td></tr>
+            <tr><td>💛 Light</td>      <td>100</td> <td>16</td>                 <td>15</td>                  <td>15</td> <td>16%</td></tr>
+            <tr><td>👁️ Awareness</td> <td>100</td> <td>17</td>                 <td>13</td>                  <td>17</td> <td>20%</td></tr>
+            <tr><td>🏃 Agility</td>    <td>95</td>  <td>18</td>                 <td>7</td>                   <td class="hi-ice">20</td><td>20%</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:10px 14px 12px; font-size:11px; color:var(--mist); font-style:italic;" data-i18n="stats_note">HP ±10% tiré au sort à chaque combat &nbsp;·&nbsp; Critique = ×1.5 dégâts</div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- TYPE ADVANTAGES -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🎯</div>
+        <div class="s-title" data-i18n="s_adv">Roue du Destin — Avantages de Clan</div>
+      </div>
+      <div class="scroll-box" style="margin-bottom:14px" data-i18n="adv_note">
+        Fort contre = ATK ×1.25 &nbsp;|&nbsp; Faible contre = ATK ×0.80 &nbsp;·&nbsp; S'affiche en combat : ⚡ X écrase Y! ou ⚠️ X est vulnérable à Y
+      </div>
+      <div class="adv-grid">
+        <div class="adv-tile"><div class="adv-type-name">💪 Strength</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Resilience</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Magic</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🛡️ Resilience</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Monster</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Chaos</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🌑 Darkness</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Awareness</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Light</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">💡 Command</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Agility</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Stealth</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🌿 Nature</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Technology</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Darkness</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🏃 Agility</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Command</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Monster</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">⚙️ Technology</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Craftsmanship</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Nature</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">✨ Magic</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Darkness</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Strength</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">👾 Monster</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Strength</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Light</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">💛 Light</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Chaos</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Stealth</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">⚡ Chaos</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Resilience</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Knowledge</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🧠 Knowledge</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Magic</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Chaos</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">👁️ Awareness</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Command</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Agility</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🗡️ Stealth</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Knowledge</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Awareness</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🌟 Craftsmanship</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Nature</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Magic</span></div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">⚔️ &nbsp; © 2026 ODINVERSE &nbsp;—&nbsp; Built by Triskel &nbsp;·&nbsp; <a href="https://t.me/TriskelMultiversX">t.me/TriskelMultiversX</a> &nbsp; ⚔️</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 2 — COMBAT
+══════════════════════════════════════ -->
+<div class="page" id="page2">
+
+  <div class="hero">
+    <span class="hero-knotwork">🛡️</span>
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">⚡ Saison I — Arène des Immortels ⚡</div>
+    <div class="hero-title">ODINVERSE</div>
+    <div class="hero-subtitle" data-i18n="hero_sub2">Lois du Sang & de l'Acier</div>
+    <div class="hero-scroll-label" data-i18n="part2_label">PARCHEMIN II — L'ARÈNE</div>
+  </div>
+
+  <div class="container">
+
+    <!-- ROUND -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🔄</div>
+        <div class="s-title" data-i18n="s_round">Déroulement d'un Round de Combat</div>
+      </div>
+      <div class="panel">
+        <div class="saga">
+          <div class="saga-step">
+            <div class="saga-num">I</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="r1_t">Initiative — Qui frappe en premier ?</div>
+              <div class="saga-desc" data-i18n="r1_d">Le guerrier avec le SPD le plus élevé (+±20% du destin) attaque en premier. En cas d'égalité, les Nornes décident.</div>
+            </div>
+          </div>
+          <div class="saga-step">
+            <div class="saga-num">II</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="r2_t">Calcul des Dégâts</div>
+              <div class="saga-desc" data-i18n="r2_d">Le fer frappe — la DEF absorbe. Un coup ne peut jamais faire moins de 1 dégât. Le critique (×1.5) frappe comme la foudre d'Odin.</div>
+              <div class="rune-formula">Dégâts = ATK × (0.85–1.15) − DEF × (0.70–1.00)
+Critique : Dégâts × 1.5
+Minimum garanti : 1 dégât</div>
+            </div>
+          </div>
+          <div class="saga-step">
+            <div class="saga-num">III</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="r3_t">Riposte du second guerrier</div>
+              <div class="saga-desc" data-i18n="r3_d">Si le premier guerrier n'a pas tué, le second riposter avec le même calcul. Nul ne fuit l'arène.</div>
+            </div>
+          </div>
+          <div class="saga-step">
+            <div class="saga-num">IV</div>
+            <div class="saga-body">
+              <div class="saga-title" data-i18n="r4_t">Vérification du tombé</div>
+              <div class="saga-desc" data-i18n="r4_d">Si un guerrier atteint 0 HP → le combat prend fin. Sinon, le round suivant commence.</div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-box" style="margin-top:6px" data-i18n="round_ex">
+          <strong>Exemple — Round III :</strong> Stealth (SPD 22) devance Monster (SPD 6).<br>
+          Stealth frappe : ATK 21 × 1.10 − DEF 9 × 0.85 = <strong>15 dégâts</strong><br>
+          Monster riposte : ATK 25 × 0.95 − DEF 8 × 0.75 = <strong>18 dégâts</strong> — Les deux survivent.
+        </div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- SPECIAL MOVES -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">⚡</div>
+        <div class="s-title" data-i18n="s_special">Coups Runiques — Pouvoirs Spéciaux</div>
+      </div>
+      <div class="scroll-box" style="margin-bottom:12px" data-i18n="special_note">Déclenchement aléatoire · Cooldown : 3 rounds entre deux coups spéciaux</div>
+      <div class="panel" style="padding:8px 0 0;">
+        <table class="rtable">
+          <thead>
+            <tr>
+              <th data-i18n="th_cat">CLAN</th>
+              <th data-i18n="th_move">COUP RUNIQUE</th>
+              <th>MULT.</th>
+              <th data-i18n="th_effect">EFFET</th>
+              <th data-i18n="th_chance">CHANCE</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>⚡ Chaos</td>      <td style="color:#B8A0E8">Entropy Blast</td>   <td class="hi-red">×2.8</td><td class="hi-mist">—</td><td>20%</td></tr>
+            <tr><td>🗡️ Stealth</td>   <td style="color:#B8A0E8">Assassinate</td>     <td class="hi-red">×3.0</td><td class="hi-mist">—</td><td>16%</td></tr>
+            <tr><td>✨ Magic</td>      <td style="color:#B8A0E8">Arcane Surge</td>    <td class="hi-red">×2.5</td><td class="hi-mist">—</td><td>22%</td></tr>
+            <tr><td>👾 Monster</td>    <td style="color:#B8A0E8">Primal Crush</td>    <td class="hi-red">×2.3</td><td style="color:#D09050" data-i18n="eff_stun">30% Étourdissement</td><td>18%</td></tr>
+            <tr><td>💪 Strength</td>   <td style="color:#B8A0E8">Berserker Rage</td>  <td class="hi-red">×2.2</td><td class="hi-mist">—</td><td>20%</td></tr>
+            <tr><td>⚙️ Technology</td><td style="color:#B8A0E8">Overcharge Blast</td><td class="hi-red">×2.0</td><td class="hi-mist">—</td><td>18%</td></tr>
+            <tr><td>💛 Light</td>      <td style="color:#B8A0E8">Holy Smite</td>      <td>×1.9</td><td style="color:#70C870" data-i18n="eff_heal10">Soin +10% HP</td><td>20%</td></tr>
+            <tr><td>🌑 Darkness</td>   <td style="color:#B8A0E8">Shadow Strike</td>   <td>×1.8</td><td style="color:var(--ice)" data-i18n="eff_nodef">Ignore la DEF</td><td>22%</td></tr>
+            <tr><td>🌟 Craftsmanship</td><td style="color:#B8A0E8">Runic Forge</td>  <td>×1.8</td><td style="color:#D09050" data-i18n="eff_atk20">+20% ATK (1 round)</td><td>20%</td></tr>
+            <tr><td>🧠 Knowledge</td>  <td style="color:#B8A0E8">Mind Shatter</td>   <td>×1.7</td><td style="color:var(--ice)" data-i18n="eff_nodef">Ignore la DEF</td><td>22%</td></tr>
+            <tr><td>🌿 Nature</td>     <td style="color:#B8A0E8">Thorn Lash</td>     <td>×1.6</td><td style="color:#D09050" data-i18n="eff_counter">Contre-attaque</td><td>18%</td></tr>
+            <tr><td>👁️ Awareness</td> <td style="color:#B8A0E8">Prescient Strike</td><td>×1.6</td><td style="color:var(--ice)" data-i18n="eff_dodge">Esquive 45%</td><td>24%</td></tr>
+            <tr><td>💡 Command</td>    <td style="color:#B8A0E8">Battle Cry</td>      <td>×1.5</td><td style="color:#D09050" data-i18n="eff_atk30">+30% ATK (1 round)</td><td>20%</td></tr>
+            <tr><td>🏃 Agility</td>    <td style="color:#B8A0E8">Phantom Dodge</td>   <td>×1.4</td><td style="color:var(--ice)" data-i18n="eff_dodge">Esquive 45%</td><td>28%</td></tr>
+            <tr><td>🛡️ Resilience</td><td style="color:#B8A0E8">Iron Shield</td>     <td>×0.5</td><td style="color:#70C870" data-i18n="eff_heal15">Soin +15% HP</td><td>22%</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:10px 14px 12px; font-size:11px; color:var(--mist); font-style:italic;" data-i18n="special_detail">"Ignore DEF" = dommages bruts &nbsp;·&nbsp; Soin calculé sur HP max &nbsp;·&nbsp; Stun = adversaire passe son tour (30%)</div>
+      </div>
+
+      <div class="grid3" style="margin-top:12px">
+        <div class="panel">
+          <div style="font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:#C07070;margin-bottom:8px">🗡️ Assassinate</div>
+          <div class="saga-desc" data-i18n="ex_assassin">Stealth ATK 21 × ×3.0 = <strong style="color:var(--snow)">63 dégâts</strong> — l'ennemi à 70 HP tombe à 7. Presque KO.</div>
+        </div>
+        <div class="panel">
+          <div style="font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:#70C070;margin-bottom:8px">🛡️ Iron Shield</div>
+          <div class="saga-desc" data-i18n="ex_shield">Resilience à 40 HP. Soin 15% × 140 = <strong style="color:var(--snow)">+21 HP</strong> → 61 HP. Retournement !</div>
+        </div>
+        <div class="panel">
+          <div style="font-family:'Cinzel',serif;font-size:12px;font-weight:700;color:#D09050;margin-bottom:8px">👾 Primal Crush</div>
+          <div class="saga-desc" data-i18n="ex_crush">ATK 25 × ×2.3 = <strong style="color:var(--snow)">57 dégâts</strong> + Stun → l'ennemi passe son tour. Monster frappe seul.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- RESULTS -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🏆</div>
+        <div class="s-title" data-i18n="s_results">Jugement des Nornes — Résultats</div>
+      </div>
+      <div class="grid3">
+        <div class="result-stone" style="border-color:rgba(80,160,80,0.3)">
+          <div class="stone-icon">✅</div>
+          <div class="stone-name" style="color:#70C070" data-i18n="res_win">VICTOIRE</div>
+          <div class="stone-desc" data-i18n="res_win_d">Plus de HP restants ou adversaire KO.</div>
+        </div>
+        <div class="result-stone" style="border-color:rgba(255,215,0,0.3)">
+          <div class="stone-icon">💀</div>
+          <div class="stone-name" style="color:#FFD700" data-i18n="res_ko">KO — PAR LE SANG</div>
+          <div class="stone-desc" data-i18n="res_ko_d">Adversaire réduit exactement à 0 HP.</div>
+          <div class="stone-bonus" style="color:var(--gold)">XP ×1.4</div>
+        </div>
+        <div class="result-stone" style="border-color:rgba(200,168,74,0.4)">
+          <div class="stone-icon">✨</div>
+          <div class="stone-name" style="color:var(--gold)" data-i18n="res_perfect">VICTOIRE PARFAITE</div>
+          <div class="stone-desc" data-i18n="res_perfect_d">Victoire en gardant ≥ 90% de ses HP.</div>
+          <div class="stone-bonus" style="color:var(--gold2)">XP ×1.6</div>
+        </div>
+        <div class="result-stone" style="border-color:rgba(160,150,100,0.3)">
+          <div class="stone-icon">🌀</div>
+          <div class="stone-name" style="color:var(--ice)" data-i18n="res_draw">ÉGALITÉ</div>
+          <div class="stone-desc" data-i18n="res_draw_d">HP restants à moins de 10% d'écart après 12 rounds.</div>
+          <div class="stone-bonus" style="color:var(--rune)" data-i18n="res_draw_b">= 0.5 victoire au WinRate</div>
+        </div>
+        <div class="result-stone" style="border-color:rgba(160,60,60,0.3)">
+          <div class="stone-icon">❌</div>
+          <div class="stone-name" style="color:#C07070" data-i18n="res_loss">DÉFAITE</div>
+          <div class="stone-desc" data-i18n="res_loss_d">L'ennemi a plus de HP ou t'a mis à 0 HP.</div>
+        </div>
+        <div class="result-stone" style="border-color:rgba(120,70,70,0.3)">
+          <div class="stone-icon">☠️</div>
+          <div class="stone-name" style="color:#A07070" data-i18n="res_brave">DÉFAITE HONORABLE</div>
+          <div class="stone-desc" data-i18n="res_brave_d">Défaite, mais tu as tenu jusqu'au dernier souffle (0 HP exact).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRADES -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🎖️</div>
+        <div class="s-title" data-i18n="s_grades">Rangs des Guerriers — Grades</div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <div class="grade-row"><div class="grade-hex g-sp">S+</div><div><div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700" data-i18n="g_sp">Légendaire — Score 95+</div><div style="font-size:12px;color:var(--mist);font-style:italic" data-i18n="g_sp_d">Victoire éclair, HP quasi intacts</div></div></div>
+          <div class="grade-row"><div class="grade-hex g-s">S</div><div><div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700" data-i18n="g_s">Épique — 85–94</div><div style="font-size:12px;color:var(--mist);font-style:italic" data-i18n="g_s_d">Excellente performance</div></div></div>
+          <div class="grade-row"><div class="grade-hex g-a">A</div><div><div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700" data-i18n="g_a">Grand Guerrier — 70–84</div><div style="font-size:12px;color:var(--mist);font-style:italic" data-i18n="g_a_d">Bonne victoire</div></div></div>
+          <div class="grade-row"><div class="grade-hex g-b">B</div><div><div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700" data-i18n="g_b">Vaillant — 55–69</div><div style="font-size:12px;color:var(--mist);font-style:italic" data-i18n="g_b_d">Performance correcte</div></div></div>
+          <div class="grade-row"><div class="grade-hex g-c">C</div><div><div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700" data-i18n="g_c">Survivant — 40–54</div><div style="font-size:12px;color:var(--mist);font-style:italic" data-i18n="g_c_d">Victoire serrée</div></div></div>
+          <div class="grade-row"><div class="grade-hex g-d">D</div><div><div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700" data-i18n="g_d">Reclus — 0–39</div><div style="font-size:12px;color:var(--mist);font-style:italic" data-i18n="g_d_d">Défaite ou Égalité</div></div></div>
+        </div>
+        <div class="panel">
+          <div style="font-size:12px;color:var(--mist);font-style:italic;margin-bottom:12px" data-i18n="grade_formula_lbl">Score calculé sur :</div>
+          <div class="rune-formula">Score = %HP restants × 0.70
+       + (10 − rounds) × 3</div>
+          <div class="scroll-box" style="margin-top:12px">
+            <strong data-i18n="ex_grade_a_lbl">Exemple — Grade A :</strong> <span data-i18n="ex_grade_a">Victoire en 4 rounds, 85% HP → Score = 59.5 + 18 = 77.5</span>
+          </div>
+          <div class="scroll-box" style="margin-top:8px">
+            <strong data-i18n="ex_grade_d_lbl">Exemple — Grade D :</strong> <span data-i18n="ex_grade_d">Victoire en 10 rounds, 30% HP → Score = 21</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">⚔️ &nbsp; © 2026 ODINVERSE &nbsp;—&nbsp; Built by Triskel &nbsp;·&nbsp; <a href="https://t.me/TriskelMultiversX">t.me/TriskelMultiversX</a> &nbsp; ⚔️</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE 3 — PROGRESSION & STRATÉGIE
+══════════════════════════════════════ -->
+<div class="page" id="page3">
+
+  <div class="hero">
+    <span class="hero-knotwork">🔥</span>
+    <div class="hero-eyebrow" data-i18n="hero_eyebrow">⚡ Saison I — Arène des Immortels ⚡</div>
+    <div class="hero-title">ODINVERSE</div>
+    <div class="hero-subtitle" data-i18n="hero_sub3">Gloire, Or & Sagesse de Guerre</div>
+    <div class="hero-scroll-label" data-i18n="part3_label">PARCHEMIN III — GLOIRE & OR</div>
+  </div>
+
+  <div class="container">
+
+    <!-- SEER -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">👁️</div>
+        <div class="s-title" data-i18n="s_seer">Élus d'Odin — Les Seer</div>
+      </div>
+      <div class="grid2">
+        <div class="seer-panel">
+          <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.2em;color:var(--gold-dim);margin-bottom:14px" data-i18n="seer_nonces_lbl">NONCES DES SEER</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold2);line-height:2;letter-spacing:0.1em">
+            91 · 127 · 130 · 176 · 224<br>301 · 309 · 352 · 361 · 373
+          </div>
+          <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(200,168,74,0.2)">
+            <div class="seer-stat-row"><span class="seer-stat-lbl">⚔️ ATK</span><span class="seer-stat-val">× 1.25</span></div>
+            <div class="seer-stat-row"><span class="seer-stat-lbl">⚡ SPD</span><span class="seer-stat-val">× 1.20</span></div>
+            <div class="seer-stat-row"><span class="seer-stat-lbl">💥 CRIT</span><span class="seer-stat-val">+ 8%</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div style="font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold);margin-bottom:12px" data-i18n="seer_ex_title">Exemple — Seer Magic</div>
+          <div class="saga-desc" data-i18n="seer_ex">
+            ATK de base : <strong style="color:var(--snow)">24</strong><br>
+            Avec bénédiction Seer : <strong style="color:var(--gold)">24 × 1.25 = 30</strong><br>
+            CRIT de base : 22% → avec Seer : <strong style="color:#FFD700">30%</strong>
+          </div>
+          <div style="margin-top:14px;padding:10px 14px;background:rgba(200,168,74,0.07);border:1px solid rgba(200,168,74,0.2);border-radius:2px;font-family:'Cinzel',serif;font-size:11px;color:var(--gold)" data-i18n="seer_note">
+            ⭐ Les Seer sont redoutables — ami ou ennemi, fuis ou combats.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- STREAK -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🔥</div>
+        <div class="s-title" data-i18n="s_streak">Flamme de Guerre — Bonus Streak</div>
+      </div>
+      <div class="panel">
+        <div class="saga-desc" data-i18n="streak_intro">Chaque victoire consécutive attise la flamme. Plus tu gagnes, plus ton guerrier est redoutable au prochain combat :</div>
+        <div class="streak-row">
+          <div class="streak-stone"><div class="streak-glyph">1⃣</div><div class="streak-pct">+2.5%</div><div class="streak-lbl" data-i18n="streak_both">ATK + CRIT</div></div>
+          <div class="streak-stone"><div class="streak-glyph">2⃣</div><div class="streak-pct">+5%</div><div class="streak-lbl" data-i18n="streak_both">ATK + CRIT</div></div>
+          <div class="streak-stone lit"><div class="streak-glyph">3⃣</div><div class="streak-pct">+7.5%</div><div class="streak-lbl" data-i18n="streak_both">ATK + CRIT</div></div>
+          <div class="streak-stone lit"><div class="streak-glyph">🔥</div><div class="streak-pct">+10%</div><div class="streak-lbl" data-i18n="streak_4">4 victoires</div></div>
+          <div class="streak-stone lit"><div class="streak-glyph">🔥</div><div class="streak-pct">+12.5%</div><div class="streak-lbl" data-i18n="streak_5">5 victoires</div></div>
+          <div class="streak-stone lit" style="border-color:rgba(255,200,0,0.5);background:rgba(255,200,0,0.07)"><div class="streak-glyph">⭐</div><div class="streak-pct" style="color:#FFD700">+15%</div><div class="streak-lbl" data-i18n="streak_max">6+ — MAX</div></div>
+        </div>
+        <div class="scroll-box" style="margin-top:14px" data-i18n="streak_rules">
+          <strong>Règle de fer :</strong> une défaite éteint la flamme (streak → 0). Un Draw ne l'augmente pas, mais ne la tue pas non plus.<br>
+          <strong>Exemple :</strong> Chaos ATK 26 avec streak 4 → ATK effective = 26 × 1.10 = <strong>28.6</strong> — Devastator.
+        </div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- XP -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">⭐</div>
+        <div class="s-title" data-i18n="s_xp">Runes d'Expérience — Calcul XP</div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <div style="font-size:12px;color:var(--mist);font-style:italic;margin-bottom:12px" data-i18n="xp_base_lbl">XP de base par résultat :</div>
+          <div class="xp-row"><span class="xp-lbl"><span class="pill pill-v" data-i18n="xp_win">✅ Victoire</span></span><span class="xp-val">120 XP</span></div>
+          <div class="xp-row"><span class="xp-lbl"><span class="pill pill-d" data-i18n="xp_draw">🌀 Égalité</span></span><span class="xp-val">50 XP</span></div>
+          <div class="xp-row"><span class="xp-lbl"><span class="pill pill-l" data-i18n="xp_loss">❌ Défaite</span></span><span class="xp-val">30 XP</span></div>
+          <div class="rune-formula" style="margin-top:14px">XP = base × (1 + %HP × 0.5)
+        × koMult × perfectMult
+        + streak × 15</div>
+        </div>
+        <div class="panel">
+          <div style="font-size:12px;color:var(--mist);font-style:italic;margin-bottom:10px" data-i18n="xp_ex_lbl">Exemples de gloire gagnée :</div>
+          <div class="xp-row"><span class="xp-lbl" data-i18n="xp_ex1">Victoire, 60% HP, streak 0</span><span class="xp-val">156 XP</span></div>
+          <div class="xp-row"><span class="xp-lbl" data-i18n="xp_ex2">KO, 100% HP, streak 3</span><span class="xp-val">297 XP</span></div>
+          <div class="xp-row"><span class="xp-lbl" data-i18n="xp_ex3">Perfect KO, streak 5</span><span class="xp-val" style="color:#FFD700">478 XP</span></div>
+          <div class="xp-row"><span class="xp-lbl" data-i18n="xp_ex4">Défaite, 20% HP</span><span class="xp-val" style="color:#C07070">33 XP</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COOLDOWN -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">⏳</div>
+        <div class="s-title" data-i18n="s_cd">Repos du Guerrier — Cooldown</div>
+      </div>
+      <div class="panel">
+        <div class="saga-desc" data-i18n="cd_desc">
+          Après chaque combat, ton NFT entre en <strong style="color:var(--snow)">repos de 17 heures</strong>. Limite : <strong style="color:var(--gold)">7 guerriers en repos simultané</strong>. Au-delà, tu dois attendre qu'un guerrier se réveille.
+        </div>
+        <div class="cd-row">
+          <div class="cd-slot cd-used">🔒</div>
+          <div class="cd-slot cd-used">🔒</div>
+          <div class="cd-slot cd-used">🔒</div>
+          <div class="cd-slot cd-used">🔒</div>
+          <div class="cd-slot cd-used">🔒</div>
+          <div class="cd-slot cd-free">⚔️</div>
+          <div class="cd-slot cd-free">⚔️</div>
+        </div>
+        <div style="font-size:11px;color:var(--mist);margin-top:8px;font-style:italic" data-i18n="cd_counter">5 guerriers au repos · 2 disponibles · Compteur ⚔️ 5/7</div>
+      </div>
+    </div>
+
+    <div class="knot-divider"><div class="knot-line"></div><div class="knot-center">᛭</div><div class="knot-line"></div></div>
+
+    <!-- LEADERBOARD -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🏆</div>
+        <div class="s-title" data-i18n="s_lb">Hall des Vainqueurs — Récompenses $TSK</div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <div style="font-size:12px;color:var(--mist);font-style:italic;margin-bottom:12px" data-i18n="lb_stats_lbl">Statistiques affichées dans le classement :</div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:12px;align-items:center">
+            <span style="color:var(--mist)">🏆 Rank</span><span data-i18n="lb_rank">Classement global</span>
+            <span style="color:var(--mist)">✅ Wins</span><span data-i18n="lb_wins">Victoires totales</span>
+            <span style="color:var(--mist)">⚖️ WinRate</span><span data-i18n="lb_wr">Draw = 0.5 victoire</span>
+            <span style="color:var(--mist)">💀 KO</span><span data-i18n="lb_ko">Victoires par KO</span>
+            <span style="color:var(--mist)">✨ Perfect</span><span data-i18n="lb_perf">Victoires parfaites</span>
+            <span style="color:var(--mist)">🔥 Best Streak</span><span data-i18n="lb_streak">Meilleure série</span>
+            <span style="color:var(--mist)">⭐ XP</span><span data-i18n="lb_xp">XP cumulé sur la saison</span>
+            <span style="color:var(--mist)">🎖️ Grade</span><span>S+ / S / A / B / C / D</span>
+          </div>
+        </div>
+        <div class="panel">
+          <div style="font-size:12px;color:var(--mist);font-style:italic;margin-bottom:14px" data-i18n="lb_tsk_lbl">Butin en $TSK :</div>
+          <div class="reward-row"><span class="reward-lbl" data-i18n="lb_win_lbl">✅ Victoire</span><span class="reward-val" style="color:#70C070">+14 $TSK</span></div>
+          <div class="reward-row"><span class="reward-lbl" data-i18n="lb_draw_lbl">🌀 Égalité</span><span class="reward-val" style="color:var(--gold)">+2 $TSK</span></div>
+          <div class="reward-row"><span class="reward-lbl" data-i18n="lb_loss_lbl">❌ Défaite</span><span class="reward-val" style="color:var(--mist)">0 $TSK</span></div>
+          <div style="font-size:11px;color:var(--mist);margin-top:12px;font-style:italic" data-i18n="lb_order">Classement : Victoires → WinRate → Défaites → Combats joués</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STRATEGY -->
+    <div class="s-block">
+      <div class="s-head">
+        <div class="s-rune">🧠</div>
+        <div class="s-title" data-i18n="s_strat">Sagesse des Anciens — Stratégie</div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">🎯</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip1_t">Connais ton ennemi avant de le choisir</div>
+          <div class="saga-tip-desc" data-i18n="tip1_d">Consulte la Roue du Destin. Magic écrase Darkness, Chaos écrase Resilience, Stealth dévore Knowledge… Un bon matchup peut tout changer.</div>
+        </div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">⭐</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip2_t">Envoie un Seer quand tu en as un</div>
+          <div class="saga-tip-desc" data-i18n="tip2_d">ATK ×1.25, SPD ×1.20, CRIT +8%. Un Seer Chaos ou Seer Stealth est une lame bénite par Odin lui-même.</div>
+        </div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">🔥</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip3_t">Attise le Streak — l'ardeur de la série</div>
+          <div class="saga-tip-desc" data-i18n="tip3_d">+15% ATK et +15% CRIT au bout de 6 victoires de suite. Même un guerrier humble devient un dieu de guerre au 6e combat.</div>
+        </div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">✨</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip4_t">Vise la Perfect Victory pour l'XP maximal</div>
+          <div class="saga-tip-desc" data-i18n="tip4_d">XP ×1.6. Utilise Resilience ou Craftsmanship sur des matchups favorables — leur DEF élevée préserve tes HP.</div>
+        </div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">💀</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip5_t">Les KO valent plus d'XP (×1.4)</div>
+          <div class="saga-tip-desc" data-i18n="tip5_d">Chaos (Entropy ×2.8), Stealth (Assassinate ×3.0), Magic (Arcane ×2.5) — les berserkers peuvent KO en peu de rounds.</div>
+        </div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">🛡️</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip6_t">Resilience et Monster sont les meilleurs remparts</div>
+          <div class="saga-tip-desc" data-i18n="tip6_d">HP 140 et 130, DEF solide. Parfaits pour tenir dans les matchs défavorables ou décrocher un Draw précieux.</div>
+        </div>
+      </div>
+      <div class="saga-tip">
+        <div class="saga-tip-icon">🎭</div>
+        <div>
+          <div class="saga-tip-title" data-i18n="tip7_t">Agility — l'insaisissable</div>
+          <div class="saga-tip-desc" data-i18n="tip7_d">SPD 20, CRIT 20%, Phantom Dodge à 28%. Peu de HP mais capable de surprendre les titans. Joker idéal.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="page-footer">⚔️ &nbsp; © 2026 ODINVERSE &nbsp;—&nbsp; Built by Triskel &nbsp;·&nbsp; <a href="https://t.me/TriskelMultiversX">t.me/TriskelMultiversX</a> &nbsp; ⚔️</div>
+</div>
+
+<!-- ══════════════════════════════════════
+     TRANSLATIONS
+══════════════════════════════════════ -->
+<script>
+const LANG = {
+  fr: {
+    nav1: "I — RUNES DE BASE",
+    nav2: "II — L'ARÈNE",
+    nav3: "III — GLOIRE & OR",
+    hero_eyebrow: "⚡ Saison I — Arène des Immortels ⚡",
+    hero_sub: "Grimoire des Lois du Combat",
+    hero_sub2: "Lois du Sang & de l'Acier",
+    hero_sub3: "Gloire, Or & Sagesse de Guerre",
+    part1_label: "PARCHEMIN I — RUNES DE BASE",
+    part2_label: "PARCHEMIN II — L'ARÈNE",
+    part3_label: "PARCHEMIN III — GLOIRE & OR",
+    s_principle: "Loi de l'Arène",
+    p1_t1: "Ton guerrier contre un ennemi du destin",
+    p1_d1: "Chaque combat oppose ton NFT à un adversaire tiré au sort dans la collection ODINSDECK. Nul ne choisit son ennemi — Odin décide.",
+    p1_t2: "12 rounds — la durée d'une saga",
+    p1_d2: "Les guerriers s'affrontent à tour de rôle, round après round, jusqu'à ce que l'un tombe à 0 HP — ou que les 12 rounds soient épuisés.",
+    p1_t3: "Victoire, Destin ou Brouillard",
+    p1_d3: "KO = victoire par le sang. Sinon, celui avec le plus de HP gagne. Écart < 10% HP → ÉGALITÉ (les Nornes ont jugé à armes égales).",
+    s_stats: "Tablettes de Guerre — Statistiques",
+    th_cat: "CLAN",
+    stats_note: "HP ±10% tiré au sort à chaque combat · Critique = ×1.5 dégâts",
+    s_adv: "Roue du Destin — Avantages de Clan",
+    adv_note: "Fort contre = ATK ×1.25 | Faible contre = ATK ×0.80 · S'affiche : ⚡ X écrase Y! ou ⚠️ X est vulnérable à Y",
+    lbl_strong: "⚡ Fort",
+    lbl_weak: "⚠️ Faible",
+    s_round: "Déroulement d'un Round de Combat",
+    r1_t: "Initiative — Qui frappe en premier ?",
+    r1_d: "Le guerrier avec le SPD le plus élevé (+±20% du destin) attaque en premier. En cas d'égalité, les Nornes décident.",
+    r2_t: "Calcul des Dégâts",
+    r2_d: "Le fer frappe — la DEF absorbe. Un coup ne peut jamais faire moins de 1 dégât. Le critique (×1.5) frappe comme la foudre d'Odin.",
+    r3_t: "Riposte du second guerrier",
+    r3_d: "Si le premier guerrier n'a pas tué, le second riposte avec le même calcul. Nul ne fuit l'arène.",
+    r4_t: "Vérification du tombé",
+    r4_d: "Si un guerrier atteint 0 HP → le combat prend fin. Sinon, le round suivant commence.",
+    round_ex: "<strong>Exemple — Round III :</strong> Stealth (SPD 22) devance Monster (SPD 6).<br>Stealth frappe : ATK 21 × 1.10 − DEF 9 × 0.85 = <strong>15 dégâts</strong><br>Monster riposte : ATK 25 × 0.95 − DEF 8 × 0.75 = <strong>18 dégâts</strong> — Les deux survivent.",
+    s_special: "Coups Runiques — Pouvoirs Spéciaux",
+    special_note: "Déclenchement aléatoire · Cooldown : 3 rounds entre deux coups spéciaux",
+    th_move: "COUP RUNIQUE",
+    th_effect: "EFFET",
+    th_chance: "CHANCE",
+    eff_stun: "30% Étourdissement",
+    eff_heal10: "Soin +10% HP",
+    eff_heal15: "Soin +15% HP",
+    eff_nodef: "Ignore la DEF",
+    eff_atk20: "+20% ATK (1 round)",
+    eff_atk30: "+30% ATK (1 round)",
+    eff_counter: "Contre-attaque",
+    eff_dodge: "Esquive 45%",
+    special_detail: '"Ignore DEF" = dommages bruts · Soin calculé sur HP max · Stun = adversaire passe son tour (30%)',
+    ex_assassin: 'Stealth ATK 21 × ×3.0 = <strong style="color:var(--snow)">63 dégâts</strong> — l\'ennemi à 70 HP tombe à 7. Presque KO.',
+    ex_shield: 'Resilience à 40 HP. Soin 15% × 140 = <strong style="color:var(--snow)">+21 HP</strong> → 61 HP. Retournement !',
+    ex_crush: 'ATK 25 × ×2.3 = <strong style="color:var(--snow)">57 dégâts</strong> + Stun → l\'ennemi passe son tour. Monster frappe seul.',
+    s_results: "Jugement des Nornes — Résultats",
+    res_win: "VICTOIRE", res_win_d: "Plus de HP restants ou adversaire KO.",
+    res_ko: "KO — PAR LE SANG", res_ko_d: "Adversaire réduit exactement à 0 HP.",
+    res_perfect: "VICTOIRE PARFAITE", res_perfect_d: "Victoire en gardant ≥ 90% de ses HP.",
+    res_draw: "ÉGALITÉ", res_draw_d: "HP restants à moins de 10% d'écart après 12 rounds.", res_draw_b: "= 0.5 victoire au WinRate",
+    res_loss: "DÉFAITE", res_loss_d: "L'ennemi a plus de HP ou t'a mis à 0 HP.",
+    res_brave: "DÉFAITE HONORABLE", res_brave_d: "Défaite, mais tu as tenu jusqu'au dernier souffle (0 HP exact).",
+    s_grades: "Rangs des Guerriers — Grades",
+    g_sp: "Légendaire — Score 95+", g_sp_d: "Victoire éclair, HP quasi intacts",
+    g_s: "Épique — 85–94", g_s_d: "Excellente performance",
+    g_a: "Grand Guerrier — 70–84", g_a_d: "Bonne victoire",
+    g_b: "Vaillant — 55–69", g_b_d: "Performance correcte",
+    g_c: "Survivant — 40–54", g_c_d: "Victoire serrée",
+    g_d: "Reclus — 0–39", g_d_d: "Défaite ou Égalité",
+    grade_formula_lbl: "Score calculé sur :",
+    ex_grade_a_lbl: "Exemple — Grade A :", ex_grade_a: "Victoire en 4 rounds, 85% HP → Score = 59.5 + 18 = 77.5",
+    ex_grade_d_lbl: "Exemple — Grade D :", ex_grade_d: "Victoire en 10 rounds, 30% HP → Score = 21",
+    s_seer: "Élus d'Odin — Les Seer",
+    seer_nonces_lbl: "NONCES DES SEER",
+    seer_ex_title: "Exemple — Seer Magic",
+    seer_ex: 'ATK de base : <strong style="color:var(--snow)">24</strong><br>Avec bénédiction Seer : <strong style="color:var(--gold)">24 × 1.25 = 30</strong><br>CRIT de base : 22% → avec Seer : <strong style="color:#FFD700">30%</strong>',
+    seer_note: "⭐ Les Seer sont redoutables — ami ou ennemi, fuis ou combats.",
+    s_streak: "Flamme de Guerre — Bonus Streak",
+    streak_intro: "Chaque victoire consécutive attise la flamme. Plus tu gagnes, plus ton guerrier est redoutable au prochain combat :",
+    streak_both: "ATK + CRIT",
+    streak_4: "4 victoires", streak_5: "5 victoires", streak_max: "6+ — MAX",
+    streak_rules: '<strong>Règle de fer :</strong> une défaite éteint la flamme (streak → 0). Un Draw ne l\'augmente pas, mais ne la tue pas non plus.<br><strong>Exemple :</strong> Chaos ATK 26 avec streak 4 → ATK effective = 26 × 1.10 = <strong>28.6</strong> — Devastator.',
+    s_xp: "Runes d'Expérience — Calcul XP",
+    xp_base_lbl: "XP de base par résultat :",
+    xp_win: "✅ Victoire", xp_draw: "🌀 Égalité", xp_loss: "❌ Défaite",
+    xp_ex_lbl: "Exemples de gloire gagnée :",
+    xp_ex1: "Victoire, 60% HP, streak 0", xp_ex2: "KO, 100% HP, streak 3",
+    xp_ex3: "Perfect KO, streak 5", xp_ex4: "Défaite, 20% HP",
+    s_cd: "Repos du Guerrier — Cooldown",
+    cd_desc: 'Après chaque combat, ton NFT entre en <strong style="color:var(--snow)">repos de 17 heures</strong>. Limite : <strong style="color:var(--gold)">7 guerriers en repos simultané</strong>. Au-delà, tu dois attendre qu\'un guerrier se réveille.',
+    cd_counter: "5 guerriers au repos · 2 disponibles · Compteur ⚔️ 5/7",
+    s_lb: "Hall des Vainqueurs — Récompenses $TSK",
+    lb_stats_lbl: "Statistiques affichées dans le classement :",
+    lb_rank: "Classement global", lb_wins: "Victoires totales", lb_wr: "Draw = 0.5 victoire",
+    lb_ko: "Victoires par KO", lb_perf: "Victoires parfaites", lb_streak: "Meilleure série",
+    lb_xp: "XP cumulé sur la saison",
+    lb_tsk_lbl: "Butin en $TSK :",
+    lb_win_lbl: "✅ Victoire", lb_draw_lbl: "🌀 Égalité", lb_loss_lbl: "❌ Défaite",
+    lb_order: "Classement : Victoires → WinRate → Défaites → Combats joués",
+    s_strat: "Sagesse des Anciens — Stratégie",
+    tip1_t: "Connais ton ennemi avant de le choisir",
+    tip1_d: "Consulte la Roue du Destin. Magic écrase Darkness, Chaos écrase Resilience, Stealth dévore Knowledge… Un bon matchup peut tout changer.",
+    tip2_t: "Envoie un Seer quand tu en as un",
+    tip2_d: "ATK ×1.25, SPD ×1.20, CRIT +8%. Un Seer Chaos ou Seer Stealth est une lame bénite par Odin lui-même.",
+    tip3_t: "Attise le Streak — l'ardeur de la série",
+    tip3_d: "+15% ATK et +15% CRIT au bout de 6 victoires de suite. Même un guerrier humble devient un dieu de guerre au 6e combat.",
+    tip4_t: "Vise la Perfect Victory pour l'XP maximal",
+    tip4_d: "XP ×1.6. Utilise Resilience ou Craftsmanship sur des matchups favorables — leur DEF élevée préserve tes HP.",
+    tip5_t: "Les KO valent plus d'XP (×1.4)",
+    tip5_d: "Chaos (Entropy ×2.8), Stealth (Assassinate ×3.0), Magic (Arcane ×2.5) — les berserkers peuvent KO en peu de rounds.",
+    tip6_t: "Resilience et Monster sont les meilleurs remparts",
+    tip6_d: "HP 140 et 130, DEF solide. Parfaits pour tenir dans les matchs défavorables ou décrocher un Draw précieux.",
+    tip7_t: "Agility — l'insaisissable",
+    tip7_d: "SPD 20, CRIT 20%, Phantom Dodge à 28%. Peu de HP mais capable de surprendre les titans. Joker idéal.",
+  },
+  en: {
+    nav1: "I — BASE RUNES",
+    nav2: "II — THE ARENA",
+    nav3: "III — GLORY & GOLD",
+    hero_eyebrow: "⚡ Season I — Arena of the Immortals ⚡",
+    hero_sub: "Grimoire of the Laws of Combat",
+    hero_sub2: "Laws of Blood & Steel",
+    hero_sub3: "Glory, Gold & War Wisdom",
+    part1_label: "SCROLL I — BASE RUNES",
+    part2_label: "SCROLL II — THE ARENA",
+    part3_label: "SCROLL III — GLORY & GOLD",
+    s_principle: "Law of the Arena",
+    p1_t1: "Your warrior against a foe chosen by fate",
+    p1_d1: "Each battle pits your NFT against a randomly drawn opponent from the ODINSDECK collection. No one chooses their enemy — Odin decides.",
+    p1_t2: "12 rounds — the length of a saga",
+    p1_d2: "Warriors clash turn by turn, round by round, until one falls to 0 HP — or until all 12 rounds are spent.",
+    p1_t3: "Victory, Fate, or Mist",
+    p1_d3: "KO = victory by blood. Otherwise, the one with more HP wins. Gap < 10% HP → DRAW (the Norns judged them equal).",
+    s_stats: "War Tablets — Statistics",
+    th_cat: "CLAN",
+    stats_note: "HP ±10% randomized each battle · Critical hit = ×1.5 damage",
+    s_adv: "Wheel of Fate — Clan Advantages",
+    adv_note: "Strong against = ATK ×1.25 | Weak against = ATK ×0.80 · Shown in battle: ⚡ X crushes Y! or ⚠️ X is weak to Y",
+    lbl_strong: "⚡ Strong",
+    lbl_weak: "⚠️ Weak",
+    s_round: "How a Combat Round Unfolds",
+    r1_t: "Initiative — Who strikes first?",
+    r1_d: "The warrior with the highest SPD (+±20% fate roll) attacks first. In case of a tie, the Norns decide.",
+    r2_t: "Damage Calculation",
+    r2_d: "Iron strikes — DEF absorbs. A blow can never deal less than 1 damage. A critical hit (×1.5) strikes like Odin's lightning.",
+    r3_t: "The second warrior strikes back",
+    r3_d: "If the first warrior didn't land a kill, the second retaliates using the same formula. No one flees the arena.",
+    r4_t: "Check for the fallen",
+    r4_d: "If a warrior reaches 0 HP → the battle ends. Otherwise, the next round begins.",
+    round_ex: '<strong>Example — Round III:</strong> Stealth (SPD 22) outpaces Monster (SPD 6).<br>Stealth strikes: ATK 21 × 1.10 − DEF 9 × 0.85 = <strong>15 damage</strong><br>Monster retaliates: ATK 25 × 0.95 − DEF 8 × 0.75 = <strong>18 damage</strong> — Both survive.',
+    s_special: "Runic Blows — Special Powers",
+    special_note: "Random trigger · Cooldown: 3 rounds between special moves",
+    th_move: "RUNIC BLOW",
+    th_effect: "EFFECT",
+    th_chance: "CHANCE",
+    eff_stun: "30% Stun",
+    eff_heal10: "Heal +10% HP",
+    eff_heal15: "Heal +15% HP",
+    eff_nodef: "Ignore DEF",
+    eff_atk20: "+20% ATK (1 round)",
+    eff_atk30: "+30% ATK (1 round)",
+    eff_counter: "Counter-attack",
+    eff_dodge: "Dodge 45%",
+    special_detail: '"Ignore DEF" = raw damage · Heal based on max HP · Stun = enemy skips next turn (30%)',
+    ex_assassin: 'Stealth ATK 21 × ×3.0 = <strong style="color:var(--snow)">63 damage</strong> — enemy at 70 HP drops to 7. Nearly KO.',
+    ex_shield: 'Resilience at 40 HP. Heal 15% × 140 = <strong style="color:var(--snow)">+21 HP</strong> → 61 HP. Comeback!',
+    ex_crush: 'ATK 25 × ×2.3 = <strong style="color:var(--snow)">57 damage</strong> + Stun → enemy skips turn. Monster strikes alone.',
+    s_results: "Judgment of the Norns — Outcomes",
+    res_win: "VICTORY", res_win_d: "More HP remaining or opponent KO'd.",
+    res_ko: "KO — BY BLOOD", res_ko_d: "Opponent reduced to exactly 0 HP.",
+    res_perfect: "PERFECT VICTORY", res_perfect_d: "Win while keeping ≥ 90% of starting HP.",
+    res_draw: "DRAW", res_draw_d: "HP remaining within 10% of each other after 12 rounds.", res_draw_b: "= 0.5 win in WinRate",
+    res_loss: "DEFEAT", res_loss_d: "Enemy has more HP remaining, or KO'd you.",
+    res_brave: "HONORABLE DEFEAT", res_brave_d: "Defeat, but you fought to your last breath (exactly 0 HP).",
+    s_grades: "Warrior Ranks — Grades",
+    g_sp: "Legendary — Score 95+", g_sp_d: "Lightning win, HP nearly untouched",
+    g_s: "Epic — 85–94", g_s_d: "Outstanding performance",
+    g_a: "Great Warrior — 70–84", g_a_d: "Strong victory",
+    g_b: "Valiant — 55–69", g_b_d: "Solid performance",
+    g_c: "Survivor — 40–54", g_c_d: "Hard-fought win",
+    g_d: "Outcast — 0–39", g_d_d: "Defeat or Draw",
+    grade_formula_lbl: "Score calculated from:",
+    ex_grade_a_lbl: "Example — Grade A:", ex_grade_a: "Win in 4 rounds, 85% HP → Score = 59.5 + 18 = 77.5",
+    ex_grade_d_lbl: "Example — Grade D:", ex_grade_d: "Win in 10 rounds, 30% HP → Score = 21",
+    s_seer: "Odin's Chosen — The Seers",
+    seer_nonces_lbl: "SEER NONCES",
+    seer_ex_title: "Example — Seer Magic",
+    seer_ex: 'Base ATK: <strong style="color:var(--snow)">24</strong><br>With Seer blessing: <strong style="color:var(--gold)">24 × 1.25 = 30</strong><br>Base CRIT: 22% → with Seer: <strong style="color:#FFD700">30%</strong>',
+    seer_note: "⭐ Seers are fearsome — friend or foe, flee or fight.",
+    s_streak: "War Flame — Streak Bonus",
+    streak_intro: "Each consecutive victory fans the flame. The more you win, the more deadly your warrior becomes in the next battle:",
+    streak_both: "ATK + CRIT",
+    streak_4: "4 wins", streak_5: "5 wins", streak_max: "6+ — MAX",
+    streak_rules: '<strong>Iron rule:</strong> a defeat extinguishes the flame (streak → 0). A Draw doesn\'t increase it, but doesn\'t kill it either.<br><strong>Example:</strong> Chaos ATK 26 with streak 4 → effective ATK = 26 × 1.10 = <strong>28.6</strong> — Devastator.',
+    s_xp: "Experience Runes — XP Calculation",
+    xp_base_lbl: "Base XP per result:",
+    xp_win: "✅ Victory", xp_draw: "🌀 Draw", xp_loss: "❌ Defeat",
+    xp_ex_lbl: "Examples of glory earned:",
+    xp_ex1: "Victory, 60% HP, streak 0", xp_ex2: "KO, 100% HP, streak 3",
+    xp_ex3: "Perfect KO, streak 5", xp_ex4: "Defeat, 20% HP",
+    s_cd: "Warrior's Rest — Cooldown",
+    cd_desc: 'After each battle, your NFT enters a <strong style="color:var(--snow)">17-hour rest</strong>. Limit: <strong style="color:var(--gold)">7 warriors resting at once</strong>. Beyond that, you must wait for one to wake.',
+    cd_counter: "5 warriors resting · 2 available · Counter ⚔️ 5/7",
+    s_lb: "Hall of Champions — $TSK Rewards",
+    lb_stats_lbl: "Stats shown in the leaderboard:",
+    lb_rank: "Global ranking", lb_wins: "Total victories", lb_wr: "Draw = 0.5 win",
+    lb_ko: "KO victories", lb_perf: "Perfect victories", lb_streak: "Best streak",
+    lb_xp: "XP earned this season",
+    lb_tsk_lbl: "Loot in $TSK:",
+    lb_win_lbl: "✅ Victory", lb_draw_lbl: "🌀 Draw", lb_loss_lbl: "❌ Defeat",
+    lb_order: "Ranking: Wins → WinRate → Losses → Battles played",
+    s_strat: "Wisdom of the Ancients — Strategy",
+    tip1_t: "Know your foe before you choose them",
+    tip1_d: "Consult the Wheel of Fate. Magic crushes Darkness, Chaos crushes Resilience, Stealth devours Knowledge… A good matchup changes everything.",
+    tip2_t: "Send a Seer when you have one",
+    tip2_d: "ATK ×1.25, SPD ×1.20, CRIT +8%. A Seer Chaos or Seer Stealth is a blade blessed by Odin himself.",
+    tip3_t: "Fan the Streak — the ardor of the series",
+    tip3_d: "+15% ATK and +15% CRIT after 6 wins in a row. Even a humble warrior becomes a war god by the 6th fight.",
+    tip4_t: "Aim for Perfect Victory for max XP",
+    tip4_d: "XP ×1.6. Use Resilience or Craftsmanship on favorable matchups — their high DEF keeps your HP intact.",
+    tip5_t: "KOs are worth more XP (×1.4)",
+    tip5_d: "Chaos (Entropy ×2.8), Stealth (Assassinate ×3.0), Magic (Arcane ×2.5) — berserkers can KO in just a few rounds.",
+    tip6_t: "Resilience and Monster are the best bulwarks",
+    tip6_d: "HP 140 and 130, solid DEF. Perfect for surviving unfavorable matchups or securing a precious Draw.",
+    tip7_t: "Agility — the uncatchable",
+    tip7_d: "SPD 20, CRIT 20%, Phantom Dodge at 28%. Low HP but able to surprise titans. The ultimate wildcard.",
+  }
+};
+
+let currentLang = 'fr';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  const t = LANG[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+}
+
+function showPage(n) {
+  document.querySelectorAll('.page').forEach((p, i) => p.classList.toggle('active', i + 1 === n));
+  document.querySelectorAll('.nav-tab').forEach((b, i) => b.classList.toggle('active', i + 1 === n));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
