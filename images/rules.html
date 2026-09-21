@@ -325,6 +325,13 @@ body::before {
 .adv-lbl { font-size: 10px; color: var(--mist); width: 38px; font-family: 'Cinzel', serif; }
 .col-strong { color: #70C870; font-weight: 600; }
 .col-weak   { color: #C07070; font-weight: 600; }
+.adv-wheel-lbl {
+  font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700;
+  color: var(--gold); letter-spacing: 0.12em;
+  margin: 20px 0 10px; padding-bottom: 6px;
+  border-bottom: 1px solid rgba(200,168,74,0.2);
+}
+.adv-wheel-lbl:first-of-type { margin-top: 0; }
 
 /* ── SEER CARD ── */
 .seer-panel {
@@ -540,23 +547,46 @@ body::before {
       <div class="scroll-box" style="margin-bottom:14px" data-i18n="adv_note">
         Fort contre = ATK ×1.25 &nbsp;|&nbsp; Faible contre = ATK ×0.80 &nbsp;·&nbsp; S'affiche en combat : ⚡ X écrase Y! ou ⚠️ X est vulnérable à Y
       </div>
+      <div class="adv-wheel-lbl" data-i18n="adv_wheel_odins">🪓 ODINSDECK — Les 15 Clans</div>
       <div class="adv-grid">
         <div class="adv-tile"><div class="adv-type-name">💪 Strength</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Resilience</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Magic</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">🛡️ Resilience</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Monster</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Chaos</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">🌑 Darkness</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Awareness</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Light</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">💡 Command</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Agility</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Stealth</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">🌿 Nature</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Technology</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Darkness</span></div></div>
-        <div class="adv-tile"><div class="adv-type-name">🏃 Agility</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Command</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Monster</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🏃 Agility</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Awareness</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Monster</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">⚙️ Technology</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Craftsmanship</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Nature</span></div></div>
-        <div class="adv-tile"><div class="adv-type-name">✨ Magic</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Darkness</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Strength</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">✨ Magic</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Darkness</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Knowledge</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">👾 Monster</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Strength</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Light</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">💛 Light</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Chaos</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Stealth</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">⚡ Chaos</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Resilience</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Knowledge</span></div></div>
-        <div class="adv-tile"><div class="adv-type-name">🧠 Knowledge</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Magic</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Chaos</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🧠 Knowledge</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Magic</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Stealth</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">👁️ Awareness</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Command</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Agility</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">🗡️ Stealth</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Knowledge</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Awareness</span></div></div>
         <div class="adv-tile"><div class="adv-type-name">🌟 Craftsmanship</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Nature</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Magic</span></div></div>
       </div>
+
+      <div class="adv-wheel-lbl" data-i18n="adv_wheel_dclub">🃏 DIVERGENTCLUB — Les 5 Archétypes</div>
+      <div class="scroll-box" style="margin-bottom:10px" data-i18n="adv_cycle_dclub">Cycle parfait : Divergent → Armor → Ghost → Assassin → Pixel → Divergent. Chacun domine le suivant.</div>
+      <div class="adv-grid">
+        <div class="adv-tile"><div class="adv-type-name">🌀 Divergent</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Armor</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Pixel</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🛡️ Armor</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Ghost</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Divergent</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">👻 Ghost</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Assassin</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Armor</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🔪 Assassin</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Pixel</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Ghost</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🕹️ Pixel</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Divergent</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Assassin</span></div></div>
+      </div>
+
+      <div class="adv-wheel-lbl" data-i18n="adv_wheel_frugly">🐸 FRUGLY — Les 5 Archétypes</div>
+      <div class="scroll-box" style="margin-bottom:10px" data-i18n="adv_cycle_frugly">Cycle parfait : Swamp → Cigar → Laser → Frugtopia → Banana → Swamp. Chacun domine le suivant.</div>
+      <div class="adv-grid">
+        <div class="adv-tile"><div class="adv-type-name">🐊 Swamp</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Cigar</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Banana</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🚬 Cigar</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Laser</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Swamp</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">💥 Laser</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Frugtopia</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Cigar</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🏝️ Frugtopia</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Banana</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Laser</span></div></div>
+        <div class="adv-tile"><div class="adv-type-name">🍌 Banana</div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_strong">⚡ Fort</span><span class="col-strong">Swamp</span></div><div class="adv-line"><span class="adv-lbl" data-i18n="lbl_weak">⚠️ Faible</span><span class="col-weak">Frugtopia</span></div></div>
+      </div>
+
+      <div class="scroll-box" style="margin-top:14px" data-i18n="adv_cross_note">⚔️ Chaque collection tourne sa propre Roue. Face à une collection différente, aucun avantage de type ne s'applique — seules les stats et le destin décident.</div>
     </div>
 
   </div>
@@ -748,10 +778,10 @@ Minimum garanti : 1 dégât</div>
           <div class="rune-formula">Score = %HP restants × 0.70
        + (10 − rounds) × 3</div>
           <div class="scroll-box" style="margin-top:12px">
-            <strong data-i18n="ex_grade_a_lbl">Exemple — Grade A :</strong> <span data-i18n="ex_grade_a">Victoire en 4 rounds, 85% HP → Score = 59.5 + 18 = 77.5</span>
+            <strong data-i18n="ex_grade_a_lbl">Exemple — Grade A :</strong> <span data-i18n="ex_grade_a">Victoire en 4 rounds, 85% HP → Score = 59.5 + 20 = 79.5</span>
           </div>
           <div class="scroll-box" style="margin-top:8px">
-            <strong data-i18n="ex_grade_d_lbl">Exemple — Grade D :</strong> <span data-i18n="ex_grade_d">Victoire en 10 rounds, 30% HP → Score = 21</span>
+            <strong data-i18n="ex_grade_d_lbl">Exemple — Grade D :</strong> <span data-i18n="ex_grade_d">Victoire en 10 rounds, 30% HP → Score = 21 + 5 = 26</span>
           </div>
         </div>
       </div>
@@ -1005,6 +1035,12 @@ const LANG = {
     stats_note: "HP ±10% tiré au sort à chaque combat · Critique = ×1.5 dégâts",
     s_adv: "Roue du Destin — Avantages de Clan",
     adv_note: "Fort contre = ATK ×1.25 | Faible contre = ATK ×0.80 · S'affiche : ⚡ X écrase Y! ou ⚠️ X est vulnérable à Y",
+    adv_wheel_odins: "🪓 ODINSDECK — Les 15 Clans",
+    adv_wheel_dclub: "🃏 DIVERGENTCLUB — Les 5 Archétypes",
+    adv_wheel_frugly: "🐸 FRUGLY — Les 5 Archétypes",
+    adv_cycle_dclub: "Cycle parfait : Divergent → Armor → Ghost → Assassin → Pixel → Divergent. Chacun domine le suivant.",
+    adv_cycle_frugly: "Cycle parfait : Swamp → Cigar → Laser → Frugtopia → Banana → Swamp. Chacun domine le suivant.",
+    adv_cross_note: "⚔️ Chaque collection tourne sa propre Roue. Face à une collection différente, aucun avantage de type ne s'applique — seules les stats et le destin décident.",
     lbl_strong: "⚡ Fort",
     lbl_weak: "⚠️ Faible",
     s_round: "Déroulement d'un Round de Combat",
@@ -1049,8 +1085,8 @@ const LANG = {
     g_c: "Survivant — 40–54", g_c_d: "Victoire serrée",
     g_d: "Reclus — 0–39", g_d_d: "Défaite ou Égalité",
     grade_formula_lbl: "Score calculé sur :",
-    ex_grade_a_lbl: "Exemple — Grade A :", ex_grade_a: "Victoire en 4 rounds, 85% HP → Score = 59.5 + 18 = 77.5",
-    ex_grade_d_lbl: "Exemple — Grade D :", ex_grade_d: "Victoire en 10 rounds, 30% HP → Score = 21",
+    ex_grade_a_lbl: "Exemple — Grade A :", ex_grade_a: "Victoire en 4 rounds, 85% HP → Score = 59.5 + 20 = 79.5",
+    ex_grade_d_lbl: "Exemple — Grade D :", ex_grade_d: "Victoire en 10 rounds, 30% HP → Score = 21 + 5 = 26",
     s_seer: "Élus d'Odin — Les Seer",
     seer_nonces_lbl: "NONCES DES SEER",
     seer_ex_title: "Exemple — Seer Magic",
@@ -1117,6 +1153,12 @@ const LANG = {
     stats_note: "HP ±10% randomized each battle · Critical hit = ×1.5 damage",
     s_adv: "Wheel of Fate — Clan Advantages",
     adv_note: "Strong against = ATK ×1.25 | Weak against = ATK ×0.80 · Shown in battle: ⚡ X crushes Y! or ⚠️ X is weak to Y",
+    adv_wheel_odins: "🪓 ODINSDECK — The 15 Clans",
+    adv_wheel_dclub: "🃏 DIVERGENTCLUB — The 5 Archetypes",
+    adv_wheel_frugly: "🐸 FRUGLY — The 5 Archetypes",
+    adv_cycle_dclub: "Perfect cycle: Divergent → Armor → Ghost → Assassin → Pixel → Divergent. Each one dominates the next.",
+    adv_cycle_frugly: "Perfect cycle: Swamp → Cigar → Laser → Frugtopia → Banana → Swamp. Each one dominates the next.",
+    adv_cross_note: "⚔️ Each collection spins its own Wheel. Against a different collection, no type advantage applies — only stats and fate decide.",
     lbl_strong: "⚡ Strong",
     lbl_weak: "⚠️ Weak",
     s_round: "How a Combat Round Unfolds",
@@ -1161,8 +1203,8 @@ const LANG = {
     g_c: "Survivor — 40–54", g_c_d: "Hard-fought win",
     g_d: "Outcast — 0–39", g_d_d: "Defeat or Draw",
     grade_formula_lbl: "Score calculated from:",
-    ex_grade_a_lbl: "Example — Grade A:", ex_grade_a: "Win in 4 rounds, 85% HP → Score = 59.5 + 18 = 77.5",
-    ex_grade_d_lbl: "Example — Grade D:", ex_grade_d: "Win in 10 rounds, 30% HP → Score = 21",
+    ex_grade_a_lbl: "Example — Grade A:", ex_grade_a: "Win in 4 rounds, 85% HP → Score = 59.5 + 20 = 79.5",
+    ex_grade_d_lbl: "Example — Grade D:", ex_grade_d: "Win in 10 rounds, 30% HP → Score = 21 + 5 = 26",
     s_seer: "Odin's Chosen — The Seers",
     seer_nonces_lbl: "SEER NONCES",
     seer_ex_title: "Example — Seer Magic",
